@@ -5,17 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+// Modules
+import { CompsModule } from './comps/comps.module';
+import { CompsRoutingModule } from './comps/comps-routing.module';
+import { TempsModule } from './temps/temps.module';
+import { TempsRoutingModule } from './temps/temps-routing.module';
+import { CustomizerModule } from './customizer/customizer.module';
+import { CustomizerRoutingModule } from './customizer/customizer-routing.module';
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CompsModule,
+    CompsRoutingModule,
+    TempsModule,
+    TempsRoutingModule,
+    CustomizerModule,
+    CustomizerRoutingModule,
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideAnimationsAsync()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

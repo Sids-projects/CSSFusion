@@ -1,0 +1,106 @@
+:root {
+  // Font
+  --font-style: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+    Arial, "Lucida Grande", sans-serif;
+
+  // Dark
+  --yellow-dark-clr: #fbae00;
+  --green-dark-clr: #019e9e;
+  --orange-dark-clr: #ff591d;
+  --blue-dark-clr: #0f55ea;
+  --violet-dark-clr: #7f37dd;
+  --gray-dark-clr: #9f9f9f;
+  // Medium
+  --yellow-medium-clr: #ffbd02;
+  --green-medium-clr: #02bbbd;
+  --orange-medium-clr: #ff7c4b;
+  --blue-medium-clr: #3971ff;
+  --violet-medium-clr: #9e54ff;
+  --gray-medium-clr: #bababa;
+  // Light
+  --yellow-light-clr: #fbd97a;
+  --green-light-clr: #8ad2d3;
+  --orange-light-clr: #f6bc9a;
+  --blue-light-clr: #b5e1ff;
+  --violet-light-clr: #caa7ff;
+  --gray-light-clr: #e5e5e5;
+  // Font
+  --yellow-font-clr: #ffffff;
+  --green-font-clr: #ffffff;
+  --orange-font-clr: #ffffff;
+  --blue-font-clr: #ffffff;
+  --violet-font-clr: #ffffff;
+  --gray-font-clr: white;
+
+  // Table
+  --tbl-dark-clr: #d1d1d1;
+  --tbl-medium-clr: #ebebeb;
+  --tbl-light-clr: #dbdbdb;
+  --tbl-font-clr: #898989;
+  --th-font-weight: 400;
+
+  // Button
+  --btn-dark-clr: #dfdfdf;
+  --btn-medium-clr: #f8f8f8;
+  --btn-light-clr: #dbdbdb;
+  --btn-font-clr: #898989;
+
+  // Card
+  --card-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --card-width: 100%;
+  --card-fixed-width: 400px;
+
+  // Inputs
+  --input-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  --input-dark-clr: #bfbfbf;
+  --input-medium-clr: #cecece;
+  --input-light-clr: #ffffff;
+  --input-font-clr: #727272;
+
+  // Nav
+  --nav-dark-clr: #7d7d7d;
+  --nav-medium-clr: #c8c8c8;
+  --nav-light-clr: #fafafa;
+  --nav-font-clr: #ffffff;
+}
+
+// In-Build Colours
+$colors: (
+  "yellow": (
+    var(--yellow-dark-clr),
+    var(--yellow-medium-clr),
+    var(--yellow-light-clr),
+    var(--yellow-font-clr),
+  ),
+  "green": (
+    var(--green-dark-clr),
+    var(--green-medium-clr),
+    var(--green-light-clr),
+    var(--green-font-clr),
+  ),
+  "orange": (
+    var(--orange-dark-clr),
+    var(--orange-medium-clr),
+    var(--orange-light-clr),
+    var(--orange-font-clr),
+  ),
+  "blue": (
+    var(--blue-dark-clr),
+    var(--blue-medium-clr),
+    var(--blue-light-clr),
+    var(--blue-font-clr),
+  ),
+  "violet": (
+    var(--violet-dark-clr),
+    var(--violet-medium-clr),
+    var(--violet-light-clr),
+    var(--violet-font-clr),
+  ),
+  "gray": (
+    var(--gray-dark-clr),
+    var(--gray-medium-clr),
+    var(--gray-light-clr),
+    var(--gray-font-clr),
+  ),
+);

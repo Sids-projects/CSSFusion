@@ -1,4 +1,771 @@
-/* You can add global styles to this file, and also import other style files */
+// @import "./../node_modules/@dev.spot/css-fusion/src/lib/scss/main.scss";
+// @import "~@dev.spot/css-fusion/src/lib/scss/main.scss";
+@import "./../projects/css-fusion/src/lib/scss/main.scss";
+@import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: "Swung-note";
+  src: url("./assets/Font/SwungNote/SwungNote.otf") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretty-neat";
+  src: url("./assets/Font/PrettyNeat/PrettyNeat-Regular.otf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretty-neat";
+  src: url("./assets/Font/PrettyNeat/PrettyNeat-Bold.otf") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --theme-colour: #ffe266;
+  --sub-theme-colour: #433dc3;
+  --font-colour: #565656;
+
+  // Package: Table
+  // --tbl-bdr: 1.5px solid #cfb74f;
+  // --th-font-weight: 500;
+  // --th-clr-bg: #ffe266;
+  // --td-clr-bg: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  font-family: "Pretty-neat", sans-serif !important;
+  font-weight: normal !important;
+  color: var(--font-colour);
+  font-size: 1.6rem;
+}
+
+.mat-typography h1,
+.mat-typography h2,
+.mat-typography h3,
+.mat-typography h4,
+.mat-typography h5,
+.mat-typography h6,
+.mat-typography p {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: 100vh;
+  overflow: hidden;
+
+  .app-header {
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    height: 100px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(255, 255, 255);
+      filter: blur(6px);
+    }
+
+    .selected {
+      &:before {
+        background-color: #fffcf2;
+      }
+    }
+
+    .container-01 {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px 10px 20px;
+      border-radius: 6px;
+
+      .app-links {
+        min-width: 350px;
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .links-list {
+          display: inline-flex;
+        }
+      }
+
+      .scroll-arrow {
+        background-color: rgba(255, 255, 255, 0.928);
+        border-radius: 6px;
+        cursor: pointer;
+        z-index: 10;
+        transition: scale 0.1s;
+
+        &:active {
+          scale: 0.8;
+        }
+      }
+
+      a {
+        font-family: "Sour Gummy", sans-serif;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-size: 16px;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 4px 0;
+        z-index: 10;
+        transition: scale 0.1s;
+
+        &:active {
+          scale: 0.9;
+        }
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+      }
+
+      .active {
+        background-color: var(--theme-colour);
+        border-radius: 6px;
+      }
+    }
+
+    .container-02 {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 0 10px 10px;
+      border-radius: 6px;
+
+      p {
+        cursor: pointer;
+        z-index: 10;
+        font-size: 18px;
+
+        span {
+          color: black;
+        }
+      }
+
+      img {
+        z-index: 10;
+        width: 38px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    .app-header {
+      .container-01 {
+        a {
+          width: 70px;
+
+          span {
+            &:nth-child(2) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .app-home {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    position: relative;
+
+    .logo {
+      min-width: 200px;
+      width: 100%;
+      max-width: 410px;
+    }
+
+    .home-desc {
+      min-width: 350px;
+      width: 100%;
+      max-width: 650px;
+      font-size: 16px;
+      margin-top: 24px;
+      text-align: center;
+      line-height: 24px;
+    }
+
+    .app-guide {
+      min-width: 450px;
+      width: 100%;
+      max-width: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 40px;
+
+      .selected {
+        color: var(--font-colour);
+
+        .material-symbols-outlined,
+        h3 {
+          z-index: 10;
+        }
+
+        &:before {
+          background-color: #fffcf2;
+        }
+      }
+
+      .install-kit {
+        width: 100%;
+        height: 80px;
+        padding: 8px 20px 20px 22px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        small {
+          font-family: "Sour Gummy", sans-serif;
+          font-size: 14px;
+          text-transform: uppercase;
+          color: #e2bc10;
+        }
+
+        div,
+        small {
+          z-index: 10;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+
+        h3 {
+          font-family: "Sour Gummy", sans-serif;
+          font-size: 18px;
+        }
+
+        .material-symbols-outlined {
+          font-size: 34px;
+          cursor: pointer;
+        }
+      }
+
+      .app-btns {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+
+        .selected {
+          &::before {
+            background-color: #fffcf2;
+          }
+        }
+
+        button,
+        a {
+          width: 100%;
+          height: 50px;
+          border-radius: 6px;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 8px;
+          padding: 0 20px 10px 20px;
+          font-family: "Sour Gummy", sans-serif;
+          text-decoration: none;
+
+          span {
+            z-index: 10;
+            color: #565656;
+          }
+
+          .material-symbols-outlined {
+            font-size: 30px !important;
+          }
+
+          span {
+            &:nth-child(2) {
+              font-size: 16px;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+
+    .selected {
+      &:before {
+        background-color: #fffcf2;
+      }
+    }
+
+    .home-shape-01 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(120px, 120px) rotate(20deg);
+    }
+
+    .home-shape-02 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-30px, -50px) rotate(-20deg);
+    }
+
+    .home-shape-03 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(20px, 180px) rotate(-20deg);
+    }
+
+    .home-shape-04 {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-150px, 20px) rotate(-20deg);
+    }
+  }
+
+  .app-components {
+    height: 100%;
+    padding: 116px 34px 34px 34px;
+    overflow-y: scroll;
+
+    .app-desc {
+      padding: 0 0 30px 0;
+
+      h2 {
+        font-family: "Sour Gummy", sans-serif;
+        text-transform: uppercase;
+        font-size: 24px;
+        margin-bottom: 4px;
+      }
+    }
+
+    .app-card {
+      box-shadow: rgba(0, 0, 0, 0.058) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1.2px;
+      background-color: white;
+      border-radius: 6px;
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 20px 0 20px;
+
+        h3 {
+          font-family: "Sour Gummy", sans-serif;
+          text-transform: uppercase;
+          font-size: 20px;
+          font-weight: 400;
+        }
+
+        .arrows {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+
+          span {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background-color: var(--theme-colour);
+            font-size: 20px;
+          }
+
+          .selected {
+            background-color: #e5e5e5 !important;
+            color: #949494;
+
+            &:before {
+              border: 1.8px solid #c4c4c4;
+              top: -4px;
+              left: 1px;
+            }
+          }
+        }
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 20px 20px 20px;
+
+        hr {
+          margin: 40px 0;
+        }
+      }
+
+      .card-footer {
+        height: 50px;
+      }
+    }
+
+    .card-expand {
+      grid-column: span 2;
+    }
+
+    .card-fit-content {
+      max-width: fit-content;
+    }
+  }
+
+  .component-list {
+    .app-card {
+      padding: 0 !important;
+      overflow: hidden;
+      transition: scale 0.2s;
+
+      &:hover {
+        scale: 1.01;
+      }
+
+      &:active {
+        scale: 0.9;
+      }
+    }
+
+    .card-body {
+      padding: 0 !important;
+
+      .comp-img {
+        border-bottom: 2px solid rgb(241, 241, 241);
+        background-color: #fafafa;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .accordion-img {
+          width: 230px;
+        }
+
+        .button-img {
+          width: 180px;
+        }
+
+        .dropdown-img {
+          width: 230px;
+        }
+
+        .card-img {
+          width: 250px;
+        }
+
+        .inputs-img {
+          width: 250px;
+        }
+
+        .menubar-img {
+          width: 250px;
+        }
+
+        .nav-img {
+          width: 150px;
+        }
+
+        .table-img {
+          width: 250px;
+        }
+
+        .tabs-img {
+          width: 250px;
+        }
+      }
+
+      .comp-desc {
+        padding: 20px;
+
+        h3 {
+          font-family: "Sour Gummy", sans-serif;
+          font-size: 20px;
+          text-transform: uppercase;
+          margin-bottom: 6px;
+        }
+
+        p {
+          font-size: 14px;
+          color: #909090;
+        }
+      }
+    }
+  }
+
+  .app-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.4rem;
+    position: fixed;
+    bottom: 1.4rem;
+    right: 2.4rem;
+    z-index: 99;
+
+    .links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding: 16px;
+      border-radius: 6px;
+
+      .desc {
+        min-width: 250px;
+        max-width: 400px;
+      }
+
+      a {
+        width: 120px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--font-colour);
+        padding: 8px 0 8px 0;
+        border-radius: 4px;
+        z-index: 100;
+      }
+
+      .selected {
+        background-color: #ffffff;
+        padding-right: 10px !important;
+      }
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-radius: 0.2rem;
+      border-radius: 4px;
+
+      img {
+        width: 38px;
+      }
+    }
+  }
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 36px;
+}
+
+.grid-02 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.grid-auto-adjust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, auto));
+  gap: 30px;
+}
+
+.margin-t {
+  margin-top: 40px !important;
+}
+
+@media only screen and (max-width: 850px) {
+  .grid-02 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+  }
+}
+
+.selected {
+  background-color: var(--theme-colour);
+  position: relative;
+
+  &:before {
+    content: "";
+    border: 2px solid var(--sub-theme-colour);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -8px;
+    left: 4px;
+    border-radius: inherit;
+  }
+}
+
+// Components
+.comp-title {
+  font-family: "Sour Gummy", sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  margin-bottom: 20px !important;
+}
+
+.inbuild-clrs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  p {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+  }
+
+  .blue {
+    border: 4px solid #2b66fe;
+    background-color: #2b66fe;
+  }
+
+  .yellow {
+    border: 4px solid #ffbd02;
+    background-color: #ffbd02;
+  }
+
+  .green {
+    border: 4px solid #02bbbd;
+    background-color: #02bbbd;
+  }
+
+  .orange {
+    border: 4px solid #ff7c4b;
+    background-color: #ff7c4b;
+  }
+
+  .violet {
+    border: 4px solid #923ffb;
+    background-color: #923ffb;
+  }
+
+  .gray {
+    border: 4px solid #d1d1d1;
+    background-color: #d1d1d1;
+  }
+
+  .active-clr {
+    background-color: white;
+  }
+}
+
+.card-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

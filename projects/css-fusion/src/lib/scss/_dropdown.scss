@@ -1,0 +1,126 @@
+@import "variables";
+
+@mixin dropdownFn(
+  $width: 200px,
+  $menuBg: white,
+  $listBg: white,
+  $txtColor: black,
+  $bdrMenu: 1.4px solid rgb(209, 209, 209),
+  $bdrList: 1.4px solid rgb(209, 209, 209),
+  $shadowMenu: 0 0 4px rgba(97, 97, 97, 0.11),
+  $shadowList: 0 0 4px rgba(97, 97, 97, 0.11),
+  $paddingMenu: 8px 10px
+) {
+  .dd-menu {
+    min-width: $width;
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    font-family: var(--font-style);
+    background-color: $menuBg;
+    color: $txtColor;
+    padding: $paddingMenu;
+    border-radius: 6px;
+    border: $bdrMenu;
+    box-shadow: $shadowMenu;
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .dd-list {
+    list-style: none;
+    border: $bdrList;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font-style);
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: $listBg;
+    box-shadow: $shadowList;
+    border-radius: 6px;
+    overflow: hidden;
+    min-width: 200px;
+    width: 100%;
+    max-width: 400px;
+    position: absolute;
+    top: 115%;
+    left: 0;
+    max-height: 250px;
+    overflow-y: scroll;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+
+    li {
+      color: $txtColor;
+      padding: 6px 10px;
+      cursor: pointer;
+
+      &:first-child {
+        padding: 12px 10px 6px 10px;
+      }
+
+      &:last-child {
+        padding: 6px 10px 12px 10px;
+      }
+
+      &:hover {
+        background-color: $listBg;
+        filter: brightness(90%);
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #a2a2a2;
+      border-radius: 50px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: rgb(108, 108, 108) 2a2;
+    }
+  }
+
+  mat-icon,
+  .mat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dd-open {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .dd-closing {
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+  }
+}
+
+.dropdown {
+  @include dropdownFn();
+
+  width: 100%;
+  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

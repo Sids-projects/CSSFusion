@@ -1,0 +1,14 @@
+{
+  "name": "@dev.spot/css-fusion",
+  "version": "0.0.1",
+  "description": "A library for reusable SCSS components and TypeScript functionalities.",
+  "main": "dist/styles-library/bundles/styles-library.umd.js",
+  "style": "dist/styles-library/scss/main.scss",
+  "types": "dist/styles-library/styles-library.d.ts",
+  "stylePreprocessorOptions": {
+    "includePaths": [
+      "./node_modules"
+    ]
+  },
+  "sideEffects": false
+}

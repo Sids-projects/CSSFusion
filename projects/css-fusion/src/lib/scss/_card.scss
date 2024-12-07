@@ -1,0 +1,129 @@
+@import "variables";
+
+@mixin cardBoxFn($clr01: #ffffff) {
+  background-color: $clr01;
+  box-shadow: var(--card-shadow);
+  border-radius: 8px;
+  min-width: auto;
+  max-width: var(--card-width);
+  height: fit-content;
+  font-family: var(--font-style);
+  display: flex;
+  flex-direction: column;
+
+  .card-head {
+    font-family: var(--font-style);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 18px 12px 18px;
+
+    .card-title {
+      h3 {
+        font-size: 22px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .card-body {
+    font-family: var(--font-style);
+    padding: 0 18px 14px 18px;
+    font-size: 16px;
+    line-height: 22px;
+
+    ul,
+    ol {
+      margin-left: 14px;
+      margin-top: 10px;
+      line-height: 24px;
+    }
+  }
+
+  .card-footer {
+    font-family: var(--font-style);
+    padding: 8px 18px 18px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@mixin cardLinesFn($clr01: var(--gray-medium-clr)) {
+  border: 1.5px solid $clr01;
+
+  .card-head {
+    border-bottom: 1.5px solid $clr01;
+  }
+
+  .card-body {
+    padding: 14px 18px 14px 18px !important;
+  }
+
+  .card-footer {
+    border-top: 1.5px solid $clr01;
+    padding: 10px 18px 10px 18px;
+  }
+}
+
+.card-box {
+  @include cardBoxFn();
+}
+
+.card-fixed {
+  min-width: auto;
+  max-width: var(--card-fixed-width);
+}
+
+.card-lines {
+  @include cardLinesFn();
+}
+
+.chart-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+
+  .card-box,
+  .card-box-yellow,
+  .card-box-green,
+  .card-box-orange,
+  .card-box-blue,
+  .card-box-violet,
+  .card-box-gray {
+    min-height: 200px;
+    max-height: auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    .card-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 40px;
+
+      .chart-num {
+        font-size: 34px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.card-footer-center {
+  justify-content: center;
+}
+
+.card-footer-end {
+  justify-content: flex-end;
+}
+
+@each $color-name, $color-values in $colors {
+  .card-box-#{$color-name} {
+    @include cardBoxFn(nth($color-values, 3));
+  }
+
+  .card-lines-#{$color-name} {
+    @include cardLinesFn(nth($color-values, 2));
+  }
+}
