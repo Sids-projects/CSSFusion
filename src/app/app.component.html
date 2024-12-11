@@ -1,11 +1,27 @@
-<main>
-  <nav>
-    <a routerLink="HomeRoute">Home</a>
-    <a routerLink="CompsRouting">Components</a>
-    <a routerLink="TempsRouting">Templates</a>
-    <a routerLink="CustomizerRouting">Customizer</a>
+<main id="app">
+  <nav id="app-nav">
+    <div id="app-logo">
+      <span class="material-symbols-outlined"> join_right </span>
+      <p>CSSFusion</p>
+    </div>
+    <div id="app-links">
+      <a routerLink="HomeRoute" routerLinkActive="link-active">Home</a>
+      <a routerLink="CompsRouting" routerLinkActive="link-active">Components</a>
+      <a routerLink="TempsRouting" routerLinkActive="link-active">Templates</a>
+      <a routerLink="CustomizerRouting" routerLinkActive="link-active">
+        Customizer
+      </a>
+    </div>
+    <div id="app-btns">
+      <a href="https://github.com/Sids-projects/CSSFusion" target="_blank">
+        <img src="./assets/github-icon.svg" alt="Github Logo" />
+      </a>
+      <a routerLink="AboutRoute">
+        <span class="material-symbols-outlined"> error </span>
+      </a>
+    </div>
   </nav>
-  <div>
+  <section id="app-content">
     <router-outlet></router-outlet>
-  </div>
+  </section>
 </main>
