@@ -20,9 +20,7 @@
       <div class="screen-01-nav">
         <p>File</p>
         <p>Code</p>
-        <p>Selection</p>
         <p>View</p>
-        <p>Go</p>
         <p>Run</p>
         <p>Terminal</p>
         <span class="material-symbols-outlined"> more_horiz </span>
@@ -83,28 +81,75 @@
           </details>
         </aside>
 
-        <div class="left-tab">
-          <div class="tab">
-            <p>
-              <span class="material-symbols-outlined"> data_object </span>
-              package.json
-            </p>
-            <span class="material-symbols-outlined"> close </span>
-          </div>
-        </div>
+        <section>
+          <div class="left-tab">
+            <div class="tab">
+              <p>
+                <span class="material-symbols-outlined"> data_object </span>
+                package.json
+              </p>
+              <span class="material-symbols-outlined"> close </span>
+            </div>
 
-        <div class="right-tab">
-          <div class="tab">
-            <p>
-              <span class="material-symbols-outlined"> data_object </span>
-              style.scss
-            </p>
-            <span class="material-symbols-outlined"> close </span>
+            <div class="left-tab-body">
+              <p>&#123;</p>
+              <p>&nbsp;&nbsp; "name": "Project-01",</p>
+              <p>&nbsp;&nbsp; "version": "0.0.0",</p>
+              <p>&#125;</p>
+              <p>"dependencies": &#123;</p>
+              <p class="left-tab-highlight">
+                &nbsp;&nbsp;&nbsp;"&#64;dev.spot/css-fusion": "^0.0.1",
+              </p>
+              <p>&#125;</p>
+            </div>
           </div>
-        </div>
+
+          <div class="right-tab">
+            <div class="tab">
+              <p>
+                <span class="material-symbols-outlined"> data_object </span>
+                style.scss
+              </p>
+              <span class="material-symbols-outlined"> close </span>
+            </div>
+            <div class="right-tab-body">
+              <p>
+                "&#64;import
+                <span class="left-tab-highlight"
+                  >"./../node_modules/&#64;dev.spot/css-fusion/src/lib/scss/main.scss";</span
+                >
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <div class="screen-01-cdm"></div>
+      <div class="screen-01-cdm">
+        <div class="cdn-tabs">
+          <div class="cdn-tab-links">
+            <p>Debug</p>
+            <p class="active-cdn-tab">Terminal</p>
+            <p>Port</p>
+          </div>
+          <div class="cdn-tab-icons">
+            <p>Node</p>
+            <span class="material-symbols-outlined"> terminal </span>
+            <span class="material-symbols-outlined"> delete </span>
+            <span class="material-symbols-outlined"> more_horiz </span>
+            <span class="material-symbols-outlined"> close </span>
+          </div>
+        </div>
+        <div class="cnd-body">
+          <p>
+            Peter-Macbook Project-01 %
+            <span>npm install &#64;dev.spot/css-fusion</span>
+          </p>
+          <p>added 1 package, and audited 971 packages in 4s</p>
+          <p>122 packages are looking for funding</p>
+          <p>run `npm fund` for details</p>
+          <p>found 0 vulnerabilities</p>
+        </div>
+      </div>
     </div>
 
     <div class="screen-02">
@@ -115,134 +160,73 @@
             Home
           </p>
         </div>
-        <div class="tab-02">
-          <p>
-            <span class="material-symbols-outlined"> travel_explore </span> New
-            Tab
-          </p>
-        </div>
         <span class="material-symbols-outlined tab-add"> add </span>
       </div>
 
       <div class="screen-menu-bar">
         <span class="material-symbols-outlined"> arrow_back </span>
-        <span class="material-symbols-outlined"> arrow_forward </span>
-        <span class="material-symbols-outlined"> refresh </span>
         <div class="screen-search">
           <div>
             <span class="material-symbols-outlined"> error </span>
-            <p>sids-projects.github.io/CSSFusion</p>
+            <p>Projects.in</p>
           </div>
           <span class="material-symbols-outlined"> star </span>
         </div>
         <span class="material-symbols-outlined"> extension </span>
         <span class="material-symbols-outlined"> settings </span>
-        <span class="material-symbols-outlined"> admin_panel_settings </span>
         <span class="search-bdr-right"></span>
         <span class="material-symbols-outlined"> face </span>
-        <span class="material-symbols-outlined"> more_vert </span>
       </div>
 
       <div class="screen-app">
-        <div class="screen-left-nav">
+        <nav>
           <p>
             <span class="material-symbols-outlined"> crisis_alert </span>
-            Logo
+            New Project
           </p>
-
+          <span class="material-symbols-outlined"> menu_open </span>
+        </nav>
+        <section>
+          <h3>Secure, Private, Limitless: Your Internet Freedom Awaits</h3>
+          <p>
+            Experience safe and unrestricted browsing with our reliable VPN,
+            designed to protect your data and empower your digital journey.
+          </p>
           <div>
-            <small>Menus</small>
-            <p class="screen-nav-active">
-              <span class="material-symbols-outlined"> home </span> Home
-            </p>
-            <p>
-              <span class="material-symbols-outlined"> select_window_2 </span>
-              Screens
-            </p>
-            <p>
-              <span class="material-symbols-outlined">
-                highlight_text_cursor
-              </span>
-              About
-            </p>
-            <p>
-              <span class="material-symbols-outlined"> table_view </span>
-              Summary
-            </p>
+            <button>Get Start</button>
+            <button>About</button>
           </div>
-        </div>
-        <div class="screen-app-body">
-          <nav>
-            <span class="material-symbols-outlined"> menu </span>
-            <div>
-              <span class="material-symbols-outlined"> login </span>
-              <span class="material-symbols-outlined"> account_circle </span>
-            </div>
-          </nav>
-          <div class="screen-app-input">
-            <input type="text" placeholder="Name" />
-            <input type="text" placeholder="Date" />
-            <button>
-              <span class="material-symbols-outlined"> add </span>
-            </button>
-            <button>
-              <span class="material-symbols-outlined"> filter_alt </span>
-            </button>
-          </div>
-          <div class="screen-app-table">
-            <div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>SI.No</th>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Peter</td>
-                    <td>10 - 01 - 2024</td>
-                    <td>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Amet, asperiores!
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Peter</td>
-                    <td>10 - 01 - 2024</td>
-                    <td>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Amet, asperiores!
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Peter</td>
-                    <td>10 - 01 - 2024</td>
-                    <td>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Amet, asperiores!
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Peter</td>
-                    <td>10 - 01 - 2024</td>
-                    <td>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Amet, asperiores!
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+        </section>
+        <img src="./assets/vpn.png" alt="Vpn Image" />
       </div>
     </div>
+  </div>
+
+  <div class="set-03">
+    <div class="content-01">
+      <div>
+        <h3>Comprehensive Utilities</h3>
+        <p>
+          A wide array of CSS utilities for styling common and advanced
+          elements.
+        </p>
+      </div>
+      <div>
+        <h3>Customizable</h3>
+        <p>
+          Tailor utilities and variables to match your project's needs
+          effortlessly.
+        </p>
+      </div>
+      <div>
+        <h3>Lightweight and Performant</h3>
+        <p>Designed to minimize bloat and maximize speed.</p>
+      </div>
+      <div>
+        <h3>Framework-Agnostic</h3>
+        <p>Works with any frontend framework or standalone HTML projects.</p>
+      </div>
+    </div>
+    <div class="content-02"></div>
   </div>
 </section>

@@ -1,0 +1,489 @@
+@import "./../../assets/Styles/variables.scss";
+@import "./../../assets/Styles/mixins.scss";
+
+#app-home {
+  padding: 7rem 0 0 0;
+
+  .set-01 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      font-family: "Satoshi-Bold";
+      font-size: 3.8rem;
+      color: #cfcfcf;
+      margin-bottom: 1.8rem;
+      text-align: center;
+    }
+
+    p {
+      min-width: 38rem;
+      max-width: 88rem;
+      letter-spacing: 0.1rem;
+      line-height: 2.6rem;
+      text-align: center;
+    }
+
+    .install-kit {
+      @include blurLayer(1.2rem);
+      height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      margin-top: 3rem;
+
+      small,
+      p {
+        text-align: left;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+
+      .material-symbols-outlined {
+        font-size: 2.8rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 790px) {
+    .set-01 {
+      h2 {
+        font-size: 3.2rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .set-02 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+    overflow: hidden;
+
+    .screen-01 {
+      @include blurLayer(1.4rem);
+      color: rgba(255, 255, 255, 0.56);
+      width: 50vw;
+      height: 85vh;
+      display: grid;
+      grid-template-rows: 4rem 1fr 20rem;
+      overflow: hidden;
+
+      .screen-01-nav {
+        border-bottom: 0.15rem solid rgba(255, 255, 255, 0.152);
+        background-color: rgba(0, 0, 0, 0.263);
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        padding: 0 4rem;
+      }
+
+      .screen-01-body {
+        display: grid;
+        grid-template-columns: 7rem 24rem 1fr;
+
+        nav {
+          border-right: 0.15rem solid rgba(255, 255, 255, 0.152);
+          background-color: rgba(0, 0, 0, 0.263);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2.4rem;
+          padding: 2rem 0;
+
+          .nav-icon-selected {
+            color: white !important;
+          }
+        }
+
+        aside {
+          border-right: 0.15rem solid rgba(255, 255, 255, 0.152);
+          background-color: rgba(0, 0, 0, 0.263);
+          padding: 1rem 1.4rem;
+
+          .aside-title {
+            margin-bottom: 1.2rem;
+          }
+
+          details {
+            p {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              gap: 0.4rem;
+              margin-top: 0.6rem;
+
+              .material-symbols-outlined {
+                font-size: 1.8rem;
+              }
+            }
+          }
+
+          .detail-ml {
+            margin-top: 0.8rem;
+            margin-left: 0.6rem;
+          }
+        }
+
+        section {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          .left-tab {
+            .tab {
+              border-bottom: 0.15rem solid rgba(255, 255, 255, 0.152);
+              background-color: rgba(0, 0, 0, 0.263);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 1rem 1.4rem;
+
+              .material-symbols-outlined {
+                font-size: 1.8rem;
+              }
+
+              p {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+              }
+            }
+
+            .left-tab-body {
+              padding: 1rem;
+
+              p {
+                padding-left: 0.8rem;
+              }
+
+              .left-tab-highlight {
+                color: rgba(255, 255, 255, 0.831);
+              }
+            }
+          }
+
+          .right-tab {
+            .tab {
+              border-top: 0.15rem solid rgba(255, 255, 255, 0.152);
+              border-bottom: 0.15rem solid rgba(255, 255, 255, 0.152);
+              background-color: rgba(0, 0, 0, 0.263);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 1rem 1.4rem;
+
+              .material-symbols-outlined {
+                font-size: 1.8rem;
+              }
+
+              p {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+              }
+            }
+
+            .right-tab-body {
+              padding: 1rem;
+
+              p {
+                padding-left: 0.8rem;
+              }
+
+              .left-tab-highlight {
+                color: rgba(255, 255, 255, 0.831);
+              }
+            }
+          }
+        }
+      }
+
+      .screen-01-cdm {
+        border-top: 0.15rem solid rgba(255, 255, 255, 0.152);
+        background-color: rgba(0, 0, 0, 0.263);
+
+        .cdn-tabs {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem 2rem;
+
+          .cdn-tab-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2rem;
+
+            p {
+              text-transform: uppercase;
+              font-size: 1.2rem !important;
+              letter-spacing: 0.1rem;
+            }
+
+            .active-cdn-tab {
+              color: var(--theme-colour);
+              border-bottom: 0.1rem solid var(--theme-colour);
+            }
+          }
+
+          .cdn-tab-icons {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+
+            .material-symbols-outlined {
+              font-size: 2.2rem !important;
+            }
+          }
+        }
+
+        .cnd-body {
+          padding: 1rem 2rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.4rem;
+
+          p {
+            font-family: "Source Code Pro", monospace !important;
+            font-size: 1.2rem;
+
+            span {
+              color: rgba(255, 255, 255, 0.831);
+            }
+          }
+        }
+      }
+    }
+
+    .screen-02 {
+      @include blurLayer(1.4rem);
+      width: 35vw;
+      height: 85vh;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      padding-top: 0.8rem;
+      color: rgba(255, 255, 255, 0.56);
+
+      .search-bdr-right {
+        border-right: 0.2rem solid rgba(255, 255, 255, 0.152);
+        height: 2.4rem;
+      }
+
+      .screen-tab {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 4rem;
+
+        div {
+          width: 24rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 1.8rem;
+
+          p {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+
+            .material-symbols-outlined {
+              font-size: 2.2rem !important;
+            }
+          }
+        }
+
+        .tab-01 {
+          height: 4rem;
+          background-color: rgba(0, 0, 0, 0.263);
+          border-radius: 1.2rem 1.2rem 0 0;
+        }
+
+        .tab-02 {
+          border-right: 0.2rem solid rgba(255, 255, 255, 0.116);
+          border-radius: none !important;
+        }
+
+        .tab-add {
+          font-size: 2rem;
+          margin-left: 1rem;
+        }
+      }
+
+      .screen-menu-bar {
+        background-color: rgba(0, 0, 0, 0.263);
+        border-radius: 1.2rem 1.2rem 0 0;
+        height: 6.4rem;
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        padding: 0 1rem;
+
+        .material-symbols-outlined {
+          font-size: 2.2rem;
+        }
+
+        .screen-search {
+          background-color: rgba(0, 0, 0, 0.29);
+          border-radius: 5rem;
+          width: 100%;
+          height: 4rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 1.2rem;
+
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+          }
+        }
+      }
+
+      .screen-app {
+        background-color: rgba(0, 0, 0, 0.263);
+        display: grid;
+        grid-template-rows: auto 1fr 15rem;
+        gap: 1.6rem;
+        padding: 1rem 1.6rem 0 1.6rem;
+        position: relative;
+        overflow: hidden;
+
+        nav {
+          @include blurLayer(1rem);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem;
+
+          p {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.6rem;
+          }
+        }
+
+        section {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+
+          h3 {
+            font-size: 2.8rem;
+            line-height: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.646);
+            font-family: "Satoshi-Bold";
+          }
+
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 2rem;
+
+            button {
+              @include blurLayer(0.8rem);
+              padding: 1rem 1.8rem;
+              color: white;
+              font-size: 1.6rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+
+        img {
+          width: 100%;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .set-03 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .content-01 {
+      display: flex;
+      flex-direction: column;
+      gap: 4.8rem;
+      align-items: flex-start;
+
+      h3 {
+        font-family: "Satoshi-Bold";
+        font-size: 2.6rem;
+        margin-bottom: 0.8rem;
+      }
+
+      p {
+        color: var(--font-colour);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  #app-home {
+    .set-02 {
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      gap: 4rem;
+      margin-top: 8rem;
+      margin-bottom: 6rem;
+
+      .screen-01 {
+        width: 85vw;
+        height: 85vh;
+      }
+
+      .screen-02 {
+        width: 85vw;
+        height: 85vh;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .set-02 {
+    .screen-01 {
+      .screen-01-body {
+        grid-template-columns: 7rem 1fr !important;
+
+        aside {
+          display: none;
+        }
+      }
+    }
+  }
+}
