@@ -12,7 +12,6 @@
     h2 {
       font-family: "Satoshi-Bold";
       font-size: 3.8rem;
-      color: #cfcfcf;
       margin-bottom: 1.8rem;
       text-align: center;
     }
@@ -26,7 +25,7 @@
     }
 
     .install-kit {
-      @include blurLayer(1.2rem);
+      @include blurLayer($bdrRds: 1.2rem);
       height: 8rem;
       display: flex;
       align-items: center;
@@ -72,8 +71,7 @@
     overflow: hidden;
 
     .screen-01 {
-      @include blurLayer(1.4rem);
-      color: rgba(255, 255, 255, 0.56);
+      @include blurLayer($bdrRds: 1.4rem);
       width: 50vw;
       height: 85vh;
       display: grid;
@@ -81,8 +79,8 @@
       overflow: hidden;
 
       .screen-01-nav {
-        border-bottom: 0.15rem solid rgba(255, 255, 255, 0.152);
-        background-color: rgba(0, 0, 0, 0.263);
+        border-bottom: 0.15rem solid var(--dark-border);
+        background-color: var(--dark-glass);
         display: flex;
         align-items: center;
         gap: 3rem;
@@ -94,22 +92,22 @@
         grid-template-columns: 7rem 24rem 1fr;
 
         nav {
-          border-right: 0.15rem solid rgba(255, 255, 255, 0.152);
-          background-color: rgba(0, 0, 0, 0.263);
+          border-right: 0.15rem solid var(--dark-border);
+          background-color: var(--dark-glass);
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 2.4rem;
           padding: 2rem 0;
 
-          .nav-icon-selected {
-            color: white !important;
-          }
+          // .nav-icon-selected {
+          //   color: white !important;
+          // }
         }
 
         aside {
-          border-right: 0.15rem solid rgba(255, 255, 255, 0.152);
-          background-color: rgba(0, 0, 0, 0.263);
+          border-right: 0.15rem solid var(--dark-border);
+          background-color: var(--dark-glass);
           padding: 1rem 1.4rem;
 
           .aside-title {
@@ -143,8 +141,8 @@
 
           .left-tab {
             .tab {
-              border-bottom: 0.15rem solid rgba(255, 255, 255, 0.152);
-              background-color: rgba(0, 0, 0, 0.263);
+              border-bottom: 0.15rem solid var(--dark-border);
+              background-color: var(--dark-glass);
               display: flex;
               align-items: center;
               justify-content: space-between;
@@ -168,17 +166,17 @@
                 padding-left: 0.8rem;
               }
 
-              .left-tab-highlight {
-                color: rgba(255, 255, 255, 0.831);
-              }
+              // .left-tab-highlight {
+              //   color: rgba(255, 255, 255, 0.831);
+              // }
             }
           }
 
           .right-tab {
             .tab {
-              border-top: 0.15rem solid rgba(255, 255, 255, 0.152);
-              border-bottom: 0.15rem solid rgba(255, 255, 255, 0.152);
-              background-color: rgba(0, 0, 0, 0.263);
+              border-top: 0.15rem solid var(--dark-border);
+              border-bottom: 0.15rem solid var(--dark-border);
+              background-color: var(--dark-glass);
               display: flex;
               align-items: center;
               justify-content: space-between;
@@ -202,17 +200,17 @@
                 padding-left: 0.8rem;
               }
 
-              .left-tab-highlight {
-                color: rgba(255, 255, 255, 0.831);
-              }
+              // .left-tab-highlight {
+              //   color: rgba(255, 255, 255, 0.831);
+              // }
             }
           }
         }
       }
 
       .screen-01-cdm {
-        border-top: 0.15rem solid rgba(255, 255, 255, 0.152);
-        background-color: rgba(0, 0, 0, 0.263);
+        border-top: 0.15rem solid var(--dark-border);
+        background-color: var(--dark-glass);
 
         .cdn-tabs {
           display: flex;
@@ -233,7 +231,6 @@
             }
 
             .active-cdn-tab {
-              color: var(--theme-colour);
               border-bottom: 0.1rem solid var(--theme-colour);
             }
           }
@@ -259,26 +256,22 @@
           p {
             font-family: "Source Code Pro", monospace !important;
             font-size: 1.2rem;
-
-            span {
-              color: rgba(255, 255, 255, 0.831);
-            }
           }
         }
       }
     }
 
     .screen-02 {
-      @include blurLayer(1.4rem);
+      @include blurLayer($bdrRds: 1.4rem);
       width: 35vw;
       height: 85vh;
       display: grid;
       grid-template-rows: auto auto 1fr;
       padding-top: 0.8rem;
-      color: rgba(255, 255, 255, 0.56);
+      overflow: hidden;
 
       .search-bdr-right {
-        border-right: 0.2rem solid rgba(255, 255, 255, 0.152);
+        border-right: 0.2rem solid var(--dark-border);
         height: 2.4rem;
       }
 
@@ -311,13 +304,11 @@
 
         .tab-01 {
           height: 4rem;
-          background-color: rgba(0, 0, 0, 0.263);
+          background-color: var(--dark-glass);
           border-radius: 1.2rem 1.2rem 0 0;
-        }
-
-        .tab-02 {
-          border-right: 0.2rem solid rgba(255, 255, 255, 0.116);
-          border-radius: none !important;
+          border-top: 0.18rem solid var(--dark-border);
+          border-left: 0.18rem solid var(--dark-border);
+          border-right: 0.18rem solid var(--dark-border);
         }
 
         .tab-add {
@@ -327,7 +318,8 @@
       }
 
       .screen-menu-bar {
-        background-color: rgba(0, 0, 0, 0.263);
+        background-color: var(--dark-glass);
+        border-top: 0.18rem solid var(--dark-border);
         border-radius: 1.2rem 1.2rem 0 0;
         height: 6.4rem;
         display: flex;
@@ -340,7 +332,7 @@
         }
 
         .screen-search {
-          background-color: rgba(0, 0, 0, 0.29);
+          @include blurLayer($bdrRds: 10rem);
           border-radius: 5rem;
           width: 100%;
           height: 4rem;
@@ -359,7 +351,7 @@
       }
 
       .screen-app {
-        background-color: rgba(0, 0, 0, 0.263);
+        background-color: var(--dark-glass);
         display: grid;
         grid-template-rows: auto 1fr 15rem;
         gap: 1.6rem;
@@ -368,7 +360,7 @@
         overflow: hidden;
 
         nav {
-          @include blurLayer(1rem);
+          @include blurLayer($bdrRds: 1rem);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -394,7 +386,6 @@
             line-height: 4rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.646);
             font-family: "Satoshi-Bold";
           }
 
@@ -406,9 +397,8 @@
             margin-top: 2rem;
 
             button {
-              @include blurLayer(0.8rem);
+              @include blurLayer($bdrRds: 0.8rem);
               padding: 1rem 1.8rem;
-              color: white;
               font-size: 1.6rem;
               display: flex;
               align-items: center;
@@ -443,7 +433,6 @@
 
       p {
         font-size: 1.6rem;
-        color: rgba(255, 255, 255, 0.587);
       }
     }
 
@@ -456,7 +445,7 @@
       position: relative;
 
       .card-1 {
-        @include blurLayer(1.8rem, 14px);
+        @include blurLayer($bdrRds: 1.8rem, $blur: 14px);
         width: 32rem;
         height: 40rem;
         z-index: 2;
@@ -473,7 +462,6 @@
           grid-template-rows: 1fr 1fr;
 
           code {
-            color: rgba(255, 255, 255, 0.429);
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -503,7 +491,6 @@
               font-size: 1.2rem;
 
               span {
-                color: rgba(255, 255, 255, 0.702);
                 font-size: 1rem;
               }
 
@@ -514,13 +501,13 @@
           }
 
           .dark-code {
-            background-color: rgba(0, 0, 0, 0.212);
+            background-color: var(--dark-glass);
           }
         }
       }
 
       .card-2 {
-        @include blurLayer(1.8rem, 14px);
+        @include blurLayer($bdrRds: 1.8rem, $blur: 14px);
         width: 32rem;
         height: 40rem;
         z-index: 3;
@@ -534,16 +521,20 @@
           gap: 1rem;
 
           input {
-            @include blurLayer(1rem);
-            background-color: rgba(0, 0, 0, 0.342);
+            @include blurLayer($bdrRds: 1rem);
+            border: 0.18rem solid var(--dark-border);
+            background-color: var(--dark-glass);
+            box-shadow: none !important;
             padding: 1.4rem;
             width: 100%;
             margin-bottom: 1.4rem;
           }
 
           p {
-            @include blurLayer(1rem);
-            background-color: rgba(0, 0, 0, 0.342);
+            @include blurLayer($bdrRds: 1rem);
+            border: 0.18rem solid var(--dark-border);
+            background-color: var(--dark-glass);
+            box-shadow: none !important;
             padding: 1.2rem;
             width: 100%;
             text-align: left;
@@ -551,13 +542,12 @@
             align-items: center;
             justify-content: flex-start;
             gap: 1.4rem;
-            color: rgba(255, 255, 255, 0.465);
           }
         }
       }
 
       .card-3 {
-        @include blurLayer(1.8rem, 14px);
+        @include blurLayer($bdrRds: 1.8rem, $blur: 14px);
         width: 32rem;
         height: 40rem;
         position: absolute;
@@ -582,7 +572,7 @@
               gap: 0.8rem;
 
               .dot {
-                @include blurLayer(1rem);
+                @include blurLayer($bdrRds: 1rem);
                 width: 1.4rem;
                 height: 1.4rem;
               }
@@ -595,12 +585,10 @@
 
             p {
               line-height: 2.4rem;
-              color: rgba(255, 255, 255, 0.429);
             }
 
             .loader-title {
               margin-top: 1.4rem;
-              color: rgba(255, 255, 255, 0.672);
             }
 
             .loader-bars {
@@ -661,7 +649,7 @@
     }
 
     .card-control {
-      @include blurLayer(2rem);
+      @include blurLayer($bdrRds: 2rem);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -674,7 +662,7 @@
       }
 
       .dot {
-        @include blurLayer(1rem);
+        @include blurLayer($bdrRds: 1rem);
         width: 1.4rem;
         height: 1.4rem;
       }

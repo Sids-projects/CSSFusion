@@ -1,8 +1,58 @@
-@mixin blurLayer($bdrRds: 1rem, $blur: 5px) {
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+@import "variables";
+@mixin blurLayer(
+  $bdrRds: 1rem,
+  $blur: 5px,
+  $layerClr01: $layerClr01,
+  $layerClr02: $layerClr02,
+  $layerClr03: $layerClr03
+) {
+  background: $layerClr01;
+  box-shadow: 0 4px 30px $layerClr02;
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
-  border: 0.15rem solid rgba(255, 255, 255, 0.097);
+  border: 0.15rem solid var(--dark-border);
   border-radius: $bdrRds;
+}
+
+@mixin lightMode() {
+  background-color: hsla(266, 100%, 82%, 1);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1823 1823' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+    radial-gradient(
+      circle at 55% 88%,
+      hsla(340, 66%, 89%, 1) 19%,
+      transparent 86.73008439094286%
+    ),
+    radial-gradient(
+      circle at 89% 86%,
+      hsla(333, 100%, 19%, 0.47) 3.5419327141440644%,
+      transparent 86.60640420591575%
+    ),
+    radial-gradient(
+      circle at 5% 94%,
+      hsla(33, 83%, 69%, 1) 7.316071150124744%,
+      transparent 46.1130789656234%
+    ),
+    radial-gradient(
+      circle at 48% 34%,
+      hsla(11, 75%, 67%, 1) 18%,
+      transparent 52%
+    ),
+    radial-gradient(
+      circle at 64% 73%,
+      hsla(337, 100%, 87%, 1) 3.5419327141440644%,
+      transparent 60.78034528031442%
+    );
+  background-blend-mode: overlay, overlay, normal, normal, hue, normal;
+}
+
+@mixin darkMode() {
+  --_mesh-gradient-blur: 0px;
+  --_mesh-gradient-blend-mode: normal;
+  background: radial-gradient(at 11% 14%, #0e332f 0px, transparent 50%),
+    radial-gradient(at 35% 10%, #0e2433 0px, transparent 50%),
+    radial-gradient(at 44% 86%, #0e1233 0px, transparent 50%),
+    radial-gradient(at 62% 3%, #330e12 0px, transparent 50%),
+    radial-gradient(at 38% 77%, #332f0e 0px, transparent 50%) #000000;
+  mix-blend-mode: var(--_mesh-gradient-blend-mode);
+  filter: blur(var(--_mesh-gradient-blur));
 }

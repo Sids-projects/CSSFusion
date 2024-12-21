@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+// Material
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
+
 // Modules
 import { CompsModule } from './comps/comps.module';
 import { CompsRoutingModule } from './comps/comps-routing.module';
@@ -25,6 +29,8 @@ import { HomeComponent } from './home/home.component';
     TempsRoutingModule,
     CustomizerModule,
     CustomizerRoutingModule,
+    MatSlideToggleModule,
+    MatSliderModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

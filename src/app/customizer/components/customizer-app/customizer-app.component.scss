@@ -92,7 +92,7 @@ input[type="range"]::-webkit-slider-thumb {
     gap: 1rem;
 
     .app-tools {
-      @include blurLayer(1rem);
+      @include blurLayer($bdrRds: 1rem);
       padding: 2rem 1.4rem;
       display: flex;
       flex-direction: column;
@@ -123,7 +123,7 @@ input[type="range"]::-webkit-slider-thumb {
     }
 
     .app-tools-mini {
-      @include blurLayer(1rem);
+      @include blurLayer($bdrRds: 1rem);
       border-radius: 1rem;
       padding: 1.2rem 1.4rem;
       display: flex;

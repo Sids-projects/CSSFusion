@@ -16,14 +16,20 @@
       </a>
     </div>
     <div id="app-btns">
+      <span class="material-symbols-outlined more-icon">
+        expand_circle_down
+      </span>
       <a href="https://github.com/Sids-projects/CSSFusion" target="_blank">
-        <img src="./assets/github-icon.svg" alt="Github Logo" />
+        <span class="material-symbols-outlined"> package_2 </span>
       </a>
       <a routerLink="AboutRoute">
         <span class="material-symbols-outlined"> error </span>
       </a>
-      <span class="material-symbols-outlined more-icon">
-        expand_circle_down
+      <span
+        class="material-symbols-outlined colour-mode"
+        (click)="toggleTheme()"
+      >
+        brightness_6
       </span>
     </div>
   </nav>
