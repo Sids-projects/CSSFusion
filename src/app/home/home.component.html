@@ -203,30 +203,234 @@
   </div>
 
   <div class="set-03">
-    <div class="content-01">
-      <div>
-        <h3>Comprehensive Utilities</h3>
-        <p>
-          A wide array of CSS utilities for styling common and advanced
-          elements.
-        </p>
+    <div class="card-content">
+      <h3>
+        {{
+          cardOneActive
+            ? features[0].title
+            : cardOneActive === false && cardThreeActive === false
+            ? features[1].title
+            : cardThreeActive
+            ? features[2].title
+            : "Default Title"
+        }}
+      </h3>
+      <p>
+        {{
+          cardOneActive
+            ? features[0].sentence
+            : cardOneActive === false && cardThreeActive === false
+            ? features[1].sentence
+            : cardThreeActive
+            ? features[2].sentence
+            : "Default Title"
+        }}
+      </p>
+    </div>
+    <div class="cards-container">
+      <!-- Card 01 -->
+      <div
+        class="card-1"
+        [ngClass]="{
+          'active-1': cardOneActive,
+          'inactive-1': cardTwoActive
+        }"
+        (click)="cardOne()"
+      >
+        <div class="content">
+          <code>
+            <span class="code-title"
+              ><span class="material-symbols-outlined"> light_mode </span> Light
+              Mode</span
+            >
+            :root &#123;<br />
+            <p class="def-txt">
+              &nbsp;--primary: #ff0000;
+              <span class="material-symbols-outlined">
+                keyboard_backspace
+              </span>
+              <span> Base Colour </span>
+            </p>
+            <p class="def-txt">
+              &nbsp;--secondary: #fafafa;
+              <span class="material-symbols-outlined">
+                keyboard_backspace
+              </span>
+              <span> Base Colour </span>
+            </p>
+            <p class="def-txt">
+              &nbsp;--btn-clr: #ff0000;
+              <span class="material-symbols-outlined">
+                keyboard_backspace
+              </span>
+              <span> Button Colour </span>
+            </p>
+            <p class="def-txt">
+              &nbsp;--btn-txt:: #fafafa;
+              <span class="material-symbols-outlined">
+                keyboard_backspace
+              </span>
+              <span> Font Colour </span>
+            </p>
+            &#125;
+          </code>
+          <code class="dark-code">
+            <span class="code-title"
+              ><span class="material-symbols-outlined"> nights_stay </span> Dark
+              Mode</span
+            >
+            :root &#123;<br />
+            <p class="def-txt">
+              &nbsp;--primary: #ff0000;
+              <span class="material-symbols-outlined">
+                keyboard_backspace
+              </span>
+              <span> Base Colour </span>
+            </p>
+            <p class="def-txt">
+              &nbsp;--secondary: #fafafa;
+              <span class="material-symbols-outlined">
+                keyboard_backspace
+              </span>
+              <span> Base Colour </span>
+            </p>
+            <p class="def-txt">
+              &nbsp;--btn-clr: #ff0000;
+              <span class="material-symbols-outlined">
+                keyboard_backspace
+              </span>
+              <span> Button Colour </span>
+            </p>
+            <p class="def-txt">
+              &nbsp;--btn-txt:: #fafafa;
+              <span class="material-symbols-outlined">
+                keyboard_backspace
+              </span>
+              <span> Font Colour </span>
+            </p>
+            &#125;
+          </code>
+        </div>
       </div>
-      <div>
-        <h3>Customizable</h3>
-        <p>
-          Tailor utilities and variables to match your project's needs
-          effortlessly.
-        </p>
+      <!-- Card 02 -->
+      <div
+        class="card-2"
+        [ngClass]="{
+          'active-2-01': cardOneActive,
+          'active-2': cardTwoActive,
+          'active-2-02': cardThreeActive
+        }"
+        (click)="cardTwo()"
+      >
+        <div class="content">
+          <input type="text" placeholder="Search" disabled />
+          <p>
+            <span class="material-symbols-outlined"> ads_click </span> Button
+          </p>
+          <p>
+            <span class="material-symbols-outlined"> table_view </span> Table
+          </p>
+          <p><span class="material-symbols-outlined"> tab_group </span> Tabs</p>
+          <p>
+            <span class="material-symbols-outlined"> variable_add </span> Chips
+          </p>
+          <p>
+            <span class="material-symbols-outlined"> ballot </span>
+            Dropdown
+          </p>
+        </div>
       </div>
-      <div>
-        <h3>Lightweight and Performant</h3>
-        <p>Designed to minimize bloat and maximize speed.</p>
-      </div>
-      <div>
-        <h3>Framework-Agnostic</h3>
-        <p>Works with any frontend framework or standalone HTML projects.</p>
+      <!-- Card 03 -->
+      <div
+        class="card-3"
+        [ngClass]="{
+          'active-3': cardThreeActive,
+          'inactive-3': cardTwoActive
+        }"
+        (click)="cardThree()"
+      >
+        <div class="content">
+          <header>
+            <p>Terminal</p>
+            <div class="dots">
+              <p class="dot dot-01"></p>
+              <p class="dot dot-02"></p>
+              <p class="dot dot-03"></p>
+            </div>
+          </header>
+          <div class="terminal">
+            <p>user&#64;machine:~$ ls</p>
+            <p>Documents Downloads Music Pictures Videos</p>
+            <p>user&#64;machine:~$ cd Documents</p>
+            <p>user&#64;machine:~/Documents$ touch file.txt</p>
+            <p>user&#64;machine:~/Documents$ echo "Hello, World!" > file.txt</p>
+            <p>user&#64;machine:~/Documents$ cat file.txt</p>
+            <p>/home/user</p>
+            <p>npm i &#64;dev.spot/css-fusion</p>
+            <p class="loader-title">Initializing Package 40%</p>
+            <p class="loader-bars">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+              <span class="loading"></span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="content-02"></div>
+    <div class="card-control">
+      <span class="material-symbols-outlined" (click)="cardOne()">
+        chevron_left
+      </span>
+      <span
+        class="dot dot-01"
+        [ngStyle]="{
+          'background-color': cardOneActive
+            ? 'rgba(255, 255, 255, 0.800)'
+            : 'transparent'
+        }"
+      ></span>
+      <span
+        class="dot dot-02"
+        [ngStyle]="{
+          'background-color':
+            cardOneActive === false && cardThreeActive === false
+              ? 'rgba(255, 255, 255, 0.800)'
+              : 'transparent'
+        }"
+      ></span>
+      <span
+        class="dot dot-03"
+        [ngStyle]="{
+          'background-color': cardThreeActive
+            ? 'rgba(255, 255, 255, 0.800)'
+            : 'transparent'
+        }"
+      ></span>
+      <span class="material-symbols-outlined" (click)="cardThree()">
+        chevron_right
+      </span>
+    </div>
   </div>
 </section>

@@ -62,7 +62,7 @@ body {
   mix-blend-mode: var(--_mesh-gradient-blend-mode);
   filter: blur(var(--_mesh-gradient-blur));
   display: grid;
-  grid-template-rows: 8rem 1fr;
+  grid-template-rows: 7.6rem 1fr;
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -173,10 +173,6 @@ body {
         display: none;
       }
     }
-  }
-
-  #app-content {
-    padding: 1rem 2.8rem 0 2.8rem;
   }
 
   #app-button {

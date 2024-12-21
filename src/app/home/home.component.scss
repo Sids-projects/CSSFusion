@@ -426,28 +426,262 @@
   }
 
   .set-03 {
-    width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 
-    .content-01 {
-      display: flex;
-      flex-direction: column;
-      gap: 4.8rem;
-      align-items: flex-start;
+    .card-content {
+      text-align: center;
 
       h3 {
         font-family: "Satoshi-Bold";
-        font-size: 2.6rem;
-        margin-bottom: 0.8rem;
+        font-size: 3.8rem;
+        margin-bottom: 1.2rem;
       }
 
       p {
-        color: var(--font-colour);
+        font-size: 1.6rem;
+        color: rgba(255, 255, 255, 0.587);
       }
     }
+
+    .cards-container {
+      width: fit-content;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .card-1 {
+        @include blurLayer(1.8rem, 14px);
+        width: 32rem;
+        height: 40rem;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        overflow: hidden;
+        transform: translate(-15%, -50%) scale(0.8);
+        transition: all 0.5s;
+
+        .content {
+          height: 100%;
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+
+          code {
+            color: rgba(255, 255, 255, 0.429);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-left: 1.8rem;
+
+            .code-title {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              gap: 0.6rem;
+              margin-top: 0.4rem;
+              margin-bottom: 0.4rem;
+
+              &:first-child {
+                margin-top: 0 !important;
+                margin-bottom: 1.2rem !important;
+              }
+            }
+
+            .def-txt {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              gap: 0.4rem;
+              text-wrap: nowrap;
+              font-size: 1.2rem;
+
+              span {
+                color: rgba(255, 255, 255, 0.702);
+                font-size: 1rem;
+              }
+
+              .material-symbols-outlined {
+                font-size: 1.4rem !important;
+              }
+            }
+          }
+
+          .dark-code {
+            background-color: rgba(0, 0, 0, 0.212);
+          }
+        }
+      }
+
+      .card-2 {
+        @include blurLayer(1.8rem, 14px);
+        width: 32rem;
+        height: 40rem;
+        z-index: 3;
+        overflow: hidden;
+        transition: all 0.5s;
+        padding: 1rem;
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          input {
+            @include blurLayer(1rem);
+            background-color: rgba(0, 0, 0, 0.342);
+            padding: 1.4rem;
+            width: 100%;
+            margin-bottom: 1.4rem;
+          }
+
+          p {
+            @include blurLayer(1rem);
+            background-color: rgba(0, 0, 0, 0.342);
+            padding: 1.2rem;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1.4rem;
+            color: rgba(255, 255, 255, 0.465);
+          }
+        }
+      }
+
+      .card-3 {
+        @include blurLayer(1.8rem, 14px);
+        width: 32rem;
+        height: 40rem;
+        position: absolute;
+        top: 50%;
+        right: -50%;
+        z-index: 1;
+        transform: translate(15%, -50%) scale(0.8);
+        overflow: hidden;
+        transition: all 0.5s;
+        padding: 1.4rem;
+
+        .content {
+          header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .dots {
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+              gap: 0.8rem;
+
+              .dot {
+                @include blurLayer(1rem);
+                width: 1.4rem;
+                height: 1.4rem;
+              }
+            }
+          }
+
+          .terminal {
+            margin-top: 1.8rem;
+            font-size: 1.2rem;
+
+            p {
+              line-height: 2.4rem;
+              color: rgba(255, 255, 255, 0.429);
+            }
+
+            .loader-title {
+              margin-top: 1.4rem;
+              color: rgba(255, 255, 255, 0.672);
+            }
+
+            .loader-bars {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              gap: 0.4rem;
+              margin: 1rem 0;
+
+              span {
+                background-color: rgba(255, 255, 255, 0.44);
+                width: 0.7rem;
+                height: 1.4rem;
+              }
+
+              .loading {
+                background-color: rgba(255, 255, 255, 0.315) !important;
+              }
+            }
+          }
+        }
+      }
+
+      .active-1 {
+        transform: translate(45%, -50%);
+        z-index: 5;
+      }
+
+      .inactive-1 {
+        transform: translate(-15%, -50%) scale(0.8);
+        z-index: 2;
+      }
+
+      .active-2-01 {
+        transform: translate(-80%, 0) scale(0.8);
+        z-index: 4;
+      }
+
+      .active-2 {
+        transform: translate(0, 0);
+        z-index: 4;
+      }
+
+      .active-2-02 {
+        transform: translate(80%, 0) scale(0.8);
+        z-index: 4;
+      }
+
+      .active-3 {
+        z-index: 5;
+        transform: translate(-45%, -50%);
+      }
+
+      .inactive-3 {
+        z-index: 2;
+        transform: translate(15%, -50%) scale(0.8);
+      }
+    }
+
+    .card-control {
+      @include blurLayer(2rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.4rem 0.8rem;
+      scale: 0.8;
+
+      .material-symbols-outlined {
+        cursor: pointer;
+      }
+
+      .dot {
+        @include blurLayer(1rem);
+        width: 1.4rem;
+        height: 1.4rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 720px) {
   }
 }
 
