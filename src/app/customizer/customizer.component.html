@@ -1,10 +1,10 @@
 <section>
-  <nav>
+  <nav *ngIf="showNav">
     <a routerLink="CustomizerAppRoute">Editor</a>
     <a routerLink="CustomizerGuideRoute">Guide</a>
   </nav>
 
-  <div>
+  <section>
     <router-outlet></router-outlet>
-  </div>
+  </section>
 </section>

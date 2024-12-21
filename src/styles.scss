@@ -186,3 +186,35 @@ body {
     padding: 0 1.4rem;
   }
 }
+
+.app-module {
+  height: calc(100vh - 7.6rem);
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  gap: 3.8rem;
+  padding: 1rem 0 0 2.8rem;
+
+  nav {
+    @include blurLayer(1rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+    max-height: fit-content;
+    padding: 2rem 1.4rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.8rem;
+      color: rgb(221, 221, 221);
+      text-decoration: none;
+    }
+  }
+
+  .app-module-content {
+    overflow-y: auto;
+    padding-right: 2.8rem;
+    padding-bottom: 2.8rem;
+  }
+}

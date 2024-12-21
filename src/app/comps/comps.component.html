@@ -1,17 +1,44 @@
-<section>
+<section class="app-module">
   <nav>
-    <a routerLink="AccordionRoute">Accordion</a>
-    <a routerLink="ButtonRoute">Button</a>
-    <a routerLink="CardRoute">Card</a>
-    <a routerLink="DropdownRoute">Dropdown</a>
-    <a routerLink="InputsRoute">Input</a>
-    <a routerLink="MenuBarRoute">Menubar</a>
-    <a routerLink="NavRoute">Navigation</a>
-    <a routerLink="TableRoute">Table</a>
-    <a routerLink="TabsRoute">Tab</a>
+    <a routerLink="AccordionRoute">
+      <span class="material-symbols-outlined"> view_timeline </span>
+      Accordion
+    </a>
+    <a routerLink="ButtonRoute">
+      <span class="material-symbols-outlined"> buttons_alt </span>
+      Button
+    </a>
+    <a routerLink="CardRoute">
+      <span class="material-symbols-outlined"> dashboard </span>
+      Card
+    </a>
+    <a routerLink="DropdownRoute">
+      <span class="material-symbols-outlined"> dropdown </span>
+      Dropdown
+    </a>
+    <a routerLink="InputsRoute">
+      <span class="material-symbols-outlined"> draw </span>
+      Input
+    </a>
+    <a routerLink="MenuBarRoute">
+      <span class="material-symbols-outlined"> widgets </span>
+      Menubar
+    </a>
+    <a routerLink="NavRoute">
+      <span class="material-symbols-outlined"> side_navigation </span>
+      Navigation
+    </a>
+    <a routerLink="TableRoute">
+      <span class="material-symbols-outlined"> table </span>
+      Table
+    </a>
+    <a routerLink="TabsRoute">
+      <span class="material-symbols-outlined"> tab </span>
+      Tab
+    </a>
   </nav>
 
-  <div>
+  <section class="app-module-content">
     <router-outlet></router-outlet>
-  </div>
+  </section>
 </section>

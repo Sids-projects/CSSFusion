@@ -1,5 +1,8 @@
-<main id="app">
-  <nav id="app-nav">
+<main
+  id="app"
+  [ngStyle]="{ 'grid-template-rows': showNav ? '7.6rem 1fr' : '1fr' }"
+>
+  <nav id="app-nav" *ngIf="showNav">
     <div id="app-logo">
       <span class="material-symbols-outlined"> join_right </span>
       <p>CSSFusion</p>
