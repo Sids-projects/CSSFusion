@@ -5,6 +5,9 @@
   "main": "dist/styles-library/bundles/styles-library.umd.js",
   "style": "dist/styles-library/scss/main.scss",
   "types": "dist/styles-library/styles-library.d.ts",
+  "scripts": {
+    "build-scripts": "tsc -p ./tsconfig.lib.json"
+  },
   "stylePreprocessorOptions": {
     "includePaths": [
       "./node_modules"

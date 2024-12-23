@@ -13,6 +13,7 @@ import { MenubarComponent } from './components/menubar/menubar.component';
 import { NavComponent } from './components/nav/nav.component';
 import { TableComponent } from './components/table/table.component';
 import { TabComponent } from './components/tab/tab.component';
+import { CompsCodeComponent } from './comps-code/comps-code.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TabComponent } from './components/tab/tab.component';
     NavComponent,
     TableComponent,
     TabComponent,
+    CompsCodeComponent,
   ],
   imports: [CommonModule, RouterModule],
 })

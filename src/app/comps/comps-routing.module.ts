@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompsComponent } from './comps.component';
+import { CompsCodeComponent } from './comps-code/comps-code.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
     path: 'CompsRouting',
     component: CompsComponent,
     children: [
+      { path: 'CompsCode', component: CompsCodeComponent },
       { path: 'AccordionRoute', component: AccordionComponent },
       { path: 'ButtonRoute', component: ButtonComponent },
       { path: 'CardRoute', component: CardComponent },
