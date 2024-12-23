@@ -1,21 +1,25 @@
 <section class="app-comp">
-  <h2 class="comp-title">Accordion</h2>
-
   <section class="grid-02">
     <div class="app-card">
       <div class="card-header">
         <h3>Regular</h3>
       </div>
       <div class="card-body">
-        <div class="accordion-grup">
+        <div
+          [class]="
+            themeClr === 'dark-mode'
+              ? 'accordion-grup cf-dark-mode'
+              : 'accordion-grup'
+          "
+        >
           <div class="accordion-main acc-reg" id="accordion01">
             <div class="acc-head-static acc-head">
               <div class="acc-title">
-                <h2>Introduction</h2>
+                <h2>
+                  <mat-icon class="btn-icon">pan_tool</mat-icon> Introduction
+                </h2>
               </div>
-              <span class="material-symbols-outlined state-arrow">
-                arrow_drop_down
-              </span>
+              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
             </div>
             <div class="acc-body">
               <div class="acc-content">

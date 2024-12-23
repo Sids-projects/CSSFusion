@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+// Module
+import { MatIconModule } from '@angular/material/icon';
+
 // Components
 import { CompsComponent } from './comps.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
@@ -29,6 +32,6 @@ import { CompsCodeComponent } from './comps-code/comps-code.component';
     TabComponent,
     CompsCodeComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatIconModule],
 })
 export class CompsModule {}

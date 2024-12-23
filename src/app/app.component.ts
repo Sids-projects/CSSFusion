@@ -1,39 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetUrlService } from './get-url.service';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'CSSFusion';
-  showNav = true;
-  isDarkMode = false; // Default theme is light mode
-
-  // Define the routes to hide in the component
+  showNav: boolean = true;
+  isDarkMode = false;
+  currentComp: string = '';
   private hideNavRoutes = ['/CustomizerRouting/CustomizerAppRoute'];
 
-  constructor(private getUrlService: GetUrlService) {
-    // Pass the routes to the service
+  constructor(
+    private getUrlService: GetUrlService,
+    private themeService: ThemeService
+  ) {
     this.getUrlService.setHideNavRoutes(this.hideNavRoutes);
 
-    // Subscribe to the visibility status
     this.getUrlService.getNavVisibility().subscribe((isVisible) => {
       this.showNav = isVisible;
+    });
+
+    this.getUrlService.getCurrentRouteSegment().subscribe((segment) => {
+      this.currentComp = segment;
     });
   }
 
   ngOnInit(): void {
-    const savedTheme = localStorage.getItem('theme') || 'light-mode';
-    document.documentElement.setAttribute('class', savedTheme);
-    this.isDarkMode = savedTheme === 'dark-mode';
+    // Subscribe to theme changes
+    this.themeService.currentTheme.subscribe((theme) => {
+      this.isDarkMode = theme === 'dark-mode';
+      document.documentElement.setAttribute('class', theme);
+    });
   }
 
   toggleTheme(): void {
-    this.isDarkMode = !this.isDarkMode;
-    const themeClass = this.isDarkMode ? 'dark-mode' : 'light-mode';
-    document.documentElement.setAttribute('class', themeClass);
-    localStorage.setItem('theme', themeClass);
+    const newTheme = this.isDarkMode ? 'light-mode' : 'dark-mode';
+    this.themeService.setTheme(newTheme); // Update the theme via ThemeService
   }
 }

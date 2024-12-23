@@ -7,6 +7,7 @@
 @import "./../projects/css-fusion/src/lib/scss/main.scss";
 @import "./assets/Styles/variables.scss";
 @import "./assets/Styles/mixins.scss";
+@import "./assets//Styles/overwrite.scss";
 
 @font-face {
   font-family: "Satoshi-Bold";
@@ -56,6 +57,7 @@ body {
   --dark-border: rgba(255, 255, 255, 0.273) !important;
   --theme-colour: #3f51b5 !important;
   --font-colour: rgba(0, 0, 0, 0.853) !important;
+  --app-mode-clr: #dfdfdf !important;
 
   color: rgba(0, 0, 0, 0.853);
 
@@ -218,6 +220,7 @@ body {
 }
 
 .app-module {
+  background-color: var(--app-mode-clr);
   height: calc(100vh - 7.6rem);
   display: grid;
   grid-template-columns: 18rem 1fr;
@@ -253,6 +256,20 @@ body {
         font-size: 2.2rem;
       }
     }
+
+    .active-a {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -1.4rem;
+        width: 0.4rem;
+        height: 100%;
+        background-color: var(--theme-colour);
+      }
+    }
   }
 
   .app-module-content {
@@ -275,18 +292,24 @@ body {
   overflow: hidden;
 
   .card-header {
-    padding: 1rem 1.4rem 0 1.4rem;
+    padding: 2rem 2.4rem 0 2.4rem;
   }
 
   .card-body {
-    padding: 1.4rem;
+    padding: 2rem 2.4rem 2.4rem 2.4rem;
   }
 
   .card-code {
-    background-color: var(--dark-glass);
     border-top: 0.18rem solid var(--dark-border);
-    padding: 1.4rem;
+    height: 100%;
   }
+}
+
+// Layout
+.grid-02 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
 }
 
 // Code
@@ -317,6 +340,10 @@ body {
   }
 }
 
+code {
+  font-size: 1.2rem !important;
+}
+
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background: transparent;
@@ -336,5 +363,25 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #b60d6b;
+  color: #8585ff;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #ff4d6d;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--theme-colour);
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  margin: 0;
 }

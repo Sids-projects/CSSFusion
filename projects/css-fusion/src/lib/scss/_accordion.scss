@@ -11,24 +11,26 @@
 }
 
 .accordion-grup {
+  border: 1.8px solid var(--cf-mode-active);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .accordion-main {
+  background-color: var(--cf-mode-primary);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.09) 0px 0px 0px 1px;
   width: 100%;
-  background-color: white;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: var(--font-style);
-  border-radius: 8px;
   overflow: hidden;
 
   .acc-head {
@@ -57,7 +59,7 @@
         align-items: center;
         justify-content: flex-start;
         gap: 0.8rem;
-        color: black;
+        color: var(--cf-mode-font-primary);
 
         mat-icon {
           font-size: 20px !important;
@@ -83,19 +85,28 @@
       padding: 8px 18px 18px 18px;
 
       p {
-        color: #757575;
+        color: var(--cf-mode-font-secondary);
       }
     }
   }
 
   .state-arrow {
-    color: #a7a7a7 !important;
+    color: var(--cf-mode-active) !important;
     transition: transform 0.5s ease;
   }
 
   .state-arrow.open {
     transform: rotate(180deg);
   }
+}
+
+.cf-dark-mode {
+  // Dark Mode
+  --cf-mode-primary: #272727 !important;
+  --cf-mode-secondary: #383838 !important;
+  --cf-mode-active: #5a585b !important;
+  --cf-mode-font-primary: #fcfcfc !important;
+  --cf-mode-font-secondary: #a1a1a1 !important;
 }
 
 .acc-reg {

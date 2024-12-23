@@ -79,11 +79,3 @@ export class Accordion {
     });
   }
 }
-
-// Self-initialize all accordions on page load
-document.addEventListener('DOMContentLoaded', () => {
-  const accordionElements = document.querySelectorAll('.accordion-main');
-  if (accordionElements.length) {
-    new Accordion(accordionElements as NodeListOf<HTMLElement>);
-  }
-});

@@ -17,6 +17,7 @@ const routes: Routes = [
     path: 'CompsRouting',
     component: CompsComponent,
     children: [
+      { path: '', pathMatch: 'full', redirectTo: 'AccordionRoute' },
       { path: 'CompsCode', component: CompsCodeComponent },
       { path: 'AccordionRoute', component: AccordionComponent },
       { path: 'ButtonRoute', component: ButtonComponent },
