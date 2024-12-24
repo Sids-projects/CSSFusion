@@ -1,9 +1,45 @@
 <section class="app-module">
   <nav>
-    <a routerLink="AccordionRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> view_timeline </span>
-      Accordion
-    </a>
+    <div>
+      <a
+        routerLink="AccordionRoute"
+        routerLinkActive="active-a"
+        #showSubTopics="routerLinkActive"
+      >
+        <span class="material-symbols-outlined"> view_timeline </span>
+        Accordion
+      </a>
+      <div class="app-module-subtopics" *ngIf="showSubTopics.isActive">
+        <small>Topics</small>
+        <ul>
+          <li><span class="material-symbols-outlined"> error </span> Intro</li>
+          <li>
+            <span class="material-symbols-outlined"> variable_insert </span>
+            Static & Dynamic
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> aspect_ratio </span>
+            Default Open
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> dashboard </span>
+            Grid Type
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> dark_mode </span>
+            Colour Mode
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> format_paint </span>
+            Build-in Colours
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> account_tree </span>
+            Structure
+          </li>
+        </ul>
+      </div>
+    </div>
     <a routerLink="ButtonRoute" routerLinkActive="active-a">
       <span class="material-symbols-outlined"> buttons_alt </span>
       Button

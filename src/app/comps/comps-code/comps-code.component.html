@@ -1,28 +1,267 @@
 <div *ngIf="showCode === 'accordion-01'">
   <div class="code-box">
-    <button class="code-copy" matTooltip="copy" (click)="copyCode(accordion01)">
-      <span class="material-symbols-outlined"> file_copy </span>
-    </button>
+    <header>
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(accordion01)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #accordion01>
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head"&gt;
+      &lt;h2 class="acc-title"&gt;
+        &lt;mat-icon class="acc-title-icon"&gt;pan_tool&lt;/mat-icon&gt;
+        Introduction
+      &lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'accordion-02'">
+  <div class="code-box">
+    <header>
+      <p>Javascript Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(accordion02)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-javascript" #accordion02>
+import &#123; Accordion &#125; from '&#64;dev.spot/css-fusion';
+
+export class AccordionComponent implements OnInit &#123;
+  ngAfterViewInit() &#123;
+    const accordionElements = document.querySelectorAll('.accordion-main');
+    new Accordion(accordionElements as NodeListOf&lt;HTMLElement&gt;);
+  &#125;
+&#125;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-static'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(acc_static)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_static>
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head acc-static"&gt;
+      &lt;h2 class="acc-title"&gt;...&lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head acc-static"&gt;
+      &lt;h2 class="acc-title"&gt;...&lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-dynamic'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(acc_dynamic)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_dynamic>
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head"&gt;
+      &lt;h2 class="acc-title"&gt;...&lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head"&gt;
+      &lt;h2 class="acc-title"&gt;...&lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-open'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(accordion01)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
     <pre class="line-numbers">
 <code class="language-html" #accordion01>
   &lt;div class="accordion-grup"&gt;
-    &lt;div class="accordion-main acc-reg" id="accordion01"&gt;
-      &lt;div class="acc-head-static acc-head"&gt;
+    &lt;div class="accordion-main"&gt;
+      &lt;div class="acc-head"&gt;
         &lt;div class="title"&gt;
-          &lt;h2&gt;Introduction&lt;/h2&gt;
+          &lt;h2&gt;...&lt;/h2&gt;
         &lt;/div&gt;
         &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
       &lt;/div&gt;
-      &lt;div class="acc-body"&gt;
-        &lt;div class="content"&gt;
-          &lt;div class="acc-cnt"&gt;
-            &lt;p class="points"&gt;...&lt;/p&gt;
-            &lt;p class="points"&gt;...&lt;/p&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+      &lt;div class="acc-body acc-open"&gt;
+        &lt;div class="acc-content"&gt;...&lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-dark'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button class="code-copy" matTooltip="copy" (click)="copyCode(acc_dark)">
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_dark>
+&lt;div class="accordion-grup cf-dark"&gt; &lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-light'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button class="code-copy" matTooltip="copy" (click)="copyCode(acc_light)">
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_light>
+&lt;div class="accordion-grup"&gt; &lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-buildin'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button class="code-copy" matTooltip="copy" (click)="copyCode(acc_light)">
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_light>
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-yellow"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-green"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-orange"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-blue"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-violet"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-gray"&gt;
+&lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-structure'">
+  <div class="code-box">
+    <header *ngIf="compCodeHead === true">
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(accordion01)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #accordion01>
+&lt;!-- Containers --&gt;
+&lt;div class="accordion-grup"&gt; &lt;/div&gt; &lt;!-- Group all accordion --&gt;
+&lt;div class="accordion-main"&gt; &lt;/div&gt; &lt;!-- Accordion Container --&gt;
+
+&lt;!-- Header --&gt;
+&lt;div class="acc-head"&gt; &lt;/div&gt; &lt;!-- Dynamic Accordion --&gt;
+&lt;div class="acc-head acc-static"&gt; &lt;/div&gt; &lt;!-- Static Accordion --&gt;
+&lt;h2 class="acc-title"&gt; &lt;/h2&gt; &lt;!-- Accordion Title --&gt;
+&lt;mat-icon class="acc-title-icon"&gt; &lt;/mat-icon&gt; &lt;!-- Accordion Title Icon --&gt;
+&lt;mat-icon class="state-arrow"&gt; &lt;/mat-icon&gt; &lt;!-- Accordion Arrow --&gt;
+
+&lt;!-- Body --&gt;
+&lt;div class="acc-body"&gt; &lt;/div&gt; &lt;!-- Accordion Body --&gt;
+&lt;div class="acc-body acc-open"&gt; &lt;/div&gt; &lt;!-- Default Expand --&gt;
+&lt;div class="acc-content"&gt; &lt;/div&gt; &lt;!-- Accordion Body Content container  --&gt;
 </code>
 </pre>
   </div>

@@ -4,12 +4,12 @@
     Arial, "Lucida Grande", sans-serif;
 
   // Dark
-  --yellow-dark-clr: #fbae00;
-  --green-dark-clr: #019e9e;
-  --orange-dark-clr: #ff591d;
-  --blue-dark-clr: #0f55ea;
-  --violet-dark-clr: #7f37dd;
-  --gray-dark-clr: #9f9f9f;
+  --yellow-dark-clr: rgb(250, 175, 0);
+  --green-dark-clr: rgb(1, 157, 157);
+  --orange-dark-clr: rgb(255, 90, 31);
+  --blue-dark-clr: rgb(15, 85, 235);
+  --violet-dark-clr: rgb(127, 54, 221);
+  --gray-dark-clr: rgb(159, 159, 159);
   // Medium
   --yellow-medium-clr: #ffbd02;
   --green-medium-clr: #02bbbd;
@@ -64,7 +64,7 @@
   --nav-light-clr: #fafafa;
   --nav-font-clr: #ffffff;
 
-  // Dark Mode
+  // Colour Mode
   --cf-mode-primary: #ffffff;
   --cf-mode-secondary: #faf9f8;
   --cf-mode-active: #e1e1e1;
@@ -73,6 +73,15 @@
 }
 
 // In-Build Colours
+$buildIn: (
+  "yellow": var(--yellow-dark-clr),
+  "green": var(--green-dark-clr),
+  "orange": var(--orange-dark-clr),
+  "blue": var(--blue-dark-clr),
+  "violet": var(--violet-dark-clr),
+  "gray": var(--gray-dark-clr),
+);
+
 $colors: (
   "yellow": (
     var(--yellow-dark-clr),

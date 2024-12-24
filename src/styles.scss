@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 
 // Imports
-// @import "./../node_modules/@dev.spot/css-fusion/src/lib/scss/main.scss";
+// @import "@dev.spot/css-fusion/src/lib/scss/main.scss";
 @import "./../projects/css-fusion/src/lib/scss/main.scss";
 @import "./assets/Styles/variables.scss";
 @import "./assets/Styles/mixins.scss";
@@ -58,6 +58,7 @@ body {
   --theme-colour: #3f51b5 !important;
   --font-colour: rgba(0, 0, 0, 0.853) !important;
   --app-mode-clr: #dfdfdf !important;
+  --code-snippet: rgba(255, 255, 255, 0.303) !important;
 
   color: rgba(0, 0, 0, 0.853);
 
@@ -223,7 +224,7 @@ body {
   background-color: var(--app-mode-clr);
   height: calc(100vh - 7.6rem);
   display: grid;
-  grid-template-columns: 18rem 1fr;
+  grid-template-columns: 22rem 1fr;
   gap: 0.8rem;
   padding: 0 0 0 2.8rem;
 
@@ -238,6 +239,42 @@ body {
     margin-top: 1.2rem;
     margin-bottom: 2.8rem;
     overflow: auto;
+
+    .app-module-subtopics {
+      small {
+        display: block;
+        margin-top: 1.6rem;
+      }
+
+      ul {
+        border-bottom: 0.18rem solid var(--dark-border);
+        padding: 0 0 2.2rem 0;
+        margin: 0;
+        list-style: none;
+        margin-top: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        cursor: pointer;
+
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 0.8rem;
+
+          .material-symbols-outlined {
+            @include blurLayer($bdrRds: 0.8rem);
+            color: var(--theme-colour);
+            width: 2.8rem;
+            height: 2.8rem;
+            font-size: 2rem;
+            display: grid;
+            place-content: center;
+          }
+        }
+      }
+    }
 
     a {
       display: flex;
@@ -296,15 +333,23 @@ body {
 
   .card-header {
     padding: 2rem 2.4rem 0 2.4rem;
+
+    h3 {
+      opacity: 0.5;
+    }
   }
 
   .card-body {
     padding: 2rem 2.4rem 2.4rem 2.4rem;
   }
 
+  .body-pb0 {
+    padding: 2rem 2.4rem 0 2.4rem !important;
+  }
+
   .card-code {
     border-top: 0.18rem solid var(--dark-border);
-    height: 100%;
+    padding: 2.2rem;
   }
 }
 
@@ -319,6 +364,18 @@ body {
 .code-box {
   position: relative;
 
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9;
+    margin-bottom: 1.4rem;
+
+    p {
+      opacity: 0.5;
+    }
+  }
+
   .code-copy {
     display: flex;
     align-items: center;
@@ -326,12 +383,12 @@ body {
     gap: 0.6rem;
     border: none;
     background-color: transparent;
-    position: absolute;
-    right: 2rem;
-    top: 1rem;
-    z-index: 9;
     border-radius: 0.4rem;
-    padding: 0.4rem;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
 
     span {
       font-size: 2.2rem !important;
@@ -341,6 +398,13 @@ body {
       font-size: 1.8rem !important;
     }
   }
+}
+
+.line-numbers {
+  padding: 0 0.8rem !important;
+  background-color: var(--code-snippet) !important;
+  border: 0.18rem solid var(--dark-border);
+  border-radius: 0.8rem !important;
 }
 
 code {
@@ -386,5 +450,40 @@ pre[class*="language-"] {
 
 code[class*="language-"],
 pre[class*="language-"] {
+  padding: 0;
   margin: 0;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+  background: transparent;
+}
+
+// Helpers
+.app-mt-1 {
+  margin-top: 1rem;
+}
+
+.app-mt-15 {
+  margin-top: 1.6rem;
+}
+
+.app-mt-2 {
+  margin-top: 2rem;
+}
+
+.app-bdr-top {
+  border-top: 0.18rem solid var(--dark-border);
+}
+
+.app-bdr-btm {
+  border-bottom: 0.18rem solid var(--dark-border);
+}
+
+.app-bdr-none {
+  border: none !important;
 }

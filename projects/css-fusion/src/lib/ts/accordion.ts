@@ -37,7 +37,7 @@ export class Accordion {
         this.closeAccordion(body, stateArrow);
       }
 
-      if (!clickedElement.querySelector('.acc-head-static')) {
+      if (!clickedElement.querySelector('.acc-static')) {
         const group = clickedElement.closest('.accordion-grup') as HTMLElement;
         this.closeOtherAccordions(group, clickedElement);
       }

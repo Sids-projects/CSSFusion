@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CompsCodeComponent {
   @Input() showCode: string = '';
+  @Input() compCodeHead: boolean = true;
   showLang: string = '';
 
   constructor(private snackBar: MatSnackBar) {}
