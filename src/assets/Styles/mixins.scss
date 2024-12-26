@@ -56,3 +56,15 @@
   mix-blend-mode: var(--_mesh-gradient-blend-mode);
   filter: blur(var(--_mesh-gradient-blur));
 }
+
+// Customizer
+@mixin assetsBg() {
+  background-color: #171721;
+  border: 1px solid #171721;
+}
+
+@mixin inputColor() {
+  background-color: #20202a;
+  border: 0.15rem solid #282834;
+  color: white;
+}

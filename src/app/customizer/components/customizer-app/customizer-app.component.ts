@@ -1,9 +1,8 @@
-import { Component, HostListener } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, HostBinding, HostListener } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CdkDragDrop, moveItemInArray, CdkDrag } from '@angular/cdk/drag-drop';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ThemeService } from '../../../theme.service';
 
 @Component({
   selector: 'app-customizer-app',
@@ -18,9 +17,9 @@ export class CustomizerAppComponent {
   editRadius: boolean = false;
   txtAlign: string = 'left';
   showToolsKey: any[] = [];
-  showMenuName: string = 'components';
+  showMenuName: string = 'artboards';
   changes: any = {};
-  toolBarMenu: string = 'text';
+  toolBarMenu: string = 'artboards';
   showMenuForm: boolean = true;
   moreMenu: boolean = false;
   unsavedChanges: boolean = true;
@@ -33,28 +32,6 @@ export class CustomizerAppComponent {
 
   customizeKey: boolean = true;
   componentsKey: boolean = false;
-
-  dragItems = [
-    {
-      title: 'Button',
-      class: 'btnView',
-      content: 'ads_click',
-      disabled: false,
-    },
-    {
-      title: 'Input',
-      class: 'impView',
-      content: 'format_shapes',
-      disabled: false,
-    },
-    {
-      title: 'Table',
-      class: 'tableView',
-      content: 'data_table',
-      disabled: false,
-    },
-  ];
-  droppedItems: any[] = [];
 
   txtAlignObj: any = [
     {
@@ -74,10 +51,21 @@ export class CustomizerAppComponent {
     },
   ];
 
-  constructor(private location: Location, private snackBar: MatSnackBar) {}
+  respoProp: string = 'desktop';
+  respoWidth: string = '';
+  respoHeight: string = '';
+
+  selectCompProp: string = '';
+
+  @HostBinding('class') componentTheme = '';
+
+  constructor(
+    private snackBar: MatSnackBar,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
-    this.showTools('Text');
+    this.showTools('artboards');
     this.btnForm = new FormGroup({
       buttonName: new FormControl('Click'),
       fontSize: new FormControl(16),
@@ -109,26 +97,16 @@ export class CustomizerAppComponent {
     });
 
     this.makeChanges();
+
+    this.themeService.currentTheme.subscribe((theme) => {
+      this.componentTheme = theme;
+    });
   }
 
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any): void {
     if (this.unsavedChanges) {
       $event.returnValue = true;
-    }
-  }
-
-  saveChanges() {
-    this.unsavedChanges = false;
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  artboard() {
-    if (this.droppedItems.length != 0) {
-      this.showMenuForm = false;
     }
   }
 
@@ -156,13 +134,7 @@ export class CustomizerAppComponent {
 
   showMenus(param: string) {
     this.showMenuForm = true;
-
-    if (this.droppedItems.length === 0) {
-      this.showMenuName = 'components';
-      this.openSnackBar('Select a component', 'Close');
-    } else {
-      this.showMenuName = param;
-    }
+    this.showMenuName = param;
   }
 
   widthHeightToggle(event: MatSlideToggleChange) {
@@ -310,46 +282,29 @@ export class CustomizerAppComponent {
     };
   }
 
-  showTools(param: string) {
-    this.showToolsKey = [param];
+  selectComp(param: string) {
+    this.selectCompProp = param;
   }
 
-  hideTools(param: string) {
-    this.showToolsKey = this.showToolsKey.filter((key) => key !== param);
-  }
+  respoScreen(param: string) {
+    this.respoProp = param;
 
-  drop(event: CdkDragDrop<any[]>, listType: string) {
-    if (event.previousContainer === event.container) {
-      // Handle the case where the item is moved within the same list
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    } else {
-      // Handle the case where the item is moved between different lists
-      const item = event.previousContainer.data[event.previousIndex];
-
-      // Add a copy of the dragged item to the target list
-      this.droppedItems.push({ ...item });
-
-      // Disable the item in the source list
-      this.dragItems[event.previousIndex].disabled = true;
+    if (this.respoProp === 'mobile') {
+      this.respoWidth = '320px';
+      this.respoHeight = '480px';
+    }
+    if (this.respoProp === 'tablet') {
+      this.respoWidth = '640px';
+      this.respoHeight = 'calc(100vh - 9.2rem)';
+    }
+    if (this.respoProp === 'desktop') {
+      this.respoWidth = 'calc(100vw - 41.6rem)';
+      this.respoHeight = '100%';
     }
   }
 
-  sortPredicate(index: number, item: CdkDrag<number>) {
-    return (index + 1) % 2 === item.data % 2;
-  }
-
-  customize() {
-    this.customizeKey = true;
-    this.componentsKey = false;
-  }
-
-  components() {
-    this.customizeKey = false;
-    this.componentsKey = true;
+  showTools(param: string) {
+    this.showToolsKey = [param];
   }
 
   zoomInFn() {
@@ -376,5 +331,11 @@ export class CustomizerAppComponent {
     this.snackBar.open(message, action, {
       duration: 3000,
     });
+  }
+
+  toggleTheme(): void {
+    const newTheme =
+      this.componentTheme === 'dark-mode' ? 'light-mode' : 'dark-mode';
+    this.themeService.setTheme(newTheme);
   }
 }

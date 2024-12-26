@@ -198,21 +198,40 @@
   <div class="app-card">
     <div class="card-header">
       <h3>Build-in Colours</h3>
+      <div class="card-head-set02">
+        <span class="clr-blocks clr-green" (click)="selectClr('green')"></span>
+        <span
+          class="clr-blocks clr-yellow"
+          (click)="selectClr('yellow')"
+        ></span>
+        <span
+          class="clr-blocks clr-orange"
+          (click)="selectClr('orange')"
+        ></span>
+        <span class="clr-blocks clr-blue" (click)="selectClr('blue')"></span>
+        <span
+          class="clr-blocks clr-violet"
+          (click)="selectClr('violet')"
+        ></span>
+        <span class="clr-blocks clr-gray" (click)="selectClr('gray')"></span>
+      </div>
     </div>
     <div class="card-body">
       <div class="accordion-grup">
         <ng-container *ngFor="let data of accContentXl">
-          <div [class]="'accordion-main accordion- ' + data.class">
-            <div class="acc-head">
-              <h2 class="acc-title">{{ data.title }}</h2>
-              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
-            </div>
-            <div class="acc-body">
-              <div class="acc-content">
-                <p>{{ data.content }}</p>
+          <ng-container *ngIf="selectedClr === data.class">
+            <div [ngClass]="'accordion-main accordion-' + data.class">
+              <div class="acc-head">
+                <h2 class="acc-title">{{ data.title }}</h2>
+                <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+              </div>
+              <div class="acc-body">
+                <div class="acc-content">
+                  <p>{{ data.content }}</p>
+                </div>
               </div>
             </div>
-          </div>
+          </ng-container>
         </ng-container>
       </div>
     </div>

@@ -10,6 +10,7 @@ import { ThemeService } from '../../../theme.service';
 })
 export class AccordionComponent implements OnInit {
   themeClr: string = '';
+  selectedClr: string = 'green';
   accContent: { class: string; title: string; content: string }[] = [
     {
       class: '',
@@ -26,37 +27,37 @@ export class AccordionComponent implements OnInit {
   ];
   accContentXl: { class: string; title: string; content: string }[] = [
     {
-      class: 'accordion-yellow',
+      class: 'yellow',
       title: 'Introduction',
       content:
         'Welcome to the Accordion UI! This component allows you to display sections of content that can be expanded and collapsed. Use the arrow icon or click the headers to toggle between showing and hiding content.',
     },
     {
-      class: 'accordion-green',
+      class: 'green',
       title: 'Terms and Conditions',
       content:
         'Welcome to the Accordion UI! This component allows you to display sections of content that can be expanded and collapsed. Use the arrow icon or click the headers to toggle between showing and hiding content.',
     },
     {
-      class: 'accordion-orange',
+      class: 'orange',
       title: 'Introduction',
       content:
         'Welcome to the Accordion UI! This component allows you to display sections of content that can be expanded and collapsed. Use the arrow icon or click the headers to toggle between showing and hiding content.',
     },
     {
-      class: 'accordion-blue',
+      class: 'blue',
       title: 'Terms and Conditions',
       content:
         'Welcome to the Accordion UI! This component allows you to display sections of content that can be expanded and collapsed. Use the arrow icon or click the headers to toggle between showing and hiding content.',
     },
     {
-      class: 'accordion-violet',
+      class: 'violet',
       title: 'Introduction',
       content:
         'Welcome to the Accordion UI! This component allows you to display sections of content that can be expanded and collapsed. Use the arrow icon or click the headers to toggle between showing and hiding content.',
     },
     {
-      class: 'accordion-gray',
+      class: 'gray',
       title: 'Terms and Conditions',
       content:
         'Welcome to the Accordion UI! This component allows you to display sections of content that can be expanded and collapsed. Use the arrow icon or click the headers to toggle between showing and hiding content.',
@@ -69,10 +70,20 @@ export class AccordionComponent implements OnInit {
     this.themeService.currentTheme.subscribe((theme) => {
       this.themeClr = theme;
     });
+    setTimeout(() => {
+      this.accordion();
+    });
   }
 
-  ngAfterViewInit() {
+  accordion() {
     const accordionElements = document.querySelectorAll('.accordion-main');
     new Accordion(accordionElements as NodeListOf<HTMLElement>);
+  }
+
+  selectClr(param: string) {
+    this.selectedClr = param;
+    setTimeout(() => {
+      this.accordion();
+    });
   }
 }

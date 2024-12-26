@@ -48,10 +48,17 @@
 import &#123; Accordion &#125; from '&#64;dev.spot/css-fusion';
 
 export class AccordionComponent implements OnInit &#123;
-  ngAfterViewInit() &#123;
+  ngOnInit() &#123;
+    setTimeout(() => &#123;
+      this.accordion();
+    &#125;);
+    &#125;
+  &#125;
+
+  accordion() &#123;
     const accordionElements = document.querySelectorAll('.accordion-main');
     new Accordion(accordionElements as NodeListOf&lt;HTMLElement&gt;);
-  &#125;
+  &#123;
 &#125;
 </code>
 </pre>
@@ -240,16 +247,24 @@ export class AccordionComponent implements OnInit &#123;
       <button
         class="code-copy"
         matTooltip="copy"
-        (click)="copyCode(accordion01)"
+        (click)="copyCode(accStructure)"
       >
         <span class="material-symbols-outlined"> file_copy </span>
       </button>
     </header>
     <pre class="line-numbers">
-<code class="language-html" #accordion01>
+<code class="language-html" #accStructure>
 &lt;!-- Containers --&gt;
 &lt;div class="accordion-grup"&gt; &lt;/div&gt; &lt;!-- Group all accordion --&gt;
 &lt;div class="accordion-main"&gt; &lt;/div&gt; &lt;!-- Accordion Container --&gt;
+
+&lt;!-- Inbuild Colour --&gt;
+&lt;div class="accordion-main accordion-yellow"&gt;
+&lt;div class="accordion-main accordion-green"&gt;
+&lt;div class="accordion-main accordion-orange"&gt;
+&lt;div class="accordion-main accordion-blue"&gt;
+&lt;div class="accordion-main accordion-violet"&gt;
+&lt;div class="accordion-main accordion-gray"&gt;
 
 &lt;!-- Header --&gt;
 &lt;div class="acc-head"&gt; &lt;/div&gt; &lt;!-- Dynamic Accordion --&gt;

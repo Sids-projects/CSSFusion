@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Subscribe to theme changes
     this.themeService.currentTheme.subscribe((theme) => {
       this.isDarkMode = theme === 'dark-mode';
       document.documentElement.setAttribute('class', theme);
@@ -39,6 +38,6 @@ export class AppComponent implements OnInit {
 
   toggleTheme(): void {
     const newTheme = this.isDarkMode ? 'light-mode' : 'dark-mode';
-    this.themeService.setTheme(newTheme); // Update the theme via ThemeService
+    this.themeService.setTheme(newTheme);
   }
 }

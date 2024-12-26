@@ -7,102 +7,52 @@
   box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Phudu", sans-serif !important;
-}
-
-p {
-  font-family: "Poppins", sans-serif !important;
-}
-
 ul,
 ol {
   padding: 0;
   margin: 0;
 }
 
-input[type="range"] {
-  overflow: hidden;
-  appearance: none;
-  --webkit-appearance: none;
-  background-color: var(--base-bg);
-  border: 0.2rem solid var(--border-color);
-  border-radius: 2rem;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-  width: 100% !important;
-  height: 1rem;
-  appearance: none;
-  -webkit-appearance: none;
-  color: #13bba4;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  width: 1rem;
-  height: 1rem;
-  appearance: none;
-  -webkit-appearance: none;
-  cursor: ew-resize;
-  background-color: #525252;
-  box-shadow: -40.5rem 0 0 40rem #0d6efd;
-  border-radius: 4rem;
-}
-
-@mixin assetsBg() {
-  background-color: #171721;
-  border: 1px solid #171721;
-}
-
-@mixin inputColor() {
-  background-color: #20202a;
-  border: 0.15rem solid #282834;
-  color: white;
-}
-
-#app-customizer {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2rem;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-#app-toolBox {
+.app-customizer {
+  background-color: var(--app-mode-clr);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  position: relative;
-  z-index: 100 !important;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 1.4rem;
+}
 
-  #app-header {
+.customizer-box {
+  height: calc(100vh - 2.8rem);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.4rem;
+
+  .customizer-menu {
     width: 6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: space-between;
+
+    .customizer-menu-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4rem;
+    }
 
     .app-tools {
       @include blurLayer($bdrRds: 1rem);
-      padding: 2rem 1.4rem;
+      padding: 1.8rem 1.4rem;
       display: flex;
       flex-direction: column;
       gap: 3rem;
 
       span {
-        color: #ababba;
-        cursor: pointer;
         display: grid;
         place-content: center;
+        opacity: 0.6;
+        cursor: pointer;
       }
 
       a {
@@ -111,21 +61,21 @@ input[type="range"]::-webkit-slider-thumb {
       }
 
       span {
-        color: #ababba;
         cursor: pointer;
         display: grid;
         place-content: center;
       }
 
       .active {
-        color: white !important;
+        color: var(--theme-colour) !important;
+        opacity: 1 !important;
       }
     }
 
     .app-tools-mini {
       @include blurLayer($bdrRds: 1rem);
       border-radius: 1rem;
-      padding: 1.2rem 1.4rem;
+      padding: 1rem 1.4rem;
       display: flex;
       flex-direction: column;
       gap: 3rem;
@@ -136,351 +86,348 @@ input[type="range"]::-webkit-slider-thumb {
       }
 
       span {
-        color: #ababba;
         cursor: pointer;
         display: grid;
         place-content: center;
       }
 
       .active {
-        color: white !important;
+        color: var(--theme-colour) !important;
       }
     }
   }
 
-  #app-menus-box {
-    width: 32rem;
+  .customizer-canvas {
+    @include blurLayer($bdrRds: 1rem);
+    width: calc(100vw - 41.6rem);
+    height: calc(100vh - 9.2rem);
+    height: 100%;
+    display: grid;
+    place-content: center;
+    transform: scale(1);
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .customizer-editor {
+    @include blurLayer($bdrRds: 1.4rem);
+    width: 30rem;
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
-    position: absolute;
-    left: 6.8rem;
+    position: relative;
+    border-radius: 0.8rem;
+    padding-bottom: 1rem;
+    height: 100%;
+    overflow-y: auto;
 
-    #app-menus {
-      @include assetsBg();
+    /* width */
+    &::-webkit-scrollbar {
+      width: 0.6rem;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #171721;
+      border-radius: 50px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #252531;
+      border-radius: 50px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #2d2d3b;
+    }
+
+    .menu-title {
+      border-bottom: 1px solid #2b2b34;
       display: flex;
-      flex-direction: column;
-      position: relative;
-      border-radius: 0.8rem;
-      padding-bottom: 1rem;
-      min-height: auto;
-      height: 100%;
-      max-height: 48rem;
-      overflow-y: scroll;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.2rem;
 
-      /* width */
-      &::-webkit-scrollbar {
-        width: 0.6rem;
+      h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
       }
 
-      /* Track */
-      &::-webkit-scrollbar-track {
-        background: #171721;
-        border-radius: 50px;
+      .code-btn {
+        width: 3.4rem;
+        height: 3.4rem;
+        border-radius: 0.6rem;
+        background-color: #4361ee !important;
+        display: grid;
+        place-content: center;
+        cursor: pointer;
       }
+    }
 
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
-        background: #252531;
-        border-radius: 50px;
+    .app-menuHead {
+      margin-bottom: 1.8rem;
+
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        gap: 0.8rem;
+
+        span {
+          display: grid;
+          place-content: center;
+        }
       }
+    }
 
-      /* Handle on hover */
-      &::-webkit-scrollbar-thumb:hover {
-        background: #2d2d3b;
-      }
-
-      .menu-title {
-        border-bottom: 1px solid #2b2b34;
+    .tools-box {
+      header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem 1.2rem;
-
-        h3 {
-          font-size: 1.6rem;
-          font-weight: 600;
-        }
-
-        .code-btn {
-          width: 3.4rem;
-          height: 3.4rem;
-          border-radius: 0.6rem;
-          background-color: #4361ee !important;
-          color: white;
-          display: grid;
-          place-content: center;
-          cursor: pointer;
-        }
-      }
-
-      .app-menuHead {
-        margin-bottom: 1.8rem;
+        padding: 1.6rem 1.6rem 1rem 1.6rem;
+        cursor: pointer;
 
         p {
           display: flex;
           align-items: center;
-          justify-content: flex-start;
-          cursor: pointer;
-          padding: 0;
-          margin: 0;
           gap: 0.8rem;
+          font-size: 1.4rem;
+          font-weight: 600;
+        }
 
-          span {
-            display: grid;
-            place-content: center;
-          }
+        span {
+          font-size: 20px !important;
+        }
+
+        .auto-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 0.8rem;
         }
       }
 
-      .tools-box {
-        header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 1.6rem 1.6rem 1rem 1.6rem;
-          cursor: pointer;
+      .tools-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        padding: 1.6rem;
+      }
 
-          p {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-          }
+      .tools-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.6rem;
+        padding: 1.6rem;
+      }
 
-          span {
-            font-size: 20px !important;
-          }
+      .frame-items {
+        @include blurLayer($bdrRds: 0.8rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 2rem 1rem;
 
-          .auto-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 0.8rem;
-          }
-        }
-
-        .tools-flex {
-          display: flex;
-          flex-direction: column;
-          gap: 1.6rem;
-          padding: 1.6rem;
-        }
-
-        .tools-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1.6rem;
-          padding: 1.6rem;
-        }
-
-        .tools-code {
-          padding: 1.6rem;
-        }
-
-        .grid02-expand {
-          grid-column-start: 1;
-          grid-column-end: 3;
-        }
-
-        .text-aling {
-          width: 100%;
-          border-radius: 0.6rem;
-          @include inputColor();
-          font-weight: 500;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0.6rem;
-
-          span {
-            font-size: 1.6rem !important;
-            padding: 0.8rem;
-            border-radius: 0.4rem;
-            cursor: pointer;
-          }
-
-          #active-menu {
-            background-color: #303044;
-          }
-        }
-
-        .text-color {
-          width: 100%;
-          border-radius: 0.6rem;
-          @include inputColor();
-          font-weight: 500;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 1.2rem;
-
-          div {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-          }
+        .material-symbols-outlined {
+          font-size: 3.4rem;
         }
 
         label {
-          font-size: 1.2rem;
-          font-weight: 600;
-          margin-bottom: 0.6rem !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+      }
+
+      .tools-code {
+        padding: 1.6rem;
+      }
+
+      .grid02-expand {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+
+      .text-aling {
+        @include blurLayer($bdrRds: 0.6rem);
+        width: 100%;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.6rem;
+
+        span {
+          font-size: 1.6rem !important;
+          padding: 0.8rem;
+          border-radius: 0.4rem;
+          cursor: pointer;
+        }
+
+        #active-menu {
+          background-color: #303044;
+        }
+      }
+
+      .text-color {
+        @include blurLayer($bdrRds: 0.6rem);
+        width: 100%;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem;
+
+        div {
           display: flex;
           align-items: center;
-          justify-content: flex-start;
-          gap: 0.4rem;
-          color: #9d9dac !important;
-
-          .material-symbols-outlined {
-            display: block;
-            font-size: 1.8rem !important;
-          }
-        }
-
-        input[type="text"] {
-          width: 100%;
-          padding: 0.8rem;
-          border-radius: 0.6rem;
-          border: none;
-          @include inputColor();
-          font-size: 1.4rem;
-          font-weight: 500;
-        }
-
-        input[type="number"] {
-          width: 100%;
-          padding: 0.8rem;
-          border-radius: 0.6rem;
-          border: none;
-          @include inputColor();
-          font-size: 1.4rem;
-          font-weight: 500;
-        }
-
-        input[type="range"] {
-          width: 100%;
-        }
-
-        input[type="color"] {
-          width: 2rem;
-          height: 2rem;
-          border: none;
-        }
-
-        select {
-          width: 100%;
-          padding: 0.9rem 0.8rem;
-          border-radius: 0.6rem;
-          border: none;
-          @include inputColor();
-          font-size: 1.4rem;
-          font-weight: 500;
+          gap: 0.8rem;
         }
       }
 
-      .component-list {
-        padding: 1.8rem 1.4rem 2rem 1.4rem;
+      label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.6rem !important;
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.4rem;
 
-        .btnView {
-          width: 100%;
-          padding: 0.8rem;
-          border-radius: 0.6rem;
-          background-color: #4361ee;
-          color: white;
-        }
-
-        .impView {
-          width: 100%;
-          padding: 0.8rem;
-          border-radius: 0.6rem;
-          border: 0.18rem solid #1f1f21;
-          font-size: 1.4rem;
-          font-weight: 500;
+        .material-symbols-outlined {
+          display: block;
+          font-size: 1.8rem !important;
         }
       }
 
-      #code-btn {
-        width: 3.6rem;
-        height: 3.6rem;
+      input[type="text"] {
+        @include blurLayer($bdrRds: 0.6rem);
+        color: var(--font-colour);
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+
+      input[type="number"] {
+        @include blurLayer($bdrRds: 0.6rem);
+        color: var(--font-colour);
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+
+      input[type="range"] {
+        width: 100%;
+      }
+
+      input[type="color"] {
+        @include blurLayer($bdrRds: 0.6rem);
+        color: var(--font-colour);
+        width: 2rem;
+        height: 2rem;
+      }
+
+      select {
+        @include blurLayer($bdrRds: 0.6rem);
+        color: var(--font-colour);
+        width: 100%;
+        padding: 0.9rem 0.8rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+    }
+
+    .component-list {
+      padding: 1.8rem 1.4rem 2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .btnView {
+        width: 100%;
+        padding: 0.8rem;
         border-radius: 0.6rem;
-        position: absolute;
-        bottom: 1rem;
-        right: 1rem;
         background-color: #4361ee;
-        color: white;
-        display: grid;
-        place-content: center;
+      }
+
+      .impView {
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 0.6rem;
+        border: 0.18rem solid #1f1f21;
+        font-size: 1.4rem;
+        font-weight: 500;
       }
     }
 
-    // Elements
-    .app-components {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 0 1.6rem 1.6rem 1.6rem;
-
-      .btn-element {
-        width: 100%;
-        border-radius: 0.6rem;
-        padding: 1rem 1rem;
-        background-color: white;
-        color: black;
-        font-weight: 500;
-        text-align: center;
-        cursor: grab;
-      }
-
-      .inp-element {
-        width: 100%;
-        border-radius: 0.6rem;
-        padding: 1rem 1rem;
-        background-color: white;
-        color: black;
-        font-weight: 500;
-        cursor: grab;
-      }
-
-      .table-element {
-        width: 100%;
-        border-collapse: collapse;
-        border-radius: 0.6rem;
-        overflow: hidden;
-
-        th {
-          width: 50%;
-          background-color: #20202a;
-          border: 0.15rem solid #282834;
-          padding: 0.6rem;
-          font-weight: 400 !important;
-        }
-      }
-    }
-
-    .app-comp-adjust {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+    #code-btn {
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 0.6rem;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background-color: #4361ee;
+      display: grid;
+      place-content: center;
     }
   }
 }
 
-#app-canvas {
-  background-color: white;
-  width: calc(100dvw - 12rem);
-  height: calc(100vh - 4rem);
-  overflow-x: hidden;
-  overflow-y: hidden;
-  border-radius: 0.8rem;
-  display: grid;
-  place-content: center;
-  transform: scale(1);
-  margin: auto;
+// Elements
+.app-components {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1.6rem 1.6rem 1.6rem;
+
+  .btn-element {
+    width: 100%;
+    border-radius: 0.6rem;
+    padding: 1rem 1rem;
+    background-color: white;
+    font-weight: 500;
+    text-align: center;
+    cursor: grab;
+  }
+
+  .inp-element {
+    width: 100%;
+    border-radius: 0.6rem;
+    padding: 1rem 1rem;
+    background-color: white;
+    font-weight: 500;
+    cursor: grab;
+  }
+
+  .table-element {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0.6rem;
+    overflow: hidden;
+
+    th {
+      width: 50%;
+      background-color: #20202a;
+      border: 0.15rem solid #282834;
+      padding: 0.6rem;
+      font-weight: 400 !important;
+    }
+  }
+}
+
+.app-comp-adjust {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .drag-handler {
@@ -502,9 +449,6 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .more-box {
-  background-color: #171721;
-  border: 1px solid #171721;
-  color: white;
   min-width: 4.4rem;
   width: 100%;
   max-width: fit-content;
@@ -515,8 +459,10 @@ input[type="range"]::-webkit-slider-thumb {
   justify-content: center;
   gap: 1rem;
   cursor: pointer;
-  position: fixed;
-  bottom: 3rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0 1.8rem;
 
   .more-menus {
     display: flex;
@@ -524,15 +470,6 @@ input[type="range"]::-webkit-slider-thumb {
     justify-content: center;
     gap: 1rem;
   }
-}
-
-.more-box01 {
-  right: 17.8rem;
-}
-
-.more-box02 {
-  right: 3rem;
-  padding: 0 1.8rem;
 }
 
 .zoom-box {
@@ -554,10 +491,110 @@ input:disabled {
   }
 
   .c-key {
-    color: #e2f1f2;
+    color: #009aa5;
   }
 
   .c-value {
     color: #fb7070;
+  }
+}
+
+input[type="range"] {
+  overflow: hidden;
+  appearance: none;
+  --webkit-appearance: none;
+  background-color: var(--base-bg);
+  border: 0.2rem solid var(--border-color);
+  border-radius: 2rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100% !important;
+  height: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 1rem;
+  height: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background-color: #525252;
+  box-shadow: -40.5rem 0 0 40rem #0d6efd;
+  border-radius: 4rem;
+}
+
+// Popup
+.cusromizer-popup {
+  background-color: rgba(0, 0, 0, 0.642);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .cus-popup-box {
+    background-color: rgb(34, 35, 42);
+    border-radius: 1rem;
+    min-width: 38rem;
+    width: 100%;
+    max-width: 100rem;
+    min-height: 60rem;
+    max-height: 80rem;
+    z-index: 10;
+
+    .cus-popup-head {
+      border-bottom: 0.18rem solid rgba(118, 118, 118, 0.146);
+      padding: 1.4rem 1.8rem;
+    }
+
+    .cus-popup-body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.4rem;
+      padding: 2.4rem;
+
+      .popup-card {
+        @include blurLayer($bdrRds: 1rem);
+
+        .popup-demo {
+          height: 10rem;
+          display: grid;
+          place-content: center;
+
+          button {
+            width: 9rem !important;
+            height: 3.8rem;
+            border-radius: 0.8rem;
+            border: none;
+            background-color: #0d6efd;
+            color: white;
+            font-size: 1.6rem;
+            letter-spacing: 0.1rem;
+          }
+        }
+
+        .popup-content {
+          border-top: 0.2rem solid rgba(118, 118, 118, 0.146);
+          padding: 1.4rem;
+
+          p {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+          }
+
+          small {
+            line-height: 1.2rem;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
   }
 }
