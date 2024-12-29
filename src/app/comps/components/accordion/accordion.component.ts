@@ -70,9 +70,10 @@ export class AccordionComponent implements OnInit {
     this.themeService.currentTheme.subscribe((theme) => {
       this.themeClr = theme;
     });
-    setTimeout(() => {
-      this.accordion();
-    });
+  }
+
+  ngAfterViewInit() {
+    this.accordion();
   }
 
   accordion() {

@@ -1,6 +1,10 @@
 <main
   id="app"
-  [ngStyle]="{ 'grid-template-rows': showNav ? '7.4rem 1fr' : '1fr' }"
+  [ngStyle]="{
+    'grid-template-rows': showNav ? '7.4rem 1fr' : '1fr',
+    overflow: currentComp !== 'HomeRoute' ? 'hidden' : 'auto',
+    
+  }"
 >
   <nav
     id="app-nav"

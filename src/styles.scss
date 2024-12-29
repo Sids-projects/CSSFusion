@@ -7,7 +7,8 @@
 @import "./../projects/css-fusion/src/lib/scss/main.scss";
 @import "./assets/Styles/variables.scss";
 @import "./assets/Styles/mixins.scss";
-@import "./assets//Styles/overwrite.scss";
+@import "./assets/Styles/overwrite.scss";
+@import "./assets/Styles/structure.scss";
 
 @font-face {
   font-family: "Satoshi-Bold";
@@ -54,7 +55,7 @@ body {
 .light-mode {
   @include lightMode();
   --dark-glass: rgba(0, 0, 0, 0.111) !important;
-  --dark-border: rgba(255, 255, 255, 0.273) !important;
+  --dark-border: rgba(255, 255, 255, 0.378) !important;
   --theme-colour: rgb(64, 81, 181) !important;
   --font-colour: rgba(0, 0, 0, 0.853) !important;
   --app-mode-clr: #dfdfdf !important;
@@ -86,6 +87,23 @@ body {
   grid-template-rows: 7.4rem 1fr;
   height: 100vh;
   overflow: hidden;
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @include blurLayer($bdrRds: 1rem);
+    background-color: rgba(255, 255, 255, 0.165);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
   #app-nav {
     display: flex;

@@ -3,25 +3,6 @@
 
 #app-home {
   padding: 7rem 0 0 0;
-  height: calc(100vh - 6.6rem);
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: 1rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    @include blurLayer($bdrRds: 1rem);
-    background-color: rgba(255, 255, 255, 0.165);
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
 
   .set-01 {
     display: flex;

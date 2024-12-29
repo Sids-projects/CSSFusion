@@ -1,10 +1,79 @@
-<section>
-  <nav *ngIf="showNav">
-    <a routerLink="CustomizerAppRoute">Editor</a>
-    <a routerLink="CustomizerGuideRoute">Guide</a>
-  </nav>
+<section
+  class="customizer-module"
+  [ngStyle]="{
+    padding: !showNav ? 0 : '0 0 0 1.8rem',
+    height: !showNav ? '100vh' : 'calc(100vh - 7.4rem)'
+  }"
+>
+  <div class="customizer-landing" *ngIf="showNav">
+    <div class="set-box set-01">
+      <div>
+        <span class="material-symbols-outlined customizer-logo"> tune </span>
+        <h2>Welcome to <br />CSSFusion Customizer</h2>
+        <p>
+          Transform your design ideas into reality with the CSSFusion
+          Customizer, your ultimate styling toolkit. Whether you're tweaking a
+          button, enhancing a dropdown, or fine-tuning an accordion, our
+          customizer gives you the tools to create visually stunning components
+          tailored to your needs.
+        </p>
+        <div class="set-btn-box">
+          <a routerLink="CustomizerAppRoute">Editor </a>
+          <a routerLink="CustomizerGuideRoute">Guide</a>
+        </div>
+      </div>
+      <div>
+        <div class="set-img">
+          <div class="set-img-content">
+            <div class="set-tools">
+              <span class="material-symbols-outlined">filter_frames</span>
+              <span class="material-symbols-outlined set-active"
+                >font_download</span
+              >
+              <span class="material-symbols-outlined">palette</span>
+              <span class="material-symbols-outlined"
+                >format_letter_spacing</span
+              >
+              <span class="material-symbols-outlined">masked_transitions</span>
+            </div>
+            <div class="set-canvas">
+              <div class="accordion-grup">
+                <div class="accordion-main cf-dark">
+                  <div class="acc-head">
+                    <h3 class="acc-title">Introduction</h3>
+                    <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+                  </div>
+                  <div class="acc-body">
+                    <div class="acc-content">
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Eius, minima?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside>
+            <p>
+              <span class="material-symbols-outlined set-active"
+                >font_download</span
+              >
+              Text Formatting
+            </p>
+            <div>
+              <input type="text" placeholder="Name" disabled />
+              <input type="text" placeholder="Size" disabled />
+              <input type="text" placeholder="Weight" disabled />
+              <input type="text" placeholder="Style" disabled />
+              <input type="text" placeholder="Border" disabled />
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <section>
-    <router-outlet></router-outlet>
-  </section>
+  <router-outlet></router-outlet>
 </section>

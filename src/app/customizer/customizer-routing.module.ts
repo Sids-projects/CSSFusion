@@ -9,8 +9,8 @@ const routes: Routes = [
     path: 'CustomizerRouting',
     component: CustomizerComponent,
     children: [
-      { path: 'CustomizerAppRoute', component: CustomizerAppComponent },
       { path: 'CustomizerGuideRoute', component: CustomizerGuideComponent },
+      { path: 'CustomizerAppRoute', component: CustomizerAppComponent },
     ],
   },
 ];

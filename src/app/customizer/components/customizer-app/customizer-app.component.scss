@@ -109,6 +109,21 @@ ol {
     overflow: hidden;
   }
 
+  .canvas-mobile {
+    width: 320px;
+    height: 480px;
+  }
+
+  .canvas-tablet {
+    width: 640px;
+    height: calc(100vh - 9.2rem);
+  }
+
+  .canvas-desktop {
+    width: calc(100vw - 41.6rem);
+    height: 100%;
+  }
+
   .customizer-editor {
     @include blurLayer($bdrRds: 1.4rem);
     width: 30rem;
@@ -254,6 +269,20 @@ ol {
         grid-column-end: 3;
       }
 
+      .acc-field-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .acc-btn-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+      }
+
       .text-aling {
         @include blurLayer($bdrRds: 0.6rem);
         width: 100%;
@@ -307,6 +336,15 @@ ol {
       }
 
       input[type="text"] {
+        @include blurLayer($bdrRds: 0.6rem);
+        color: var(--font-colour);
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+
+      textarea {
         @include blurLayer($bdrRds: 0.6rem);
         color: var(--font-colour);
         width: 100%;
@@ -526,6 +564,14 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 4rem;
 }
 
+.customizer-btn {
+  @include blurLayer($bdrRds: 0.6rem);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.8rem;
+}
+
 // Popup
 .cusromizer-popup {
   background-color: rgba(0, 0, 0, 0.642);
@@ -539,7 +585,9 @@ input[type="range"]::-webkit-slider-thumb {
   justify-content: center;
 
   .cus-popup-box {
-    background-color: rgb(34, 35, 42);
+    border: 0.18rem solid var(--dark-border);
+    background-color: var(--app-mode-clr);
+    color: var(--font-colour);
     border-radius: 1rem;
     min-width: 38rem;
     width: 100%;
@@ -549,7 +597,7 @@ input[type="range"]::-webkit-slider-thumb {
     z-index: 10;
 
     .cus-popup-head {
-      border-bottom: 0.18rem solid rgba(118, 118, 118, 0.146);
+      border-bottom: 0.18rem solid var(--dark-border);
       padding: 1.4rem 1.8rem;
     }
 
@@ -561,18 +609,24 @@ input[type="range"]::-webkit-slider-thumb {
 
       .popup-card {
         @include blurLayer($bdrRds: 1rem);
+        border-width: 0.18rem !important;
 
         .popup-demo {
+          border-bottom: 0.18rem solid var(--dark-border);
           height: 10rem;
           display: grid;
           place-content: center;
+
+          .accordion-grup {
+            width: 24rem;
+          }
 
           button {
             width: 9rem !important;
             height: 3.8rem;
             border-radius: 0.8rem;
             border: none;
-            background-color: #0d6efd;
+            background-color: #0f55eb;
             color: white;
             font-size: 1.6rem;
             letter-spacing: 0.1rem;
@@ -580,7 +634,6 @@ input[type="range"]::-webkit-slider-thumb {
         }
 
         .popup-content {
-          border-top: 0.2rem solid rgba(118, 118, 118, 0.146);
           padding: 1.4rem;
 
           p {

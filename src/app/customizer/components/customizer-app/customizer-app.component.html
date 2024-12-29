@@ -1,11 +1,44 @@
 <main class="app-customizer">
   <section class="customizer-box">
-    <section class="customizer-menu">
-      <div class="customizer-menu-box">
+    <!-- Toolbar -->
+    <nav class="customizer-menu">
+      <section class="customizer-menu-box">
         <div class="app-tools-mini">
           <span class="material-symbols-outlined"> join_right </span>
         </div>
-        <nav class="app-tools">
+        <div class="app-tools">
+          <ng-container *ngIf="selectCompProp === 'accordion'">
+            <p
+              (click)="showMenus('accFields')"
+              matTooltip="Accordion Fields"
+              matTooltipPosition="right"
+            >
+              <span
+                [class]="
+                  showMenuName === 'accFields'
+                    ? 'material-symbols-outlined active'
+                    : 'material-symbols-outlined'
+                "
+              >
+                news
+              </span>
+            </p>
+            <p
+              (click)="showMenus('accColour')"
+              matTooltip="Accordion Fields"
+              matTooltipPosition="right"
+            >
+              <span
+                [class]="
+                  showMenuName === 'accColour'
+                    ? 'material-symbols-outlined active'
+                    : 'material-symbols-outlined'
+                "
+              >
+                format_paint
+              </span>
+            </p>
+          </ng-container>
           <p
             (click)="showMenus('artboards')"
             matTooltip="Artboards"
@@ -21,84 +54,9 @@
               filter_frames
             </span>
           </p>
-          <p
-            (click)="showMenus('text')"
-            matTooltip="Text"
-            matTooltipPosition="right"
-          >
-            <span
-              [class]="
-                showMenuName === 'text'
-                  ? 'material-symbols-outlined active'
-                  : 'material-symbols-outlined'
-              "
-            >
-              font_download
-            </span>
-          </p>
-          <p
-            (click)="showMenus('color')"
-            matTooltip="Colour"
-            matTooltipPosition="right"
-          >
-            <span
-              [class]="
-                showMenuName === 'color'
-                  ? 'material-symbols-outlined active'
-                  : 'material-symbols-outlined'
-              "
-            >
-              palette
-            </span>
-          </p>
-          <p
-            (click)="showMenus('space')"
-            matTooltip="Space"
-            matTooltipPosition="right"
-          >
-            <span
-              [class]="
-                showMenuName === 'space'
-                  ? 'material-symbols-outlined active'
-                  : 'material-symbols-outlined'
-              "
-            >
-              format_letter_spacing
-            </span>
-          </p>
-          <p
-            (click)="showMenus('border')"
-            matTooltip="Border"
-            matTooltipPosition="right"
-          >
-            <span
-              [class]="
-                showMenuName === 'border'
-                  ? 'material-symbols-outlined active'
-                  : 'material-symbols-outlined'
-              "
-            >
-              crop_free
-            </span>
-          </p>
-          <p
-            (click)="showMenus('effects')"
-            matTooltip="Effects"
-            matTooltipPosition="right"
-          >
-            <span
-              [class]="
-                showMenuName === 'effects'
-                  ? 'material-symbols-outlined active'
-                  : 'material-symbols-outlined'
-              "
-            >
-              masked_transitions
-            </span>
-          </p>
-        </nav>
-      </div>
-      <div class="customizer-menu-box">
+        </div>
+      </section>
+      <section class="customizer-menu-box">
         <span
           class="material-symbols-outlined app-tools-mini"
           (click)="toggleTheme()"
@@ -121,20 +79,96 @@
             code
           </span>
         </p>
-      </div>
-    </section>
+      </section>
+    </nav>
 
+    <!-- Artboard, Canvas -->
     <section
-      class="customizer-canvas"
-      [ngStyle]="{ width: respoWidth, height: respoHeight }"
+      [ngClass]="{
+        'customizer-canvas': true,
+        'canvas-mobile': respoProp === 'mobile',
+        'canvas-tablet': respoProp === 'tablet',
+        'canvas-desktop': respoProp === 'desktop'
+      }"
     >
-      <div *ngIf="selectCompProp === 'button'">
-        <button [ngStyle]="changes" type="button">{{ btnName }}</button>
-      </div>
+      <ng-container *ngIf="selectCompProp === 'accordion'">
+        <div class="accordion-grup">
+          <div class="accordion-main">
+            <div class="acc-head">
+              <h2 class="acc-title">
+                <mat-icon class="acc-title-icon"> pan_tool </mat-icon>
+                Introduction
+              </h2>
+              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="acc-body">
+              <div class="acc-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Minus, incidunt.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="selectCompProp === 'button'">
+        <button type="button">Click</button>
+      </ng-container>
     </section>
 
-    <form class="customizer-editor" [formGroup]="btnForm" *ngIf="showMenuForm">
-      @if (showMenuName === 'artboards') {
+    <!-- Menus -->
+    <form class="customizer-editor" *ngIf="showMenuForm">
+      <!-- Accordion -->
+      @if (showMenuName === 'accFields') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> news </span>
+            Fields
+          </p>
+        </header>
+        <div class="tools-grid">
+          <div class="grid02-expand acc-field-container">
+            <p>Accordion 01</p>
+            <input type="text" placeholder="Title" />
+            <textarea placeholder="Content"></textarea>
+          </div>
+          <div class="grid02-expand acc-btn-container">
+            <button class="customizer-btn" type="button">
+              <span class="material-symbols-outlined"> add </span>
+              Accordion
+            </button>
+          </div>
+        </div>
+      </div>
+      } @if (showMenuName === 'accColour') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> news </span>
+            Colour
+          </p>
+        </header>
+        <div class="tools-grid">
+          <div class="grid02-expand"></div>
+        </div>
+      </div>
+      }
+
+      <!-- Common -->
+      @if (showMenuName === 'code') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> code </span>
+            Code
+          </p>
+        </header>
+        <div class="tools-code"></div>
+      </div>
+      } @if (showMenuName === 'artboards') {
       <div class="tools-box">
         <header>
           <p>
@@ -160,438 +194,36 @@
           </div>
         </div>
       </div>
-      } @if (showMenuName === 'text') {
-      <div class="tools-box">
-        <header>
-          <p>
-            <span class="material-symbols-outlined"> font_download </span>
-            Font
-          </p>
-        </header>
-        <div class="tools-grid">
-          <div class="grid02-expand">
-            <label>Button Name</label>
-            <input
-              type="text"
-              formControlName="buttonName"
-              (keyup)="makeChanges()"
-            />
-          </div>
-          <div>
-            <label>Font Size</label>
-            <input
-              type="number"
-              formControlName="fontSize"
-              (input)="makeChanges()"
-            />
-          </div>
-          <div>
-            <label>Font Weight</label>
-            <select formControlName="fontWeight" (change)="makeChanges()">
-              <option value="300">300</option>
-              <option value="400">400</option>
-              <option value="500">500</option>
-              <option value="600">600</option>
-              <option value="700">700</option>
-              <option value="800">800</option>
-            </select>
-          </div>
-          <div>
-            <label>Line Height</label>
-            <input
-              type="number"
-              formControlName="lineHeight"
-              (input)="makeChanges()"
-            />
-          </div>
-          <div>
-            <label>Letter spacing</label>
-            <input
-              type="number"
-              formControlName="letterSpacing"
-              (input)="makeChanges()"
-            />
-          </div>
-          <div class="grid02-expand">
-            <label>Text Align</label>
-            <div class="text-aling">
-              @for (data of txtAlignObj; track $index) {
-              <span
-                class="material-symbols-outlined"
-                [id]="data.isActive ? 'active-menu' : null"
-                (click)="txtAlignFn(data.param)"
-                (click)="makeChanges()"
-              >
-                {{ data.icon }}
-              </span>
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      } @if (showMenuName === 'space') {
-      <div class="tools-box">
-        <header>
-          <p>
-            <span class="material-symbols-outlined"> aspect_ratio </span>
-            Size
-          </p>
-          <div class="auto-toggle">
-            <p>{{ editWidthHeight === true ? "Edit" : "Auto" }}</p>
-            <mat-slide-toggle
-              (change)="widthHeightToggle($event)"
-            ></mat-slide-toggle>
-          </div>
-        </header>
-        <div class="tools-grid">
-          <div>
-            <label>Width</label>
-            <input
-              type="text"
-              formControlName="width"
-              (input)="makeChanges()"
-            />
-          </div>
-          <div>
-            <label>Height</label>
-            <input
-              type="text"
-              formControlName="height"
-              (input)="makeChanges()"
-            />
-          </div>
-        </div>
-        <header>
-          <p>
-            <span class="material-symbols-outlined">
-              format_letter_spacing
-            </span>
-            Spacing
-          </p>
-          <div class="auto-toggle">
-            <p>{{ padToggle === true ? "Edit" : "Auto" }}</p>
-            <mat-slide-toggle
-              (change)="paddingToggle($event)"
-            ></mat-slide-toggle>
-          </div>
-        </header>
-        <div class="tools-grid">
-          <div class="grid02-expand">
-            <label>Equal Padding</label>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              formControlName="padding"
-              class="slider"
-              (input)="makeChanges()"
-            />
-          </div>
-
-          <div>
-            <label>Top</label>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              formControlName="paddingTop"
-              class="slider"
-              (input)="makeChanges()"
-            />
-          </div>
-
-          <div>
-            <label>Right</label>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              formControlName="paddingRight"
-              class="slider"
-              (input)="makeChanges()"
-            />
-          </div>
-
-          <div>
-            <label>Bottom</label>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              formControlName="paddingBottom"
-              class="slider"
-              (input)="makeChanges()"
-            />
-          </div>
-
-          <div>
-            <label>Left</label>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              formControlName="paddingLeft"
-              class="slider"
-              (input)="makeChanges()"
-            />
-          </div>
-        </div>
-      </div>
-      } @if (showMenuName === 'color') {
-      <div class="tools-box">
-        <header>
-          <p>
-            <span class="material-symbols-outlined"> palette </span>
-            Color
-          </p>
-        </header>
-        <div class="tools-grid">
-          <div class="grid02-expand">
-            <label>Background</label>
-            <div class="text-color">
-              <div>
-                <input
-                  type="color"
-                  formControlName="backgroundColor"
-                  (input)="makeChanges()"
-                />
-                <p>{{ this.btnForm.get("backgroundColor")?.value }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="grid02-expand">
-            <label>Border</label>
-            <div class="text-color">
-              <div>
-                <input
-                  type="color"
-                  formControlName="borderColor"
-                  (input)="makeChanges()"
-                />
-                <p>{{ this.btnForm.get("borderColor")?.value }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="grid02-expand">
-            <label>Text Color</label>
-            <div class="text-color">
-              <div>
-                <input
-                  type="color"
-                  formControlName="textColor"
-                  (input)="makeChanges()"
-                />
-                <p>{{ btnForm.get("textColor")!.value }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      } @if (showMenuName === 'border') {
-      <div class="tools-box">
-        <header>
-          <p>
-            <span class="material-symbols-outlined"> crop_free </span>
-            Border
-          </p>
-        </header>
-        <div class="tools-grid">
-          <div>
-            <label>Border Width</label>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              formControlName="borderWidth"
-              class="slider"
-              (input)="makeChanges()"
-            />
-          </div>
-          <div>
-            <label>Border Style</label>
-            <select formControlName="borderStyle" (change)="makeChanges()">
-              <option value="solid">solid</option>
-              <option value="dotted">Dotted</option>
-              <option value="dashed">Dashed</option>
-              <option value="inset">Inset</option>
-              <option value="outside">Outside</option>
-              <option value="ridge">Ridge</option>
-              <option value="groove">Groove</option>
-              <option value="double">Double</option>
-              <option value="none">None</option>
-              <option value="hidden">Hidden</option>
-            </select>
-          </div>
-        </div>
-        <div class="tools-box">
-          <header>
-            <p>
-              <span class="material-symbols-outlined"> crop_free </span>
-              Border
-            </p>
-            <div class="auto-toggle">
-              <p>{{ padToggle === true ? "Edit" : "Auto" }}</p>
-              <mat-slide-toggle
-                (change)="borderToggle($event)"
-              ></mat-slide-toggle>
-            </div>
-          </header>
-          <div class="tools-grid">
-            <div class="grid02-expand">
-              <label>Equal Border Radius</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                formControlName="radius"
-                class="slider"
-                (input)="makeChanges()"
-              />
-            </div>
-            <div>
-              <label>Top Left</label>
-              <input
-                type="number"
-                min="0"
-                max="100"
-                formControlName="radiusLTop"
-                (input)="makeChanges()"
-              />
-            </div>
-            <div>
-              <label>Top Right</label>
-              <input
-                type="number"
-                min="0"
-                max="100"
-                formControlName="radiusRTop"
-                (input)="makeChanges()"
-              />
-            </div>
-            <div>
-              <label>Bottom Right</label>
-              <input
-                type="number"
-                min="0"
-                max="100"
-                formControlName="radiusRBottom"
-                (input)="makeChanges()"
-              />
-            </div>
-            <div>
-              <label>Bottom Left</label>
-              <input
-                type="number"
-                min="0"
-                max="100"
-                formControlName="radiusLBottom"
-                (input)="makeChanges()"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      } @if (showMenuName === 'code') {
-      <div class="tools-box">
-        <header>
-          <p>
-            <span class="material-symbols-outlined"> code </span>
-            Code
-          </p>
-        </header>
-        <div class="tools-code">
-          <code class="code-snippet">
-            <span class="c-class">.btn &#123;</span><br />
-            <span class="c-comment">&nbsp;&nbsp;//TextFormatting</span><br />
-            <span class="c-key">&nbsp;&nbsp;font-size: </span>
-            <span class="c-value"
-              >{{ this.btnForm.get("fontSize")?.value }};</span
-            ><br />
-
-            <span class="c-key">&nbsp;&nbsp;font-weight: </span>
-            <span class="c-value"
-              >{{ this.btnForm.get("fontWeight")?.value }};</span
-            ><br />
-
-            <span class="c-key">&nbsp;&nbsp;line-height: </span>
-            <span class="c-value"
-              >{{ this.btnForm.get("lineHeight")?.value }}px;</span
-            ><br />
-
-            <span class="c-key">&nbsp;&nbsp;letter-spacing: </span>
-            <span class="c-value"
-              >{{ this.btnForm.get("letterSpacing")?.value }}px;</span
-            ><br />
-
-            <span class="c-key">&nbsp;&nbsp;text-align: </span>
-            <span class="c-value">{{ txtAlign }};</span><br />
-            <br />
-            <span class="c-comment">&nbsp;&nbsp;//Size</span><br />
-            <span class="c-key">&nbsp;&nbsp;width: </span>
-            <span class="c-value"
-              >{{
-                this.btnForm.get("width")?.value === "auto"
-                  ? "auto"
-                  : this.btnForm.get("width")?.value + "px"
-              }};</span
-            ><br />
-
-            <span class="c-key">&nbsp;&nbsp;height: </span>
-            <span class="c-value"
-              >{{
-                this.btnForm.get("height")?.value === "auto"
-                  ? "auto"
-                  : this.btnForm.get("height")?.value + "px"
-              }};</span
-            ><br />
-            <span class="c-key">&nbsp;&nbsp;padding: </span>
-            <span class="c-value">
-              {{
-                this.padToggle === true
-                  ? this.btnForm.get("paddingTop")?.value +
-                    "px " +
-                    this.btnForm.get("paddingRight")?.value +
-                    "px " +
-                    this.btnForm.get("paddingBottom")?.value +
-                    "px " +
-                    this.btnForm.get("paddingLeft")?.value +
-                    "px "
-                  : this.btnForm.get("padding")?.value +
-                    "px " +
-                    this.btnForm.get("padding")?.value +
-                    "px " +
-                    this.btnForm.get("padding")?.value +
-                    "px " +
-                    this.btnForm.get("padding")?.value +
-                    "px;"
-              }} </span
-            ><br />
-            <span class="c-class">&#125;</span><br />
-          </code>
-        </div>
-      </div>
       }
-      <section class="more-box">
-        <span class="material-symbols-outlined" (click)="zoomOutFn()"
-          >remove</span
-        >
-        <p>{{ zoomPercentage | number : "1.0-0" }}%</p>
-        <span class="material-symbols-outlined" (click)="zoomInFn()">
-          add
-        </span>
-      </section>
     </form>
   </section>
 
+  <!-- Popup -->
   <section class="cusromizer-popup" *ngIf="selectCompProp === ''">
     <div class="cus-popup-box">
       <header class="cus-popup-head">
-        <h3>Select your component</h3>
+        <h3>Select component</h3>
       </header>
       <div class="cus-popup-body">
+        <!-- Accordion -->
         <div class="popup-card" (click)="selectComp('accordion')">
           <div class="popup-demo">
-            <button>Click</button>
+            <div class="accordion-grup">
+              <div class="accordion-main accordion-blue">
+                <div class="acc-head">
+                  <h3 class="acc-title">Introduction</h3>
+                  <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+                </div>
+                <div class="acc-body">
+                  <div class="acc-content">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Eius, minima?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="popup-content">
             <p>Accordion</p>
@@ -601,6 +233,8 @@
             >
           </div>
         </div>
+
+        <!-- Button -->
         <div class="popup-card" (click)="selectComp('button')">
           <div class="popup-demo">
             <button>Click</button>
@@ -613,6 +247,8 @@
             >
           </div>
         </div>
+
+        <!-- Table -->
         <div class="popup-card" (click)="selectComp('table')">
           <div class="popup-demo">
             <button>Click</button>
