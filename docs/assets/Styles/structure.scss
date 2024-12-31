@@ -1,0 +1,10 @@
+@import "./mixins.scss";
+
+.accordion-structure {
+  width: 100%;
+
+  .group {
+    @include blurLayer();
+    padding: 1rem;
+  }
+}

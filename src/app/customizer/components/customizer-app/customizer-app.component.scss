@@ -269,20 +269,6 @@ ol {
         grid-column-end: 3;
       }
 
-      .acc-field-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
-        margin-bottom: 2rem;
-      }
-
-      .acc-btn-container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 1rem;
-      }
-
       .text-aling {
         @include blurLayer($bdrRds: 0.6rem);
         width: 100%;
@@ -568,8 +554,14 @@ input[type="range"]::-webkit-slider-thumb {
   @include blurLayer($bdrRds: 0.6rem);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
-  padding: 0.4rem 0.8rem;
+  width: 3.4rem;
+  height: 3.4rem;
+
+  .material-symbols-outlined {
+    font-size: 2rem;
+  }
 }
 
 // Popup
@@ -592,8 +584,6 @@ input[type="range"]::-webkit-slider-thumb {
     min-width: 38rem;
     width: 100%;
     max-width: 100rem;
-    min-height: 60rem;
-    max-height: 80rem;
     z-index: 10;
 
     .cus-popup-head {
@@ -606,10 +596,14 @@ input[type="range"]::-webkit-slider-thumb {
       grid-template-columns: repeat(3, 1fr);
       gap: 2.4rem;
       padding: 2.4rem;
+      min-height: auto;
+      max-height: 60rem;
+      overflow: auto;
 
       .popup-card {
         @include blurLayer($bdrRds: 1rem);
         border-width: 0.18rem !important;
+        height: fit-content;
 
         .popup-demo {
           border-bottom: 0.18rem solid var(--dark-border);
@@ -645,6 +639,56 @@ input[type="range"]::-webkit-slider-thumb {
           small {
             line-height: 1.2rem;
             opacity: 0.8;
+          }
+        }
+      }
+
+      .accordion-fields {
+        border-top: 0.18rem solid var(--dark-border);
+        grid-column: span 3;
+        padding-top: 1.6rem;
+
+        header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 2rem;
+
+          p {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.4rem;
+          }
+
+          .acc-btn-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+          }
+        }
+
+        .acc-field-container {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1.2rem;
+          margin-bottom: 2rem;
+
+          .accordion-count {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+          input,
+          textarea {
+            @include blurLayer($bdrRds: 0.6rem);
+            padding: 1rem;
+            color: var(--font-colour);
+            font-size: 1.4rem;
+            letter-spacing: 0.1rem;
           }
         }
       }
