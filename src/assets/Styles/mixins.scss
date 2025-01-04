@@ -7,7 +7,7 @@
   $layerClr03: $layerClr03
 ) {
   background: $layerClr01;
-  box-shadow: 0 4px 30px $layerClr02;
+  box-shadow: 0 4px 10px $layerClr02;
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
   border: 0.15rem solid var(--dark-border);

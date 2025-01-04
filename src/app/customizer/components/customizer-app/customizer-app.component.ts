@@ -1,8 +1,10 @@
 import { Component, HostBinding, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
-// In App Imports
+// Services
 import { ThemeService } from '../../../theme.service';
+
+// Components
 import { Accordion } from './../../../../../projects/css-fusion/src/lib/ts/index';
 // import { Accordion } from '@dev.spot/css-fusion';
 
@@ -21,18 +23,32 @@ export class CustomizerAppComponent {
   closePopup: boolean = true;
   private accordionInitialized = false;
   @HostBinding('class') componentTheme = '';
+  accordionFields!: FormGroup;
   accordionForm!: FormGroup;
+
+  // Accordion Props
+  accGrupLay: boolean = false;
+  accGrupMode: boolean = false;
+  accGrupWidth: string = '';
 
   constructor(private themeService: ThemeService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.showTools('artboards');
-
     this.themeService.currentTheme.subscribe((theme) => {
       this.componentTheme = theme;
     });
 
     this.accordionForm = this.fb.group({
+      grupLayoutType: [''],
+      grupColourMode: [''],
+      grupWidth: [''],
+      grupBorderWeight: [''],
+      grupBorderStyle: [''],
+      grupPadding: [''],
+      grupGap: [''],
+    });
+
+    this.accordionFields = this.fb.group({
       accordions: this.fb.array([]),
     });
 
@@ -54,10 +70,9 @@ export class CustomizerAppComponent {
   }
 
   get accordions(): FormArray {
-    return this.accordionForm.get('accordions') as FormArray;
+    return this.accordionFields.get('accordions') as FormArray;
   }
 
-  // Add a new accordion to the FormArray
   addAccordion() {
     this.accordions.push(
       this.fb.group({
@@ -67,23 +82,52 @@ export class CustomizerAppComponent {
     );
   }
 
-  // Remove an accordion from the FormArray
   removeAccordion(index: number): void {
     this.accordions.removeAt(index);
   }
 
-  // Submit the form
   onSubmit() {
-    if (this.accordionForm.valid) {
-      console.log(this.accordionForm.value);
+    if (this.accordionFields.valid) {
+      console.log(this.accordionFields.value);
     } else {
-      console.log(this.accordionForm.value);
+      console.log(this.accordionFields.value);
     }
     this.closePopup = false;
 
     setTimeout(() => {
       this.accordion();
     });
+  }
+
+  AccMenuClick(section: string, value: string): void {
+    this.accordionForm.get(section)?.setValue(value);
+
+    // Group Layout
+    if (this.accordionForm.get('grupLayoutType')?.value === 'Grid') {
+      this.accGrupLay = true;
+    } else if (this.accordionForm.get('grupLayoutType')?.value === 'Rows') {
+      this.accGrupLay = false;
+    }
+    // Group Colour Mode
+    if (this.accordionForm.get('grupColourMode')?.value === 'DarkMode') {
+      this.accGrupMode = true;
+    } else if (
+      this.accordionForm.get('grupColourMode')?.value === 'LightMode'
+    ) {
+      this.accGrupMode = false;
+    }
+    // Group Width
+    if (this.accordionForm.get('grupWidth')?.value === 'M') {
+      this.accGrupWidth = 'width-md';
+    } else if (this.accordionForm.get('grupWidth')?.value === 'L') {
+      this.accGrupWidth = 'width-lg';
+    } else if (this.accordionForm.get('grupWidth')?.value === 'Xl') {
+      this.accGrupWidth = 'width-xl';
+    } else if (this.accordionForm.get('grupWidth')?.value === 'Xxl') {
+      this.accGrupWidth = 'width-xxl';
+    } else {
+      this.accGrupWidth = '';
+    }
   }
 
   @HostListener('window:beforeunload', ['$event'])
@@ -104,10 +148,6 @@ export class CustomizerAppComponent {
 
   respoScreen(param: string) {
     this.respoProp = param;
-  }
-
-  showTools(param: string) {
-    this.showToolsKey = [param];
   }
 
   // Initilization

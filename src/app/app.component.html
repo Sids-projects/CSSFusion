@@ -14,8 +14,11 @@
         currentComp !== 'HomeRoute'
           ? isDarkMode
             ? '#191a1f'
-            : '#dfdfdf'
+            : '#ffffff'
           : 'transparent'
+    }"
+    [ngClass]="{
+      'border-btm': currentComp !== 'HomeRoute',
     }"
   >
     <div id="app-logo">

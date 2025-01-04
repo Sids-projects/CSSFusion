@@ -507,7 +507,7 @@
       }
 
       .card-2 {
-        @include blurLayer($bdrRds: 1.8rem, $blur: 14px);
+        @include blurLayer($bdrRds: 1.8rem, $blur: 18px);
         width: 32rem;
         height: 40rem;
         z-index: 3;

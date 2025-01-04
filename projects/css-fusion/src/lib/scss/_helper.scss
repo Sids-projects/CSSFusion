@@ -1,0 +1,87 @@
+@import "variables";
+
+// Base width classes with default sizes
+.width-md {
+  width: 100%;
+  max-width: 360px; // Suitable for small content blocks
+}
+
+.width-lg {
+  width: 100%;
+  max-width: 480px; // Suitable for medium content
+}
+
+.width-xl {
+  width: 100%;
+  max-width: 640px; // Larger content blocks
+}
+
+.width-xxl {
+  width: 100%;
+  max-width: 800px; // For very large content blocks
+}
+
+// Responsive adjustments for larger screens
+@media (min-width: 576px) {
+  // Small screens and up
+  .width-md {
+    max-width: 400px;
+  }
+  .width-lg {
+    max-width: 520px;
+  }
+  .width-xl {
+    max-width: 720px;
+  }
+  .width-xxl {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 768px) {
+  // Medium screens and up
+  .width-md {
+    max-width: 480px;
+  }
+  .width-lg {
+    max-width: 640px;
+  }
+  .width-xl {
+    max-width: 840px;
+  }
+  .width-xxl {
+    max-width: 1120px;
+  }
+}
+
+@media (min-width: 992px) {
+  // Large screens and up
+  .width-md {
+    max-width: 520px;
+  }
+  .width-lg {
+    max-width: 720px;
+  }
+  .width-xl {
+    max-width: 960px;
+  }
+  .width-xxl {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1200px) {
+  // Extra-large screens and up
+  .width-md {
+    max-width: 640px;
+  }
+  .width-lg {
+    max-width: 840px;
+  }
+  .width-xl {
+    max-width: 1120px;
+  }
+  .width-xxl {
+    max-width: 1440px;
+  }
+}
