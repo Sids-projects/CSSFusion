@@ -12,20 +12,14 @@ export class AppComponent implements OnInit {
   showNav: boolean = true;
   isDarkMode = false;
   currentComp: string = '';
-  private hideNavRoutes = ['/CustomizerRouting/CustomizerAppRoute'];
 
   constructor(
     private getUrlService: GetUrlService,
     private themeService: ThemeService
   ) {
-    this.getUrlService.setHideNavRoutes(this.hideNavRoutes);
-
-    this.getUrlService.getNavVisibility().subscribe((isVisible) => {
-      this.showNav = isVisible;
-    });
-
     this.getUrlService.getCurrentRouteSegment().subscribe((segment) => {
       this.currentComp = segment;
+      this.showNav = segment === 'HomeRoute';
     });
   }
 

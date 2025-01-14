@@ -11,13 +11,15 @@ import { MenubarComponent } from './components/menubar/menubar.component';
 import { NavComponent } from './components/nav/nav.component';
 import { TableComponent } from './components/table/table.component';
 import { TabComponent } from './components/tab/tab.component';
+import { VariablesComponent } from './components/variables/variables.component';
 
 const routes: Routes = [
   {
     path: 'CompsRouting',
     component: CompsComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'AccordionRoute' },
+      { path: '', redirectTo: 'variablesRoute', pathMatch: 'full' },
+      { path: 'variablesRoute', component: VariablesComponent },
       { path: 'CompsCode', component: CompsCodeComponent },
       { path: 'AccordionRoute', component: AccordionComponent },
       { path: 'ButtonRoute', component: ButtonComponent },

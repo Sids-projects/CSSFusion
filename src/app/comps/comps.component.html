@@ -1,15 +1,192 @@
 <section class="app-module">
   <nav>
-    <div>
+    <div class="module-nav-header">
+      <p class="app-back-btn">
+        <span class="material-symbols-outlined"> arrow_back </span>
+        <span
+          (click)="redirect('HomeRoute')"
+          *ngIf="currentSubComp === '' || currentSubComp === 'variablesRoute'"
+          >Home
+        </span>
+        <span
+          (click)="redirect('CompsRouting')"
+          *ngIf="
+            !(currentSubComp === '' || currentSubComp === 'variablesRoute')
+          "
+          >Components</span
+        >
+      </p>
+    </div>
+
+    <div class="module-nav-content">
+      <h3>Components List</h3>
+      <a
+        routerLink="variablesRoute"
+        routerLinkActive="active-a"
+        *ngIf="currentSubComp === '' || currentSubComp === 'variablesRoute'"
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> view_timeline </span>
+        Home
+      </a>
       <a
         routerLink="AccordionRoute"
         routerLinkActive="active-a"
-        #showSubTopics="routerLinkActive"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'AccordionRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
       >
         <span class="material-symbols-outlined"> view_timeline </span>
         Accordion
       </a>
-      <div class="app-module-subtopics" *ngIf="showSubTopics.isActive">
+      <a
+        routerLink="ButtonRoute"
+        routerLinkActive="active-a"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'ButtonRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> buttons_alt </span>
+        Button
+      </a>
+      <a
+        routerLink="CardRoute"
+        routerLinkActive="active-a"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'CardRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> dashboard </span>
+        Card
+      </a>
+      <a
+        routerLink="DropdownRoute"
+        routerLinkActive="active-a"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'DropdownRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> dropdown </span>
+        Dropdown
+      </a>
+      <a
+        routerLink="InputsRoute"
+        routerLinkActive="active-a"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'InputsRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> draw </span>
+        Input
+      </a>
+      <a
+        routerLink="MenuBarRoute"
+        routerLinkActive="active-a"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'MenuBarRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> widgets </span>
+        Menubar
+      </a>
+      <a
+        routerLink="NavRoute"
+        routerLinkActive="active-a"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'NavRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> side_navigation </span>
+        Navigation
+      </a>
+      <a
+        routerLink="TableRoute"
+        routerLinkActive="active-a"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'TableRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> table </span>
+        Table
+      </a>
+      <a
+        routerLink="TabsRoute"
+        routerLinkActive="active-a"
+        *ngIf="
+          currentSubComp === '' ||
+          currentSubComp === 'TabsRoute' ||
+          currentSubComp === 'variablesRoute'
+        "
+        @slideIn
+      >
+        <span class="material-symbols-outlined"> tab </span>
+        Tab
+      </a>
+
+      <!-- SubModule -->
+      <div
+        class="app-module-subtopics"
+        *ngIf="currentSubComp === 'AccordionRoute'"
+        @slideIn
+      >
+        <small>Topics</small>
+        <ul>
+          <li><span class="material-symbols-outlined"> error </span> Intro</li>
+          <li>
+            <span class="material-symbols-outlined"> variable_insert </span>
+            Static & Dynamic
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> aspect_ratio </span>
+            Default Open
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> dashboard </span>
+            Grid Type
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> dark_mode </span>
+            Colour Mode
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> format_paint </span>
+            Build-in Colours
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> account_tree </span>
+            Structure
+          </li>
+        </ul>
+      </div>
+      <div
+        class="app-module-subtopics"
+        *ngIf="currentSubComp === 'ButtonRoute'"
+        @slideIn
+      >
         <small>Topics</small>
         <ul>
           <li><span class="material-symbols-outlined"> error </span> Intro</li>
@@ -40,38 +217,14 @@
         </ul>
       </div>
     </div>
-    <a routerLink="ButtonRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> buttons_alt </span>
-      Button
-    </a>
-    <a routerLink="CardRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> dashboard </span>
-      Card
-    </a>
-    <a routerLink="DropdownRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> dropdown </span>
-      Dropdown
-    </a>
-    <a routerLink="InputsRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> draw </span>
-      Input
-    </a>
-    <a routerLink="MenuBarRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> widgets </span>
-      Menubar
-    </a>
-    <a routerLink="NavRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> side_navigation </span>
-      Navigation
-    </a>
-    <a routerLink="TableRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> table </span>
-      Table
-    </a>
-    <a routerLink="TabsRoute" routerLinkActive="active-a">
-      <span class="material-symbols-outlined"> tab </span>
-      Tab
-    </a>
+
+    <div class="module-nav-footer">
+      <p>
+        <span class="material-symbols-outlined"> dark_mode </span>
+        Colour Mode
+      </p>
+      <mat-slide-toggle (toggleChange)="toggleTheme()"></mat-slide-toggle>
+    </div>
   </nav>
 
   <section class="app-module-content">

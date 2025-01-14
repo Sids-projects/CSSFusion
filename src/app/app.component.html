@@ -6,21 +6,7 @@
     
   }"
 >
-  <nav
-    id="app-nav"
-    *ngIf="showNav"
-    [ngStyle]="{
-      'background-color':
-        currentComp !== 'HomeRoute'
-          ? isDarkMode
-            ? '#191a1f'
-            : '#ffffff'
-          : 'transparent'
-    }"
-    [ngClass]="{
-      'border-btm': currentComp !== 'HomeRoute',
-    }"
-  >
+  <nav id="app-nav" *ngIf="showNav">
     <div id="app-logo">
       <span class="material-symbols-outlined"> join_right </span>
       <p>CSSFusion</p>

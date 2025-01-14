@@ -10,10 +10,6 @@
   margin: 0;
 }
 
-@mixin accordionGrup($grupBdr: var(--cf-mode-active)) {
-  border: 1.8px solid $grupBdr;
-}
-
 @mixin accordion(
   $clrPrim: var(--cf-mode-primary),
   $fontPrim: var(--cf-mode-font-primary),
@@ -43,7 +39,7 @@
 }
 
 .accordion-grup {
-  @include accordionGrup();
+  border: 1.8px solid var(--cf-mode-active);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -76,6 +72,7 @@
       z-index: 1;
 
       .acc-title {
+        font-family: var(--font-style) !important;
         box-sizing: border-box;
         display: flex;
         align-items: center;
@@ -96,10 +93,10 @@
     .acc-body {
       height: 0;
       overflow: hidden;
-
       transition: height 0.2s ease;
 
       .acc-content {
+        font-family: var(--font-style) !important;
         padding: 8px 18px 18px 18px;
       }
     }
@@ -139,14 +136,6 @@
   //     border: 2px solid var(--cf-mode-active) !important;
   //   }
   // }
-}
-
-.cf-dark {
-  --cf-mode-primary: rgb(25, 26, 31) !important;
-  --cf-mode-secondary: #303030 !important;
-  --cf-mode-active: #393939 !important;
-  --cf-mode-font-primary: #fcfcfc !important;
-  --cf-mode-font-secondary: #a1a1a1 !important;
 }
 
 @each $key, $colour in $buildIn {

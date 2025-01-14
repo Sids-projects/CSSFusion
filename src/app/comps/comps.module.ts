@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 // Module
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 // Components
 import { CompsComponent } from './comps.component';
@@ -17,6 +18,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { TableComponent } from './components/table/table.component';
 import { TabComponent } from './components/tab/tab.component';
 import { CompsCodeComponent } from './comps-code/comps-code.component';
+import { VariablesComponent } from './components/variables/variables.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { CompsCodeComponent } from './comps-code/comps-code.component';
     TableComponent,
     TabComponent,
     CompsCodeComponent,
+    VariablesComponent,
   ],
-  imports: [CommonModule, RouterModule, MatIconModule],
+  imports: [CommonModule, RouterModule, MatIconModule, MatSlideToggleModule],
 })
 export class CompsModule {}

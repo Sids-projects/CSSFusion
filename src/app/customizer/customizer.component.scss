@@ -66,6 +66,7 @@
       small {
         display: block;
         margin-top: 1.6rem;
+        font-size: 1.4rem;
       }
 
       ul {
@@ -100,10 +101,6 @@
   }
 
   .app-module-content {
-    padding-top: 0.6rem;
-    padding-right: 1.6rem;
-    padding-left: 1.8rem;
-    padding-bottom: 2.8rem;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -202,7 +199,7 @@
       .set-canvas,
       aside {
         @include blurLayer();
-        background-color: rgba(0, 0, 0, 0.113);
+        box-shadow: none;
       }
 
       .set-tools {
@@ -261,6 +258,7 @@
 
           input {
             @include blurLayer($bdrRds: 0.6rem);
+            box-shadow: none;
             padding: 1rem;
           }
         }
