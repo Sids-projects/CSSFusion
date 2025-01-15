@@ -183,6 +183,7 @@ body {
       a {
         font-size: 1.8rem;
         text-decoration: none;
+        color: var(--font-colour);
       }
 
       img {
@@ -261,7 +262,7 @@ body {
     font-family: "Satoshi-Bold";
   }
 
-  nav {
+  .app-module-nav {
     height: 100%;
     border-right: 0.18rem solid var(--module-nav-bdr);
     background-color: var(--module-nav-clr);
@@ -428,7 +429,6 @@ body {
   }
 
   .app-module-content {
-    padding: 3.2rem 4.2rem;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -476,11 +476,20 @@ body {
 }
 
 .app-comp {
+  padding: 3.2rem 4.2rem;
+
   .comp-title {
     font-size: 2.4rem;
     font-weight: 400;
     margin-bottom: 1rem;
   }
+}
+
+.nav-comp {
+  padding: 0 !important;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .app-card {
@@ -490,7 +499,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 0;
+    padding: 0 0 2rem 0;
 
     h3 {
       font-size: 2.4rem;
@@ -527,10 +536,6 @@ body {
         background-color: var(--gray-medium-clr);
       }
     }
-  }
-
-  .card-body {
-    padding: 0 0 2.4rem 0;
   }
 
   .body-mb2 {
@@ -686,7 +691,7 @@ pre[class*="language-"] {
 }
 
 hr {
-  border: 0.18rem solid var(--module-nav-bdr);
+  border: 0.1rem solid var(--module-nav-bdr);
   padding: 0 !important;
   margin: 0 !important;
 }

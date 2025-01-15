@@ -1,7 +1,11 @@
 @import "variables";
 
-@mixin cardBoxFn($clr01: #ffffff) {
+@mixin cardBoxFn(
+  $clr01: var(--cf-mode-primary),
+  $clr02: var(--cf-mode-font-primary)
+) {
   background-color: $clr01;
+  color: $clr02;
   box-shadow: var(--card-shadow);
   border-radius: 8px;
   min-width: auto;
@@ -49,7 +53,7 @@
   }
 }
 
-@mixin cardLinesFn($clr01: var(--gray-medium-clr)) {
+@mixin cardLinesFn($clr01: var(--cf-mode-bdr)) {
   border: 1.5px solid $clr01;
 
   .card-head {

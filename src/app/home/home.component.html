@@ -1,7 +1,7 @@
 <section id="app-home">
   <div class="set-01">
     <h2>A Modern CSS Utility Library</h2>
-    <p>
+    <p class="set-01-desc">
       CSSFusion is a versatile and lightweight CSS utility library distributed
       via npm. It provides a rich set of prebuilt classes and customizable tools
       to simplify and speed up the styling of your web projects.
@@ -13,196 +13,40 @@
       </div>
       <span class="material-symbols-outlined"> content_paste </span>
     </div>
+    <div class="social-links">
+      <a href="https://github.com/Sids-projects/CSSFusion" target="_blank">
+        <p>Github</p>
+        <img
+          [src]="
+            !isDarkMode
+              ? './assets/Github-Icon-light.svg'
+              : './assets/Github-Icon.svg'
+          "
+          alt="Github Icon"
+        />
+      </a>
+      <a
+        href="https://www.npmjs.com/package/@dev.spot/css-fusion"
+        target="_blank"
+      >
+        <p>NPM</p>
+        <img
+          [src]="
+            !isDarkMode
+              ? './assets/NPM-Icon-light.svg'
+              : './assets/NPM-Icon.svg'
+          "
+          alt="Github Icon"
+        />
+      </a>
+    </div>
+    <p class="sec-01-scrollTxt">
+      <span class="material-symbols-outlined"> expand_circle_down </span> Scroll
+      Down
+    </p>
   </div>
 
   <div class="set-02">
-    <div class="screen-01">
-      <div class="screen-01-nav">
-        <p>File</p>
-        <p>Code</p>
-        <p>View</p>
-        <p>Run</p>
-        <p>Terminal</p>
-        <span class="material-symbols-outlined"> more_horiz </span>
-      </div>
-
-      <div class="screen-01-body">
-        <nav>
-          <span class="material-symbols-outlined nav-icon-selected">
-            file_copy
-          </span>
-          <span class="material-symbols-outlined"> search </span>
-          <span class="material-symbols-outlined"> graph_1 </span>
-          <span class="material-symbols-outlined"> bug_report </span>
-          <span class="material-symbols-outlined"> note_stack </span>
-        </nav>
-
-        <aside>
-          <p class="aside-title">Explore</p>
-          <details open>
-            <summary>Project</summary>
-            <details class="detail-ml" open>
-              <summary>src</summary>
-              <details class="detail-ml" open>
-                <summary>app</summary>
-                <p>
-                  <span class="material-symbols-outlined"> data_object </span>
-                  app-routing.module.ts
-                </p>
-                <p>
-                  <span class="material-symbols-outlined"> code </span>
-                  app.component.html
-                </p>
-                <p>
-                  <span class="material-symbols-outlined"> data_object </span>
-                  app.component.scss
-                </p>
-                <p>
-                  <span class="material-symbols-outlined"> data_object </span>
-                  app.component.ts
-                </p>
-                <p>
-                  <span class="material-symbols-outlined"> data_object </span>
-                  app.module.ts
-                </p>
-                <details class="detail-ml" open>
-                  <summary>assets</summary>
-                </details>
-              </details>
-              <p>
-                <span class="material-symbols-outlined"> data_object </span>
-                style.scss
-              </p>
-              <p>
-                <span class="material-symbols-outlined"> code </span>
-                index.html
-              </p>
-            </details>
-          </details>
-        </aside>
-
-        <section>
-          <div class="left-tab">
-            <div class="tab">
-              <p>
-                <span class="material-symbols-outlined"> data_object </span>
-                package.json
-              </p>
-              <span class="material-symbols-outlined"> close </span>
-            </div>
-
-            <div class="left-tab-body">
-              <p>&#123;</p>
-              <p>&nbsp;&nbsp; "name": "Project-01",</p>
-              <p>&nbsp;&nbsp; "version": "0.0.0",</p>
-              <p>&#125;</p>
-              <p>"dependencies": &#123;</p>
-              <p class="left-tab-highlight">
-                &nbsp;&nbsp;&nbsp;"&#64;dev.spot/css-fusion": "^0.0.1",
-              </p>
-              <p>&#125;</p>
-            </div>
-          </div>
-
-          <div class="right-tab">
-            <div class="tab">
-              <p>
-                <span class="material-symbols-outlined"> data_object </span>
-                style.scss
-              </p>
-              <span class="material-symbols-outlined"> close </span>
-            </div>
-            <div class="right-tab-body">
-              <p>
-                "&#64;import
-                <span class="left-tab-highlight"
-                  >"./../node_modules/&#64;dev.spot/css-fusion/src/lib/scss/main.scss";</span
-                >
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div class="screen-01-cdm">
-        <div class="cdn-tabs">
-          <div class="cdn-tab-links">
-            <p>Debug</p>
-            <p class="active-cdn-tab">Terminal</p>
-            <p>Port</p>
-          </div>
-          <div class="cdn-tab-icons">
-            <p>Node</p>
-            <span class="material-symbols-outlined"> terminal </span>
-            <span class="material-symbols-outlined"> delete </span>
-            <span class="material-symbols-outlined"> more_horiz </span>
-            <span class="material-symbols-outlined"> close </span>
-          </div>
-        </div>
-        <div class="cnd-body">
-          <p>
-            Peter-Macbook Project-01 %
-            <span>npm install &#64;dev.spot/css-fusion</span>
-          </p>
-          <p>added 1 package, and audited 971 packages in 4s</p>
-          <p>122 packages are looking for funding</p>
-          <p>run `npm fund` for details</p>
-          <p>found 0 vulnerabilities</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="screen-02">
-      <div class="screen-tab">
-        <div class="tab-01">
-          <p>
-            <span class="material-symbols-outlined"> join_right </span>
-            Home
-          </p>
-        </div>
-        <span class="material-symbols-outlined tab-add"> add </span>
-      </div>
-
-      <div class="screen-menu-bar">
-        <span class="material-symbols-outlined"> arrow_back </span>
-        <div class="screen-search">
-          <div>
-            <span class="material-symbols-outlined"> error </span>
-            <p>Projects.in</p>
-          </div>
-          <span class="material-symbols-outlined"> star </span>
-        </div>
-        <span class="material-symbols-outlined"> extension </span>
-        <span class="material-symbols-outlined"> settings </span>
-        <span class="search-bdr-right"></span>
-        <span class="material-symbols-outlined"> face </span>
-      </div>
-
-      <div class="screen-app">
-        <nav>
-          <p>
-            <span class="material-symbols-outlined"> crisis_alert </span>
-            New Project
-          </p>
-          <span class="material-symbols-outlined"> menu_open </span>
-        </nav>
-        <section>
-          <h3>Secure, Private, Limitless: Your Internet Freedom Awaits</h3>
-          <p>
-            Experience safe and unrestricted browsing with our reliable VPN,
-            designed to protect your data and empower your digital journey.
-          </p>
-          <div>
-            <button>Get Start</button>
-            <button>About</button>
-          </div>
-        </section>
-        <img src="./assets/vpn.png" alt="Vpn Image" />
-      </div>
-    </div>
-  </div>
-
-  <div class="set-03">
     <div class="card-content">
       <h3>
         {{
@@ -433,4 +277,251 @@
       </span>
     </div>
   </div>
+
+  <div class="set-03">
+    <div class="set-04-content">
+      <h3>Get Started with CSSFusion</h3>
+      <ul>
+        <li>
+          <span class="material-symbols-outlined"> radio_button_checked </span>
+          Install via npm
+        </li>
+        <li>
+          <span class="material-symbols-outlined"> radio_button_checked </span>
+          npm i &#64;dev.spot/css-fusion
+        </li>
+        <li>
+          <span class="material-symbols-outlined"> radio_button_checked </span>
+          Import the main SCSS file into your project
+        </li>
+        <li>
+          <span class="material-symbols-outlined"> radio_button_checked </span>
+          &#64;import "&#64;dev.spot/css-fusion/src/lib/scss/main.scss";
+        </li>
+        <li>
+          <span class="material-symbols-outlined"> radio_button_checked </span>
+          Include the components in your JavaScript/TypeScript files
+        </li>
+        <li>
+          <span class="material-symbols-outlined"> radio_button_checked </span>
+          import &#123; Component &#125; from '&#64;dev.spot/css-fusion';
+        </li>
+        <li>
+          <span class="material-symbols-outlined"> radio_button_checked </span>
+          Copy Html & Ts
+        </li>
+      </ul>
+    </div>
+    <div class="vs-code">
+      <div class="screen-01">
+        <div class="screen-01-nav">
+          <p>File</p>
+          <p>Code</p>
+          <p>View</p>
+          <p>Run</p>
+          <p>Terminal</p>
+          <span class="material-symbols-outlined"> more_horiz </span>
+        </div>
+
+        <div class="screen-01-body">
+          <nav>
+            <span class="material-symbols-outlined nav-icon-selected">
+              file_copy
+            </span>
+            <span class="material-symbols-outlined"> search </span>
+            <span class="material-symbols-outlined"> graph_1 </span>
+            <span class="material-symbols-outlined"> bug_report </span>
+            <span class="material-symbols-outlined"> note_stack </span>
+          </nav>
+
+          <aside>
+            <p class="aside-title">Explore</p>
+            <details open>
+              <summary>Project</summary>
+              <details class="detail-ml" open>
+                <summary>src</summary>
+                <details class="detail-ml" open>
+                  <summary>app</summary>
+                  <p>
+                    <span class="material-symbols-outlined"> data_object </span>
+                    app-routing.module.ts
+                  </p>
+                  <p>
+                    <span class="material-symbols-outlined"> code </span>
+                    app.component.html
+                  </p>
+                  <p>
+                    <span class="material-symbols-outlined"> data_object </span>
+                    app.component.scss
+                  </p>
+                  <p>
+                    <span class="material-symbols-outlined"> data_object </span>
+                    app.component.ts
+                  </p>
+                  <p>
+                    <span class="material-symbols-outlined"> data_object </span>
+                    app.module.ts
+                  </p>
+                  <details class="detail-ml" open>
+                    <summary>assets</summary>
+                  </details>
+                </details>
+                <p>
+                  <span class="material-symbols-outlined"> data_object </span>
+                  style.scss
+                </p>
+                <p>
+                  <span class="material-symbols-outlined"> code </span>
+                  index.html
+                </p>
+              </details>
+            </details>
+          </aside>
+
+          <section>
+            <div class="left-tab">
+              <div class="tab">
+                <p>
+                  <span class="material-symbols-outlined"> data_object </span>
+                  package.json
+                </p>
+                <span class="material-symbols-outlined"> close </span>
+              </div>
+
+              <div class="left-tab-body">
+                <p>&#123;</p>
+                <p>&nbsp;&nbsp; "name": "Project-01",</p>
+                <p>&nbsp;&nbsp; "version": "0.0.0",</p>
+                <p>&#125;</p>
+                <p>"dependencies": &#123;</p>
+                <p class="left-tab-highlight">
+                  &nbsp;&nbsp;&nbsp;"&#64;dev.spot/css-fusion": "^0.0.1",
+                </p>
+                <p>&#125;</p>
+              </div>
+            </div>
+
+            <div class="right-tab">
+              <div class="tab">
+                <p>
+                  <span class="material-symbols-outlined"> data_object </span>
+                  style.scss
+                </p>
+                <span class="material-symbols-outlined"> close </span>
+              </div>
+              <div class="right-tab-body">
+                <p>
+                  "&#64;import
+                  <span class="left-tab-highlight"
+                    >"./../node_modules/&#64;dev.spot/css-fusion/src/lib/scss/main.scss";</span
+                  >
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="screen-01-cdm">
+          <div class="cdn-tabs">
+            <div class="cdn-tab-links">
+              <p>Debug</p>
+              <p class="active-cdn-tab">Terminal</p>
+              <p>Port</p>
+            </div>
+            <div class="cdn-tab-icons">
+              <p>Node</p>
+              <span class="material-symbols-outlined"> terminal </span>
+              <span class="material-symbols-outlined"> delete </span>
+              <span class="material-symbols-outlined"> more_horiz </span>
+              <span class="material-symbols-outlined"> close </span>
+            </div>
+          </div>
+          <div class="cnd-body">
+            <p>
+              Peter-Macbook Project-01 %
+              <span>npm install &#64;dev.spot/css-fusion</span>
+            </p>
+            <p>added 1 package, and audited 971 packages in 4s</p>
+            <p>122 packages are looking for funding</p>
+            <p>run `npm fund` for details</p>
+            <p>found 0 vulnerabilities</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li>
+            <span class="material-symbols-outlined"> category </span> Components
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> select_window </span>
+            Templates
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> ink_highlighter </span>
+            Customiser
+          </li>
+          <li>
+            <span class="material-symbols-outlined"> book </span> Documentation
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3>Social Links</h3>
+        <ul>
+          <li>
+            <img
+              [src]="
+                !isDarkMode
+                  ? './assets/Github-Icon2-light.svg'
+                  : './assets/Github-Icon2.svg'
+              "
+              alt="GitHub Icon"
+            />GitHub
+          </li>
+          <li>
+            <img
+              [src]="
+                !isDarkMode
+                  ? './assets/NPM-Icon-light.svg'
+                  : './assets/NPM-Icon.svg'
+              "
+              alt="NPM Icon"
+            />npm
+          </li>
+          <li>
+            <img
+              [src]="
+                !isDarkMode
+                  ? './assets/Linkedin-Icon-light.svg'
+                  : './assets/Linkedin-Icon.svg'
+              "
+              alt="NPM Icon"
+            />LinkedIn
+          </li>
+          <li>
+            <img
+              [src]="
+                !isDarkMode
+                  ? './assets/Twitter-Icon-light.svg'
+                  : './assets/Twitter-Icon.svg'
+              "
+              alt="NPM Icon"
+            />Twitter
+          </li>
+        </ul>
+      </div>
+      <div class="footer-set-03">
+        <span class="material-symbols-outlined"> join_right </span>
+        <h3>Credits</h3>
+        <p>Designed and Developed <br />by Siddarth.G</p>
+      </div>
+    </div>
+  </footer>
 </section>

@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { Nav } from '../../../../../projects/css-fusion/src/public-api';
+import { ThemeService } from '../../../theme.service';
 // import { Nav } from '@dev.spot/css-fusion';
 
 @Component({
@@ -8,9 +9,16 @@ import { Nav } from '../../../../../projects/css-fusion/src/public-api';
   styleUrl: './nav.component.scss',
 })
 export class NavComponent {
+  themeClr: string = '';
   private navLeftInstance!: Nav;
 
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef, private themeService: ThemeService) {}
+
+  ngOnInit(): void {
+    this.themeService.currentTheme.subscribe((theme) => {
+      this.themeClr = theme;
+    });
+  }
 
   ngAfterViewInit() {
     const container = this.elRef.nativeElement.querySelector('.nav-left');

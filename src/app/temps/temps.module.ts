@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+// Module
+import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 // Components
 import { TempsComponent } from './temps.component';
 import { SpectrumComponent } from './components/spectrum/spectrum.component';
@@ -21,6 +25,6 @@ import { HarmonySuiteComponent } from './components/harmony-suite/harmony-suite.
     VividEdgeComponent,
     HarmonySuiteComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatIconModule, MatSlideToggleModule],
 })
 export class TempsModule {}

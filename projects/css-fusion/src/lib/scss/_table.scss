@@ -3,7 +3,7 @@
 // Table
 @mixin tableFn(
   $clr01: var(--tbl-dark-clr),
-  $clr02: var(--tbl-medium-clr),
+  $clr02: var(--cf-mode-secondary),
   $clr03: var(--tbl-light-clr),
   $fontClr: var(--tbl-font-clr)
 ) {
@@ -50,7 +50,8 @@
 
     tbody {
       td {
-        background-color: #ffffff;
+        background-color: var(--cf-mode-primary);
+        color: var(--cf-mode-font-primary);
         padding: 12px;
       }
     }
@@ -119,23 +120,23 @@
 
 // Border Bottom
 @mixin tableBdrBtm(
-  $clr01: var(--tbl-dark-clr),
+  $clr01: var(--cf-mode-bdr),
   $clr02: var(--tbl-medium-clr),
   $clr03: var(--tbl-light-clr),
   $fontClr: var(--tbl-font-clr)
 ) {
-  border: 1.5px solid $clr01;
+  border: 1.8px solid $clr01;
 
   table {
     thead {
       tr {
-        border-bottom: 1.5px solid $clr01;
+        border-bottom: 1.8px solid $clr01;
       }
     }
 
     tbody {
       tr {
-        border-bottom: 1.5px solid $clr01;
+        border-bottom: 1.8px solid $clr01;
 
         &:last-child {
           border: none;

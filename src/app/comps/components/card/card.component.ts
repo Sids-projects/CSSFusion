@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../../../theme.service';
 
 @Component({
   selector: 'app-card',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
+  themeClr: string = '';
   colours: string[] = ['yellow', 'green', 'orange', 'blue', 'violet', 'gray'];
 
   coloursData: any[] = [
@@ -52,4 +54,12 @@ export class CardComponent {
         'Tailored for large organizations with multi-level management tools.',
     },
   ];
+
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit() {
+    this.themeService.currentTheme.subscribe((theme) => {
+      this.themeClr = theme;
+    });
+  }
 }

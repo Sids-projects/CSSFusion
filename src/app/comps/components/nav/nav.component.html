@@ -1,5 +1,5 @@
-<section class="nav-container">
-  <nav class="nav-left">
+<section class="app-comp nav-comp">
+  <nav [class]="themeClr === 'dark-mode' ? 'nav-left cf-dark' : 'nav-left'">
     <div class="nl-set01">
       <h3>
         <span class="material-symbols-outlined nav-logo"> android </span>
@@ -52,7 +52,13 @@
     </div>
   </nav>
 
-  <nav class="nav-left navleft-resize">
+  <nav
+    [class]="
+      themeClr === 'dark-mode'
+        ? 'nav-left navleft-resize cf-dark'
+        : 'nav-left navleft-resize'
+    "
+  >
     <div class="nl-set01">
       <h3>
         <span class="material-symbols-outlined nav-logo"> android </span>
@@ -88,7 +94,7 @@
     </div>
   </nav>
 
-  <nav class="nav-left">
+  <nav [class]="themeClr === 'dark-mode' ? 'nav-left cf-dark' : 'nav-left'">
     <div class="nl-set01">
       <h3>
         <span class="material-symbols-outlined nav-logo"> android </span>
@@ -135,7 +141,13 @@
     </div>
   </nav>
 
-  <nav class="nav-left nav-scroll">
+  <nav
+    [class]="
+      themeClr === 'dark-mode'
+        ? 'nav-left nav-scroll cf-dark'
+        : 'nav-left nav-scroll'
+    "
+  >
     <div class="nl-set01">
       <h3>
         <span class="material-symbols-outlined nav-logo"> android </span>

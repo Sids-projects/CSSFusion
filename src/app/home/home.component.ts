@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class HomeComponent {
   showNav: boolean = true;
+  isDarkMode = false;
   screenWidth: number = window.innerWidth;
   features: any[] = [
     {
@@ -26,11 +28,15 @@ export class HomeComponent {
     },
   ];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private themeService: ThemeService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.showNav = event.url === '/' || event.urlAfterRedirects === '/';
       }
+    });
+    this.themeService.currentTheme.subscribe((theme) => {
+      this.isDarkMode = theme === 'dark-mode';
+      document.documentElement.setAttribute('class', theme);
     });
   }
 

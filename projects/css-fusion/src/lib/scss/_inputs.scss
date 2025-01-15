@@ -2,11 +2,11 @@
 
 @mixin inputBoxFn(
   $clr01: var(--input-dark-clr),
-  $clr02: var(--input-medium-clr),
-  $clr03: var(--input-light-clr),
-  $clr04: var(--input-font-clr)
+  $clr02: var(--cf-mode-bdr),
+  $clr03: var(--cf-mode-primary),
+  $clr04: var(--cf-mode-font-primary)
 ) {
-  box-shadow: var(--input-shadow);
+  // box-shadow: var(--input-shadow);
   font-family: var(--font-style);
   padding: 8px;
   border-radius: 6px;
@@ -15,7 +15,7 @@
   width: 100%;
   max-width: 100%;
   height: 40px;
-  border: 1px solid $clr02;
+  border: 1.8px solid $clr02;
   background-color: $clr03;
   color: $clr04;
 
@@ -86,12 +86,10 @@
 }
 
 .input-icon-grup {
-  box-shadow: var(--input-shadow);
   display: flex;
   align-items: center;
   border-radius: 6px;
-  border: 1px solid var(--input-medium-clr);
-  background-color: var(--input-light-clr);
+  border: 1.8px solid var(--cf-mode-bdr) !important;
   overflow: hidden;
 
   .icon-prefix,
@@ -106,13 +104,13 @@
     justify-content: center;
     text-decoration: none;
     border: none;
-    background-color: transparent;
+    background-color: var(--cf-mode-primary);
     cursor: pointer;
   }
 
   .icon-prefix-bg,
   .icon-suffix-bg {
-    background-color: var(--input-medium-clr) !important;
+    background-color: var(--cf-mode-secondary) !important;
   }
 
   input {
@@ -128,4 +126,10 @@
   &:focus-within {
     outline: 1.4px solid var(--input-medium-clr);
   }
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

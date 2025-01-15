@@ -1,14 +1,14 @@
 @import "variables";
 
 @mixin NavFn(
-  $clr01: var(--nav-dark-clr),
-  $clr02: var(--nav-medium-clr),
-  $clr03: var(--nav-light-clr),
-  $font: var(--nav-font-clr)
+  $clr01: var(--cf-mode-primary),
+  $clr02: var(--cf-mode-secondary),
+  $clr03: var(--cf-mode-bdr),
+  $font: var(--cf-mode-font-primary)
 ) {
   font-family: var(--font-style);
-  background-color: #ffffff;
-  color: #292929;
+  background-color: $clr01;
+  color: $font;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.116);
   width: 260px;
   display: grid;
@@ -49,7 +49,7 @@
     }
 
     #navLeft-tigger {
-      border: 1.6px solid #d4d4d4;
+      border: 1.6px solid $clr03;
       border-radius: 4px;
       font-size: 18px !important;
       cursor: pointer;
@@ -86,17 +86,21 @@
     }
 
     .nl-active {
-      border: 1.5px solid #d8d8d8;
-      background-color: #f1f1f1;
+      border: 1.5px solid $clr03;
+      background-color: $clr02;
     }
   }
 
   .nl-set03 {
-    border-top: 1.6px solid #e8e8e8;
+    border-top: 1.6px solid $clr03;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 14px;
+
+    .material-symbols-outlined {
+      color: #757575;
+    }
 
     .user {
       display: flex;
@@ -131,7 +135,7 @@
     }
 
     .more-icon {
-      border: 1.6px solid #d4d4d4;
+      border: 1.6px solid $clr03;
       border-radius: 4px;
       font-size: 22px !important;
       cursor: pointer;
@@ -195,7 +199,7 @@
   .nl-set01 {
     margin-right: 12px !important;
     padding-bottom: 12px !important;
-    border-bottom: 1.6px solid #e8e8e8;
+    border-bottom: 1.6px solid var(--cf-mode-bdr);
   }
 
   .nl-set02 {

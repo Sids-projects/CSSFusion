@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../../../shared.service';
 import { Table } from '../../../../../projects/css-fusion/src/public-api';
+import { ThemeService } from '../../../theme.service';
 // import { Table } from '@dev.spot/css-fusion';
 
 @Component({
@@ -9,6 +10,7 @@ import { Table } from '../../../../../projects/css-fusion/src/public-api';
   styleUrl: './table.component.scss',
 })
 export class TableComponent {
+  themeClr: string = '';
   tableSm: any = [];
   tableMd: any = [];
   tableLg: any = [];
@@ -18,13 +20,22 @@ export class TableComponent {
   tableService!: Table;
   sortStatus: string = 'No sort';
 
-  constructor(private service: SharedService) {
+  constructor(
+    private service: SharedService,
+    private themeService: ThemeService
+  ) {
     this.tableSm = this.service.tableSm;
     this.tableMd = this.service.tableMd;
     this.tableLg = this.service.tableLg;
     this.originalTableLg = [...this.tableLg];
     this.tableMini = this.service.tableMini;
     this.tableService = new Table();
+  }
+
+  ngOnInit(): void {
+    this.themeService.currentTheme.subscribe((theme) => {
+      this.themeClr = theme;
+    });
   }
 
   inBuildClrs(param: string) {

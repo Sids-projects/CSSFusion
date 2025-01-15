@@ -2,11 +2,11 @@
 
 @mixin dropdownFn(
   $width: 200px,
-  $menuBg: white,
-  $listBg: white,
-  $txtColor: black,
-  $bdrMenu: 1.4px solid rgb(209, 209, 209),
-  $bdrList: 1.4px solid rgb(209, 209, 209),
+  $menuBg: var(--cf-mode-primary),
+  $listBg: var(--cf-mode-primary),
+  $txtColor: var(--cf-mode-font-primary),
+  $bdrMenu: 1.8px solid var(--cf-mode-bdr),
+  $bdrList: 1.8px solid var(--cf-mode-bdr),
   $shadowMenu: 0 0 4px rgba(97, 97, 97, 0.11),
   $shadowList: 0 0 4px rgba(97, 97, 97, 0.11),
   $paddingMenu: 8px 10px

@@ -1,29 +1,53 @@
 <section class="app-module">
-  <nav>
-    <a routerLink="ClassicGridRoute">
-      <span class="material-symbols-outlined"> package_2 </span>
-      Classic Grid
-    </a>
-    <a routerLink="HarmonySuiteRoute">
-      <span class="material-symbols-outlined"> package_2 </span>
-      Harmony Suite
-    </a>
-    <a routerLink="LuxeSeriesRoute">
-      <span class="material-symbols-outlined"> package_2 </span>
-      Luxe Series
-    </a>
-    <a routerLink="NeoRoute">
-      <span class="material-symbols-outlined"> package_2 </span>
-      Neo
-    </a>
-    <a routerLink="SpectrumRoute">
-      <span class="material-symbols-outlined"> package_2 </span>
-      Spectrum
-    </a>
-    <a routerLink="VividEdgeRoute">
-      <span class="material-symbols-outlined"> package_2 </span>
-      Vivid Edge
-    </a>
+  <nav class="app-module-nav">
+    <div class="module-nav-header">
+      <p class="app-back-btn">
+        <span class="material-symbols-outlined"> arrow_back </span>
+        <span (click)="redirect('HomeRoute')" *ngIf="currentSubComp === ''"
+          >Home
+        </span>
+        <span
+          (click)="redirect('TempsRouting')"
+          *ngIf="!(currentSubComp === '')"
+          >Templates</span
+        >
+      </p>
+    </div>
+
+    <div class="module-nav-content">
+      <a routerLink="ClassicGridRoute">
+        <span class="material-symbols-outlined"> package_2 </span>
+        Classic Grid
+      </a>
+      <a routerLink="HarmonySuiteRoute">
+        <span class="material-symbols-outlined"> package_2 </span>
+        Harmony Suite
+      </a>
+      <a routerLink="LuxeSeriesRoute">
+        <span class="material-symbols-outlined"> package_2 </span>
+        Luxe Series
+      </a>
+      <a routerLink="NeoRoute">
+        <span class="material-symbols-outlined"> package_2 </span>
+        Neo
+      </a>
+      <a routerLink="SpectrumRoute">
+        <span class="material-symbols-outlined"> package_2 </span>
+        Spectrum
+      </a>
+      <a routerLink="VividEdgeRoute">
+        <span class="material-symbols-outlined"> package_2 </span>
+        Vivid Edge
+      </a>
+    </div>
+
+    <div class="module-nav-footer">
+      <p>
+        <span class="material-symbols-outlined"> dark_mode </span>
+        Colour Mode
+      </p>
+      <mat-slide-toggle (toggleChange)="toggleTheme()"></mat-slide-toggle>
+    </div>
   </nav>
 
   <section class="app-module-content">

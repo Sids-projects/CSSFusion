@@ -1,12 +1,25 @@
 :root {
   --theme-colour: rgb(255, 226, 102);
   --sub-theme-colour: #433dc3;
+  --app-mode-clr: #1c120b;
   --font-colour: #cccccc;
+
+  // Mesh Background
   --dark-glass: rgba(0, 0, 0, 0.263);
   --dark-border: rgba(255, 255, 255, 0.097);
-  --app-mode-clr: #191a1f;
   --code-snippet: rgba(0, 0, 0, 0.199);
   --active-nav: rgba(255, 255, 255, 0.088);
+
+  // Code Snippet
+  --code-snippet: #1a1a1a !important;
+  --code-snippet-bdr: #363636 !important;
+
+  // Module Nav
+  --module-nav-clr: #1d1d1d;
+  --module-nav-txt: #ffffff;
+  --module-nav-dim-txt: #a89d96;
+  --module-nav-active-txt: #ffffff;
+  --module-nav-bdr: #363636;
 }
 
 // Layer Colour
