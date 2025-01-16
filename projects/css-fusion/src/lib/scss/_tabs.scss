@@ -1,0 +1,400 @@
+.tab-view {
+  .tab-list-start {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .tab-list-center {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab-list-end {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .tab-list {
+    width: 100%;
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-name {
+      min-width: 120px;
+      width: 100%;
+      max-width: fit-content;
+      text-align: center;
+      cursor: pointer;
+      text-wrap: nowrap;
+      flex-shrink: 0;
+    }
+  }
+
+  .tab-body-set {
+    .tab-body {
+      display: none;
+      margin-top: 30px;
+
+      .tab-title {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .tab-content {
+        color: var(--cf-mode-font-secondary);
+      }
+    }
+  }
+
+  .active-content {
+    display: block !important;
+  }
+
+  .scroll-arrow {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #9a9a9a;
+  }
+}
+
+// Tabs Border
+@mixin tabBdr(
+  $border: var(--cf-mode-bdr),
+  $bgClr: var(--cf-mode-primary),
+  $activeBg: var(--cf-mode-secondary),
+  $activeClr: var(--cf-mode-font-primary)
+) {
+  .tab-list {
+    border: 1.8px solid $border;
+    border-radius: 6px;
+
+    .tab-name {
+      position: relative;
+      padding: 8px 18px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1.5px;
+        height: 70%;
+        background-color: $border;
+      }
+
+      &:last-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .active-tab {
+    background-color: $activeBg !important;
+    transform: scale(1.05);
+    color: $activeClr !important;
+  }
+}
+
+.tab-bdr {
+  @include tabBdr();
+}
+
+// Tabs Fill
+@mixin tabFill($bgClr, $clr, $activeBg, $activeClr) {
+  .tab-list {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 0px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background-color: $bgClr;
+    color: $clr;
+    border-radius: 6px;
+    padding: 4px;
+
+    .tab-name {
+      position: relative;
+      border-radius: inherit;
+      padding: 8px 18px;
+    }
+  }
+
+  .active-tab {
+    background-color: $activeBg !important;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.086);
+    color: $activeClr !important;
+  }
+}
+
+.tab-fill {
+  @include tabFill(
+    $bgClr: #eeeeee,
+    $clr: black,
+    $activeBg: black,
+    $activeClr: white
+  );
+}
+
+.tab-fill-dark {
+  @include tabFill(
+    $bgClr: #eeeeee,
+    $clr: black,
+    $activeBg: black,
+    $activeClr: white
+  );
+}
+
+// Tabs line fill
+@mixin tabLineFill($border, $bgClr, $activeBg, $activeClr) {
+  .tab-list {
+    border-top: 1.5px solid $border;
+    border-left: 1.5px solid $border;
+    border-right: 1.5px solid $border;
+    width: 100%;
+    margin: 0 20px !important;
+    border-radius: 6px 6px 0 0;
+
+    .tab-name {
+      position: relative;
+      padding: 8px 18px 8px 18px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1.5px;
+        height: 70%;
+        background-color: $bgClr;
+      }
+
+      &:last-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .tab-body-set {
+    border: 1.5px solid $border;
+    padding: 18px;
+    border-radius: 6px;
+
+    .tab-body {
+      margin-top: 0 !important;
+    }
+  }
+
+  .active-tab {
+    background-color: $activeBg;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.086);
+    color: $activeClr !important;
+    transform: scale(1.05);
+  }
+}
+
+.tab-line-fill {
+  @include tabLineFill(
+    $border: black,
+    $bgClr: black,
+    $activeBg: black,
+    $activeClr: white
+  );
+}
+
+.tab-line-fill-dark {
+  @include tabLineFill(
+    $border: white,
+    $bgClr: white,
+    $activeBg: white,
+    $activeClr: black
+  );
+}
+
+// Tabs Line
+.tab-line {
+  .tab-list-group {
+    background-color: #fafafa;
+    border-bottom: 1.5px solid #c4c4c4;
+
+    .tab-list {
+      width: 100%;
+      max-width: unset;
+      position: relative;
+
+      .tab-name {
+        padding: 12px 18px 8px 18px;
+        height: 50px;
+        color: #a7a7a7;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+
+  .active-tab {
+    position: relative;
+    border-bottom: 2px solid black !important;
+    color: black !important;
+  }
+}
+
+// Tab Line Scroll
+@mixin tabLineScroll(
+  $border: black,
+  $scrollbg: black,
+  $scrollClr: white,
+  $activeBdr: black
+) {
+  .tab-list-group {
+    height: 50px;
+    border: 2px solid $border;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .scroll-tumb {
+      width: 42px;
+      height: 50px;
+      place-content: center;
+      text-align: center;
+      background-color: $scrollbg;
+      color: $scrollClr;
+      flex-shrink: 0;
+    }
+
+    .tab-left {
+      border-radius: 6px 0 0 6px;
+    }
+
+    .tab-right {
+      border-radius: 0 6px 6px 0;
+    }
+
+    .tab-list {
+      width: 100%;
+      height: 100%;
+      max-width: unset;
+      position: relative;
+      padding: 0 14px;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab-name {
+        padding: 10px 18px;
+        font-weight: 500;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .active-tab {
+    position: relative;
+    border-bottom: 3px solid $activeBdr;
+    transform: translateY(2px);
+    opacity: 1 !important;
+  }
+}
+
+.tab-line-scroll {
+  @include tabLineScroll(
+    $border: black,
+    $scrollbg: black,
+    $scrollClr: white,
+    $activeBdr: black
+  );
+}
+
+.tab-line-scroll-dark {
+  @include tabLineScroll(
+    $border: white,
+    $scrollbg: white,
+    $scrollClr: black,
+    $activeBdr: white
+  );
+}
+
+@mixin tabPlainScroll($clr, $activeClr, $activeBdr) {
+  .tab-list-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .scroll-tumb {
+      width: 42px;
+      height: 42px;
+      place-content: center;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .tab-list {
+      width: 100%;
+      height: 100%;
+      max-width: unset;
+      position: relative;
+      padding: 0 14px;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab-name {
+        padding: 10px 18px;
+        color: $clr;
+        font-weight: 500;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .active-tab {
+    position: relative;
+    border-bottom: 3px solid $activeBdr;
+    color: $activeClr;
+    transform: translateY(1px);
+    opacity: 1 !important;
+  }
+}
+
+.tab-plain-scroll {
+  @include tabPlainScroll($clr: black, $activeClr: black, $activeBdr: black);
+}
+
+.tab-plain-scroll-dark {
+  @include tabPlainScroll($clr: white, $activeClr: white, $activeBdr: white);
+}

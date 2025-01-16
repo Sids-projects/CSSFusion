@@ -1,80 +1,596 @@
-<section
-  class="customizer-module"
-  [ngStyle]="{
-    padding: !showNav ? 0 : '0 0 0 1.8rem',
-    height: !showNav ? '100vh' : 'calc(100vh - 7.4rem)'
-  }"
->
-  <div class="customizer-landing" *ngIf="showNav">
-    <div class="set-box set-01">
-      <div>
-        <span class="material-symbols-outlined customizer-logo"> tune </span>
-        <h2>Welcome to <br />CSSFusion Customizer</h2>
-        <p>
-          Transform your design ideas into reality with the CSSFusion
-          Customizer, your ultimate styling toolkit. Whether you're tweaking a
-          button, enhancing a dropdown, or fine-tuning an accordion, our
-          customizer gives you the tools to create visually stunning components
-          tailored to your needs.
+<main class="app-customizer">
+  <section class="customizer-box">
+    <!-- Toolbar -->
+    <nav class="customizer-menu">
+      <section class="customizer-menu-box">
+        <div class="app-tools-mini">
+          <span class="material-symbols-outlined"> join_right </span>
+        </div>
+        <div class="app-tools">
+          <ng-container *ngIf="selectCompProp === 'accordion'">
+            <p
+              (click)="showMenus('accGroup')"
+              matTooltip="Accordion Group"
+              matTooltipPosition="right"
+            >
+              <span
+                [class]="
+                  showMenuName === 'accGroup'
+                    ? 'material-symbols-outlined active'
+                    : 'material-symbols-outlined'
+                "
+              >
+                box
+              </span>
+            </p>
+            <p
+              (click)="showMenus('accMain')"
+              matTooltip="Accordion Main"
+              matTooltipPosition="right"
+            >
+              <span
+                [class]="
+                  showMenuName === 'accMain'
+                    ? 'material-symbols-outlined active'
+                    : 'material-symbols-outlined'
+                "
+              >
+                box_add
+              </span>
+            </p>
+            <p
+              (click)="showMenus('accHead')"
+              matTooltip="Accordion Head"
+              matTooltipPosition="right"
+            >
+              <span
+                [class]="
+                  showMenuName === 'accHead'
+                    ? 'material-symbols-outlined active'
+                    : 'material-symbols-outlined'
+                "
+              >
+                page_header
+              </span>
+            </p>
+            <p
+              (click)="showMenus('accTitle')"
+              matTooltip="Accordion Head"
+              matTooltipPosition="right"
+            >
+              <span
+                [class]="
+                  showMenuName === 'accTitle'
+                    ? 'material-symbols-outlined active'
+                    : 'material-symbols-outlined'
+                "
+              >
+                list_alt
+              </span>
+            </p>
+            <p
+              (click)="showMenus('accBody')"
+              matTooltip="Accordion Head"
+              matTooltipPosition="right"
+            >
+              <span
+                [class]="
+                  showMenuName === 'accBody'
+                    ? 'material-symbols-outlined active'
+                    : 'material-symbols-outlined'
+                "
+              >
+                demography
+              </span>
+            </p>
+            <p
+              (click)="showMenus('accContent')"
+              matTooltip="Accordion Head"
+              matTooltipPosition="right"
+            >
+              <span
+                [class]="
+                  showMenuName === 'accContent'
+                    ? 'material-symbols-outlined active'
+                    : 'material-symbols-outlined'
+                "
+              >
+                toc
+              </span>
+            </p>
+          </ng-container>
+
+          <!-- Artboard Toolbar -->
+          <p
+            (click)="showMenus('artboards')"
+            matTooltip="Artboards"
+            matTooltipPosition="right"
+          >
+            <span
+              [class]="
+                showMenuName === 'artboards'
+                  ? 'material-symbols-outlined active'
+                  : 'material-symbols-outlined'
+              "
+            >
+              filter_frames
+            </span>
+          </p>
+        </div>
+      </section>
+      <section class="customizer-menu-box">
+        <span
+          class="material-symbols-outlined app-tools-mini"
+          (click)="toggleTheme()"
+        >
+          brightness_6
+        </span>
+        <p
+          (click)="showMenus('code')"
+          matTooltip="Code"
+          matTooltipPosition="right"
+          class="app-tools-mini"
+        >
+          <span
+            [class]="
+              showMenuName === 'code'
+                ? 'material-symbols-outlined active'
+                : 'material-symbols-outlined'
+            "
+          >
+            code
+          </span>
         </p>
-        <div class="set-btn-box">
-          <a routerLink="CustomizerAppRoute">Editor </a>
-          <a routerLink="CustomizerGuideRoute">Guide</a>
+      </section>
+    </nav>
+
+    <!-- Artboard, Canvas -->
+    <section
+      [ngClass]="{
+        'customizer-canvas': true,
+        'canvas-mobile': respoProp === 'mobile',
+        'canvas-tablet': respoProp === 'tablet',
+        'canvas-desktop': respoProp === 'desktop'
+      }"
+    >
+      <ng-container *ngIf="selectCompProp === 'accordion'">
+        <div
+          [ngClass]="{ 
+            'accordion-grup': true, 
+            'acc-grid': accGrupLay == true,
+            'cf-dark': accGrupMode == true,
+            accGrupWidth: accGrupWidth !== '',
+          }"
+          [class]="accGrupWidth"
+        >
+          <ng-container *ngFor="let data of accordionFields.value.accordions">
+            <div class="accordion-main">
+              <div class="acc-head">
+                <h2 class="acc-title">
+                  <mat-icon class="acc-title-icon"> pan_tool </mat-icon>
+                  {{ data.title }}
+                </h2>
+                <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+              </div>
+              <div class="acc-body">
+                <div class="acc-content">
+                  <p>
+                    {{ data.content }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="selectCompProp === 'button'">
+        <button type="button">Click</button>
+      </ng-container>
+    </section>
+
+    <!-- Menus -->
+    <form class="customizer-editor" *ngIf="showMenuForm">
+      <!-- Accordion -->
+      @if (showMenuName === 'accGroup') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> box </span>
+            Accordion Group
+          </p>
+        </header>
+        <form class="tools-grid">
+          <div class="grid02-expand">
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>
+                Layout Type
+              </p>
+              <ul>
+                <li
+                  [class]="!accGrupLay ? 'active-acc-menu' : ''"
+                  (click)="AccMenuClick('grupLayoutType', 'Rows')"
+                >
+                  Rows
+                </li>
+                <li
+                  [class]="accGrupLay ? 'active-acc-menu' : ''"
+                  (click)="AccMenuClick('grupLayoutType', 'Grid')"
+                >
+                  Grid
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid02-expand">
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>
+                Colour Mode
+              </p>
+              <ul>
+                <li
+                  [ngClass]="!accGrupMode ? 'active-acc-menu' : ''"
+                  (click)="AccMenuClick('grupColourMode', 'LightMode')"
+                >
+                  <span class="material-symbols-outlined"> light_mode </span>
+                </li>
+                <li
+                  [ngClass]="accGrupMode ? 'active-acc-menu' : ''"
+                  (click)="AccMenuClick('grupColourMode', 'DarkMode')"
+                >
+                  <span class="material-symbols-outlined"> dark_mode </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid02-expand">
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>
+                Width
+              </p>
+              <ul>
+                <li
+                  [class]="accGrupWidth == 'width-md' ? 'active-acc-menu' : ''"
+                  (click)="AccMenuClick('grupWidth', 'M')"
+                >
+                  M
+                </li>
+                <li
+                  [class]="accGrupWidth == 'width-lg' ? 'active-acc-menu' : ''"
+                  (click)="AccMenuClick('grupWidth', 'L')"
+                >
+                  L
+                </li>
+                <li
+                  [class]="accGrupWidth == 'width-xl' ? 'active-acc-menu' : ''"
+                  (click)="AccMenuClick('grupWidth', 'Xl')"
+                >
+                  Xl
+                </li>
+                <li
+                  [class]="accGrupWidth == 'width-xxl' ? 'active-acc-menu' : ''"
+                  (click)="AccMenuClick('grupWidth', 'Xxl')"
+                >
+                  Xxl
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid02-expand">
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>Border
+                Weight
+              </p>
+              <ul>
+                <li>M</li>
+                <li>L</li>
+                <li>Xl</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid02-expand">
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>
+                Border Style
+              </p>
+              <ul>
+                <li>none</li>
+                <li>dotted</li>
+                <li>dashed</li>
+                <li>solid</li>
+                <li>double</li>
+                <li>groove</li>
+                <li>ridge</li>
+                <li>inset</li>
+                <li>outset</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>
+                Border Colour
+              </p>
+              <input type="color" />
+            </div>
+          </div>
+          <div>
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>
+                Box-shadow
+              </p>
+              <input type="color" />
+            </div>
+          </div>
+          <div class="grid02-expand">
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>
+                Padding
+              </p>
+              <ul>
+                <li>Add</li>
+                <li>Remove</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid02-expand">
+            <div class="acc-grup-fields">
+              <p class="acc-grup-title">
+                <span class="material-symbols-outlined"> clear_all </span>
+                Gap
+              </p>
+              <ul>
+                <li>Add</li>
+                <li>Remove</li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </div>
+      } @if (showMenuName === 'accMain') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> box_add </span>
+            Accordion Main
+          </p>
+        </header>
+        <div class="tools-grid">
+          <div class="grid02-expand"></div>
         </div>
       </div>
+      } @if (showMenuName === 'accHead') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> page_header </span>
+            Accordion Head
+          </p>
+        </header>
+        <div class="tools-grid">
+          <div class="grid02-expand"></div>
+        </div>
+      </div>
+      } @if (showMenuName === 'accTitle') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> list_alt </span>
+            Accordion Title
+          </p>
+        </header>
+        <div class="tools-grid">
+          <div class="grid02-expand"></div>
+        </div>
+      </div>
+      } @if (showMenuName === 'accBody') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> demography </span>
+            Accordion Body
+          </p>
+        </header>
+        <div class="tools-grid">
+          <div class="grid02-expand"></div>
+        </div>
+      </div>
+      } @if (showMenuName === 'accContent') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> toc </span>
+            Accordion Content
+          </p>
+        </header>
+        <div class="tools-grid">
+          <div class="grid02-expand"></div>
+        </div>
+      </div>
+      }
 
-      <div>
-        <div class="set-img">
-          <div class="set-img-content">
-            <div class="set-tools">
-              <span class="material-symbols-outlined">filter_frames</span>
-              <span class="material-symbols-outlined set-active"
-                >font_download</span
-              >
-              <span class="material-symbols-outlined">palette</span>
-              <span class="material-symbols-outlined"
-                >format_letter_spacing</span
-              >
-              <span class="material-symbols-outlined">masked_transitions</span>
-            </div>
-            <div class="set-canvas">
-              <div class="accordion-grup">
-                <div class="accordion-main cf-dark">
-                  <div class="acc-head">
-                    <h3 class="acc-title">Introduction</h3>
-                    <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
-                  </div>
-                  <div class="acc-body">
-                    <div class="acc-content">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Eius, minima?
-                      </p>
-                    </div>
+      <!-- Common -->
+      @if (showMenuName === 'code') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> code </span>
+            Code
+          </p>
+        </header>
+        <div class="tools-code"></div>
+      </div>
+      } @if (showMenuName === 'artboards') {
+      <div class="tools-box">
+        <header>
+          <p>
+            <span class="material-symbols-outlined"> filter_frames </span>
+            Frames
+          </p>
+        </header>
+        <div class="tools-grid">
+          <div class="grid02 frame-items" (click)="respoScreen('mobile')">
+            <span class="material-symbols-outlined"> phone_iphone </span>
+            <label>Phone</label>
+          </div>
+          <div class="grid02 frame-items" (click)="respoScreen('tablet')">
+            <span class="material-symbols-outlined"> tablet_mac </span>
+            <label>Tablet</label>
+          </div>
+          <div
+            class="grid02-expand frame-items"
+            (click)="respoScreen('desktop')"
+          >
+            <span class="material-symbols-outlined"> laptop_mac </span>
+            <label>Desktop</label>
+          </div>
+        </div>
+      </div>
+      }
+    </form>
+  </section>
+
+  <!-- Popup -->
+  <section
+    class="cusromizer-popup"
+    *ngIf="
+      accordionFields.value.accordions[0].title === '' ||
+      accordionFields.value.accordions[0].content === '' ||
+      closePopup
+    "
+  >
+    <div class="cus-popup-box">
+      <header class="cus-popup-head">
+        <h3>Select component</h3>
+      </header>
+      <div class="cus-popup-body">
+        <!-- Accordion -->
+        <div class="popup-card" (click)="selectComp('accordion')">
+          <div class="popup-demo">
+            <div class="accordion-grup">
+              <div class="accordion-main accordion-blue">
+                <div class="acc-head">
+                  <h3 class="acc-title">Introduction</h3>
+                  <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+                </div>
+                <div class="acc-body">
+                  <div class="acc-content">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Eius, minima?
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <aside>
-            <p>
-              <span class="material-symbols-outlined set-active"
-                >font_download</span
-              >
-              Text Formatting
-            </p>
-            <div>
-              <input type="text" placeholder="Name" disabled />
-              <input type="text" placeholder="Size" disabled />
-              <input type="text" placeholder="Weight" disabled />
-              <input type="text" placeholder="Style" disabled />
-              <input type="text" placeholder="Border" disabled />
-            </div>
-          </aside>
+          <div class="popup-content">
+            <p>Accordion</p>
+            <small
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Assumenda, quia!</small
+            >
+          </div>
         </div>
+
+        <!-- Button -->
+        <div class="popup-card" (click)="selectComp('button')">
+          <div class="popup-demo">
+            <button>Click</button>
+          </div>
+          <div class="popup-content">
+            <p>Button</p>
+            <small
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Assumenda, quia!</small
+            >
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="popup-card" (click)="selectComp('table')">
+          <div class="popup-demo">
+            <button>Click</button>
+          </div>
+          <div class="popup-content">
+            <p>Table</p>
+            <small
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Assumenda, quia!</small
+            >
+          </div>
+        </div>
+
+        <ng-container *ngIf="selectCompProp === 'accordion'">
+          <div class="accordion-fields">
+            <header>
+              <p>
+                <span class="material-symbols-outlined"> news </span>
+                Accordion Fields ({{ accordionFields.value.accordions.length }})
+              </p>
+              <div class="grid02-expand acc-btn-container">
+                <button
+                  class="customizer-btn"
+                  type="button"
+                  (click)="addAccordion()"
+                >
+                  <span class="material-symbols-outlined"> add </span>
+                </button>
+                <button
+                  class="customizer-btn"
+                  type="button"
+                  (click)="onSubmit()"
+                >
+                  <span class="material-symbols-outlined"> send </span>
+                </button>
+              </div>
+            </header>
+            <div>
+              <form
+                class="grid02-expand"
+                [formGroup]="accordionFields"
+                (ngSubmit)="onSubmit()"
+              >
+                <div formArrayName="accordions">
+                  <div
+                    *ngFor="let accordion of accordions.controls; let i = index"
+                    [formGroupName]="i"
+                    class="acc-field-container"
+                  >
+                    <div class="accordion-count">
+                      <p>{{ "Accordion 0" + (i + 1) }}</p>
+                      <button
+                        class="customizer-btn"
+                        type="button"
+                        (click)="removeAccordion(i)"
+                      >
+                        <span class="material-symbols-outlined"> delete </span>
+                      </button>
+                    </div>
+                    <input
+                      formControlName="title"
+                      type="text"
+                      placeholder="Title"
+                    />
+                    <textarea
+                      formControlName="content"
+                      placeholder="Content"
+                    ></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </ng-container>
       </div>
     </div>
-  </div>
-
-  <router-outlet></router-outlet>
-</section>
+  </section>
+</main>

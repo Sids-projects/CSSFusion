@@ -13,15 +13,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Components
 import { CustomizerComponent } from './customizer.component';
-import { CustomizerAppComponent } from './components/customizer-app/customizer-app.component';
-import { CustomizerGuideComponent } from './components/customizer-guide/customizer-guide.component';
 
 @NgModule({
-  declarations: [
-    CustomizerComponent,
-    CustomizerAppComponent,
-    CustomizerGuideComponent,
-  ],
+  declarations: [CustomizerComponent],
   imports: [
     CommonModule,
     RouterModule,
