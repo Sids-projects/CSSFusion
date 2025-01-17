@@ -3,7 +3,6 @@
   [ngStyle]="{
     'grid-template-rows': showNav ? '7.4rem 1fr' : '1fr',
     overflow: currentComp !== 'HomeRoute' ? 'hidden' : 'auto',
-    
   }"
 >
   <nav id="app-nav" *ngIf="showNav">
@@ -20,9 +19,18 @@
       </a>
     </div>
     <div id="app-btns">
-      <span class="material-symbols-outlined more-icon">
+      <span
+        class="material-symbols-outlined more-icon"
+        [matMenuTriggerFor]="menu"
+      >
         expand_circle_down
       </span>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="HomeRoute">Home</button>
+        <button mat-menu-item routerLink="CompsRouting">Components</button>
+        <button mat-menu-item routerLink="TempsRouting">Templates</button>
+        <button mat-menu-item routerLink="CustomizerRouting">Customizer</button>
+      </mat-menu>
       <a routerLink="AboutRoute">
         <span class="material-symbols-outlined"> error </span>
       </a>

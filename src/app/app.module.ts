@@ -9,6 +9,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 // Modules
 import { CompsModule } from './comps/comps.module';
@@ -33,6 +34,7 @@ import { HomeComponent } from './home/home.component';
     MatSlideToggleModule,
     MatSliderModule,
     MatIconModule,
+    MatMenuModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
