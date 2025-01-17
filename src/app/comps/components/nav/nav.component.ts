@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { Nav } from '../../../../../projects/css-fusion/src/public-api';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 // import { Nav } from '@dev.spot/css-fusion';
 
 @Component({

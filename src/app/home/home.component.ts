@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { ThemeService } from '../theme.service';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-home',

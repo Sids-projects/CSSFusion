@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Accordion } from './../../../../../projects/css-fusion/src/lib/ts/index';
 // import { Accordion } from '@dev.spot/css-fusion';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 
 @Component({
   selector: 'app-accordion',

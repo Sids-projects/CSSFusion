@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Tabs } from './../../../../../projects/css-fusion/src/lib/ts/index';
 // import { Tabs } from '@dev.spot/css-fusion';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 
 @Component({
   selector: 'app-tab',

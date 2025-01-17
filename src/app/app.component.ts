@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetUrlService } from './get-url.service';
-import { ThemeService } from './theme.service';
+import { GetUrlService } from './services/get-url.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',

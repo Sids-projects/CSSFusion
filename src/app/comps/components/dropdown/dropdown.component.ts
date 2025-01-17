@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Dropdown } from '../../../../../projects/css-fusion/src/public-api';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 // import { Dropdown } from '@dev.spot/css-fusion';
 
 @Component({

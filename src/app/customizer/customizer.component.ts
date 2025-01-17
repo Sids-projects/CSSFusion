@@ -2,7 +2,7 @@ import { Component, HostBinding, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 // Services
-import { ThemeService } from '../theme.service';
+import { ThemeService } from '../services/theme.service';
 
 // Components
 import { Accordion } from './../../../projects/css-fusion/src/lib/ts/index';

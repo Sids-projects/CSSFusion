@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GetUrlService } from '../get-url.service';
-import { ThemeService } from '../theme.service';
+import { GetUrlService } from '../services/get-url.service';
+import { ThemeService } from '../services/theme.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({

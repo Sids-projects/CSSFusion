@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SharedService } from '../../../shared.service';
+import { SharedService } from '../../../services/shared.service';
 import { Table } from '../../../../../projects/css-fusion/src/public-api';
-import { ThemeService } from '../../../theme.service';
+import { ThemeService } from '../../../services/theme.service';
 // import { Table } from '@dev.spot/css-fusion';
 
 @Component({
