@@ -2,19 +2,10 @@
   <nav class="app-module-nav">
     <div class="module-nav-header">
       <p class="app-back-btn">
-        <span class="material-symbols-outlined"> arrow_back </span>
-        <span
-          (click)="redirect('HomeRoute')"
-          *ngIf="currentSubComp === '' || currentSubComp === 'variablesRoute'"
-          >Home
+        <span class="material-symbols-outlined" (click)="redirect()">
+          arrow_back
         </span>
-        <span
-          (click)="redirect('CompsRouting')"
-          *ngIf="
-            !(currentSubComp === '' || currentSubComp === 'variablesRoute')
-          "
-          >Components</span
-        >
+        <span (click)="redirect()">Back </span>
       </p>
     </div>
 
@@ -26,8 +17,8 @@
         *ngIf="currentSubComp === '' || currentSubComp === 'variablesRoute'"
         @slideIn
       >
-        <span class="material-symbols-outlined"> view_timeline </span>
-        Home
+        <span class="material-symbols-outlined"> home </span>
+        <span>Home</span>
       </a>
       <a
         routerLink="AccordionRoute"
@@ -40,7 +31,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> view_timeline </span>
-        Accordion
+        <span>Accordion</span>
       </a>
       <a
         routerLink="ButtonRoute"
@@ -53,7 +44,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> buttons_alt </span>
-        Button
+        <span>Button</span>
       </a>
       <a
         routerLink="CardRoute"
@@ -66,7 +57,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> dashboard </span>
-        Card
+        <span>Card</span>
       </a>
       <a
         routerLink="DropdownRoute"
@@ -79,7 +70,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> dropdown </span>
-        Dropdown
+        <span>Dropdown</span>
       </a>
       <a
         routerLink="InputsRoute"
@@ -92,7 +83,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> draw </span>
-        Input
+        <span>Input</span>
       </a>
       <a
         routerLink="MenuBarRoute"
@@ -105,7 +96,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> widgets </span>
-        Menubar
+        <span>Menubar</span>
       </a>
       <a
         routerLink="NavRoute"
@@ -118,7 +109,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> side_navigation </span>
-        Navigation
+        <span>Navigation</span>
       </a>
       <a
         routerLink="TableRoute"
@@ -131,7 +122,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> table </span>
-        Table
+        <span>Table</span>
       </a>
       <a
         routerLink="TabsRoute"
@@ -144,7 +135,7 @@
         @slideIn
       >
         <span class="material-symbols-outlined"> tab </span>
-        Tab
+        <span>Tab</span>
       </a>
 
       <!-- SubModule -->
@@ -155,30 +146,33 @@
       >
         <small>Topics</small>
         <ul>
-          <li><span class="material-symbols-outlined"> error </span> Intro</li>
+          <li>
+            <span class="material-symbols-outlined"> error </span>
+            <span>Intro</span>
+          </li>
           <li>
             <span class="material-symbols-outlined"> variable_insert </span>
-            Static & Dynamic
+            <span>Static & Dynamic</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> aspect_ratio </span>
-            Default Open
+            <span>Default Open</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> dashboard </span>
-            Grid Type
+            <span>Grid Type</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> dark_mode </span>
-            Colour Mode
+            <span>Colour Mode</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> format_paint </span>
-            Build-in Colours
+            <span>Build-in Colours</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> account_tree </span>
-            Structure
+            <span>Structure</span>
           </li>
         </ul>
       </div>
@@ -189,30 +183,33 @@
       >
         <small>Topics</small>
         <ul>
-          <li><span class="material-symbols-outlined"> error </span> Intro</li>
+          <li>
+            <span class="material-symbols-outlined"> error </span>
+            <span>Intro</span>
+          </li>
           <li>
             <span class="material-symbols-outlined"> variable_insert </span>
-            Static & Dynamic
+            <span>Static & Dynamic</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> aspect_ratio </span>
-            Default Open
+            <span>Default Open</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> dashboard </span>
-            Grid Type
+            <span>Grid Type</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> dark_mode </span>
-            Colour Mode
+            <span>Colour Mode</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> format_paint </span>
-            Build-in Colours
+            <span>Build-in Colours</span>
           </li>
           <li>
             <span class="material-symbols-outlined"> account_tree </span>
-            Structure
+            <span>Structure</span>
           </li>
         </ul>
       </div>
@@ -223,7 +220,9 @@
         <span class="material-symbols-outlined"> dark_mode </span>
         Colour Mode
       </p>
-      <mat-slide-toggle (toggleChange)="toggleTheme()"></mat-slide-toggle>
+      <span class="material-symbols-outlined" (click)="toggleTheme()">
+        dark_mode
+      </span>
     </div>
   </nav>
 

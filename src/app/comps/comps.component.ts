@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { GetUrlService } from '../services/get-url.service';
 import { ThemeService } from '../services/theme.service';
@@ -33,6 +34,7 @@ export class CompsComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private location: Location,
     private getUrlService: GetUrlService,
     private themeService: ThemeService
   ) {}
@@ -52,8 +54,8 @@ export class CompsComponent implements OnInit {
     });
   }
 
-  redirect(param: string) {
-    this.router.navigate([param]);
+  redirect() {
+    this.location.back();
   }
 
   toggleTheme(): void {

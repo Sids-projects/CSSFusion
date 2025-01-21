@@ -24,10 +24,15 @@
         expand_circle_down
       </span>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="HomeRoute">Home</button>
-        <button mat-menu-item routerLink="CompsRouting">Components</button>
-        <button mat-menu-item routerLink="TempsRouting">Templates</button>
-        <button mat-menu-item routerLink="CustomizerRouting">Customizer</button>
+        <button mat-menu-item (click)="redirect('CompsRouting')">
+          Components
+        </button>
+        <button mat-menu-item (click)="redirect('TempsRouting')">
+          Templates
+        </button>
+        <button mat-menu-item (click)="redirect('CustomizerRouting')">
+          Customizer
+        </button>
       </mat-menu>
       <a href="https://sids-projects.github.io/DevSpot/#/home" target="_blank">
         <span class="material-symbols-outlined"> error </span>
