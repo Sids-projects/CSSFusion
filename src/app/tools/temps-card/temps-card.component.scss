@@ -1,0 +1,42 @@
+@import "./../../../assets/Styles/variables.scss";
+@import "./../../../assets/Styles/mixins.scss";
+
+.card-2 {
+  @include blurLayer($bdrRds: 1.8rem, $blur: 18px);
+  width: 32rem;
+  height: 40rem;
+  z-index: 3;
+  overflow: hidden;
+  transition: all 0.5s;
+  padding: 1rem;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input {
+      @include blurLayer($bdrRds: 1rem);
+      border: 0.18rem solid var(--dark-border);
+      background-color: var(--dark-glass);
+      box-shadow: none !important;
+      padding: 1.4rem;
+      width: 100%;
+      margin-bottom: 1.4rem;
+    }
+
+    p {
+      @include blurLayer($bdrRds: 1rem);
+      border: 0.18rem solid var(--dark-border);
+      background-color: var(--dark-glass);
+      box-shadow: none !important;
+      padding: 1.2rem;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.4rem;
+    }
+  }
+}

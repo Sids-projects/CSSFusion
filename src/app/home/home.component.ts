@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, Route } from '@angular/router';
 import { ThemeService } from '../services/theme.service';
 
 @Component({
@@ -74,5 +74,14 @@ export class HomeComponent {
     this.cardOneActive = false;
     this.cardTwoActive = false;
     this.cardThreeActive = !this.cardThreeActive;
+  }
+
+  toggleTheme(): void {
+    const newTheme = this.isDarkMode ? 'light-mode' : 'dark-mode';
+    this.themeService.setTheme(newTheme);
+  }
+
+  redirect(param: string) {
+    this.router.navigate([param]);
   }
 }

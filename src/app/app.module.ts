@@ -19,9 +19,13 @@ import { TempsRoutingModule } from './temps/temps-routing.module';
 import { CustomizerModule } from './customizer/customizer.module';
 import { CustomizerRoutingModule } from './customizer/customizer-routing.module';
 import { HomeComponent } from './home/home.component';
+import { VsCodeComponent } from './tools/vs-code/vs-code.component';
+import { CompsCardComponent } from './tools/comps-card/comps-card.component';
+import { TempsCardComponent } from './tools/temps-card/temps-card.component';
+import { CustomizerCardComponent } from './tools/customizer-card/customizer-card.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, VsCodeComponent, CompsCardComponent, TempsCardComponent, CustomizerCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

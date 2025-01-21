@@ -1,527 +1,270 @@
-<section id="app-home">
-  <div class="set-01">
-    <h2>A Modern CSS Utility Library</h2>
-    <p class="set-01-desc">
-      CSSFusion is a versatile and lightweight CSS utility library distributed
-      via npm. It provides a rich set of prebuilt classes and customizable tools
-      to simplify and speed up the styling of your web projects.
-    </p>
-    <div class="install-kit">
-      <div>
-        <small>Installation Kit</small>
-        <p>npm i &#64;dev.spot/css-fusion</p>
-      </div>
-      <span class="material-symbols-outlined"> content_paste </span>
+<section class="home-container">
+  <nav id="app-nav">
+    <div id="app-logo">
+      <span class="material-symbols-outlined"> join_right </span>
+      <p>CSSFusion</p>
     </div>
-    <div class="social-links">
-      <a href="https://github.com/Sids-projects/CSSFusion" target="_blank">
-        <p>Github</p>
-        <img
-          [src]="
-            !isDarkMode
-              ? './assets/Github-Icon1-light.svg'
-              : './assets/Github-Icon1.svg'
-          "
-          alt="Github Icon"
-        />
-      </a>
-      <a
-        href="https://www.npmjs.com/package/@dev.spot/css-fusion"
-        target="_blank"
+    <div id="app-links">
+      <a class="link-active">Home</a>
+      <a (click)="redirect('CompsRouting')" routerLinkActive="link-active"
+        >Components</a
       >
-        <p>NPM</p>
-        <img
-          [src]="
-            !isDarkMode
-              ? './assets/NPM-Icon-light.svg'
-              : './assets/NPM-Icon.svg'
-          "
-          alt="Github Icon"
-        />
+      <a (click)="redirect('TempsRouting')" routerLinkActive="link-active"
+        >Templates</a
+      >
+      <a (click)="redirect('CustomizerRouting')" routerLinkActive="link-active">
+        Customizer
       </a>
     </div>
-    <p class="sec-01-scrollTxt">
-      <span class="material-symbols-outlined"> expand_circle_down </span> Scroll
-      Down
-    </p>
-  </div>
-
-  <div class="set-02">
-    <div class="set-04-content">
-      <h3>Get Started with CSSFusion</h3>
-      <ul>
-        <li>
-          <span class="material-symbols-outlined"> radio_button_checked </span>
-          Install via npm
-        </li>
-        <li>
-          <span class="material-symbols-outlined"> radio_button_checked </span>
-          npm i &#64;dev.spot/css-fusion
-        </li>
-        <li>
-          <span class="material-symbols-outlined"> radio_button_checked </span>
-          Import the main SCSS file into your project
-        </li>
-        <li>
-          <span class="material-symbols-outlined"> radio_button_checked </span>
-          &#64;import "&#64;dev.spot/css-fusion/src/lib/scss/main.scss";
-        </li>
-        <li>
-          <span class="material-symbols-outlined"> radio_button_checked </span>
-          Include the components in your JavaScript/TypeScript files
-        </li>
-        <li>
-          <span class="material-symbols-outlined"> radio_button_checked </span>
-          import &#123; Component &#125; from '&#64;dev.spot/css-fusion';
-        </li>
-        <li>
-          <span class="material-symbols-outlined"> radio_button_checked </span>
-          Copy Html & Ts
-        </li>
-      </ul>
+    <div id="app-btns">
+      <span
+        class="material-symbols-outlined more-icon"
+        [matMenuTriggerFor]="menu"
+      >
+        expand_circle_down
+      </span>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="HomeRoute">Home</button>
+        <button mat-menu-item routerLink="CompsRouting">Components</button>
+        <button mat-menu-item routerLink="TempsRouting">Templates</button>
+        <button mat-menu-item routerLink="CustomizerRouting">Customizer</button>
+      </mat-menu>
+      <a href="https://sids-projects.github.io/DevSpot/#/home" target="_blank">
+        <span class="material-symbols-outlined"> error </span>
+      </a>
+      <span
+        class="material-symbols-outlined colour-mode"
+        (click)="toggleTheme()"
+      >
+        brightness_6
+      </span>
     </div>
-    <div class="vs-code">
-      <div class="screen-01">
-        <div class="screen-01-nav">
-          <p>File</p>
-          <p>Code</p>
-          <p>View</p>
-          <p>Run</p>
-          <p>Terminal</p>
-          <span class="material-symbols-outlined"> more_horiz </span>
+  </nav>
+
+  <section id="app-home">
+    <div class="set-01">
+      <h2>A Modern CSS Utility Library</h2>
+      <p class="set-01-desc">
+        CSSFusion is a versatile and lightweight CSS utility library distributed
+        via npm. It provides a rich set of prebuilt classes and customizable
+        tools to simplify and speed up the styling of your web projects.
+      </p>
+      <div class="install-kit">
+        <div>
+          <small>Installation Kit</small>
+          <p>npm i &#64;dev.spot/css-fusion</p>
         </div>
-
-        <div class="screen-01-body">
-          <nav>
-            <span class="material-symbols-outlined nav-icon-selected">
-              file_copy
-            </span>
-            <span class="material-symbols-outlined"> search </span>
-            <span class="material-symbols-outlined"> graph_1 </span>
-            <span class="material-symbols-outlined"> bug_report </span>
-            <span class="material-symbols-outlined"> note_stack </span>
-          </nav>
-
-          <aside>
-            <p class="aside-title">Explore</p>
-            <details open>
-              <summary>Project</summary>
-              <details class="detail-ml" open>
-                <summary>src</summary>
-                <details class="detail-ml" open>
-                  <summary>app</summary>
-                  <p>
-                    <span class="material-symbols-outlined"> data_object </span>
-                    app-routing.module.ts
-                  </p>
-                  <p>
-                    <span class="material-symbols-outlined"> code </span>
-                    app.component.html
-                  </p>
-                  <p>
-                    <span class="material-symbols-outlined"> data_object </span>
-                    app.component.scss
-                  </p>
-                  <p>
-                    <span class="material-symbols-outlined"> data_object </span>
-                    app.component.ts
-                  </p>
-                  <p>
-                    <span class="material-symbols-outlined"> data_object </span>
-                    app.module.ts
-                  </p>
-                  <details class="detail-ml" open>
-                    <summary>assets</summary>
-                  </details>
-                </details>
-                <p>
-                  <span class="material-symbols-outlined"> data_object </span>
-                  style.scss
-                </p>
-                <p>
-                  <span class="material-symbols-outlined"> code </span>
-                  index.html
-                </p>
-              </details>
-            </details>
-          </aside>
-
-          <section>
-            <div class="left-tab">
-              <div class="tab">
-                <p>
-                  <span class="material-symbols-outlined"> data_object </span>
-                  package.json
-                </p>
-                <span class="material-symbols-outlined"> close </span>
-              </div>
-
-              <div class="left-tab-body">
-                <p>&#123;</p>
-                <p>&nbsp;&nbsp; "name": "Project-01",</p>
-                <p>&nbsp;&nbsp; "version": "0.0.0",</p>
-                <p>&#125;</p>
-                <p>"dependencies": &#123;</p>
-                <p class="left-tab-highlight">
-                  &nbsp;&nbsp;&nbsp;"&#64;dev.spot/css-fusion": "^0.0.1",
-                </p>
-                <p>&#125;</p>
-              </div>
-            </div>
-
-            <div class="right-tab">
-              <div class="tab">
-                <p>
-                  <span class="material-symbols-outlined"> data_object </span>
-                  style.scss
-                </p>
-                <span class="material-symbols-outlined"> close </span>
-              </div>
-              <div class="right-tab-body">
-                <p>
-                  "&#64;import
-                  <span class="left-tab-highlight"
-                    >"./../node_modules/&#64;dev.spot/css-fusion/src/lib/scss/main.scss";</span
-                  >
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div class="screen-01-cdm">
-          <div class="cdn-tabs">
-            <div class="cdn-tab-links">
-              <p>Debug</p>
-              <p class="active-cdn-tab">Terminal</p>
-              <p>Port</p>
-            </div>
-            <div class="cdn-tab-icons">
-              <p>Node</p>
-              <span class="material-symbols-outlined"> terminal </span>
-              <span class="material-symbols-outlined"> delete </span>
-              <span class="material-symbols-outlined"> more_horiz </span>
-              <span class="material-symbols-outlined"> close </span>
-            </div>
-          </div>
-          <div class="cnd-body">
-            <p>
-              Peter-Macbook Project-01 %
-              <span>npm install &#64;dev.spot/css-fusion</span>
-            </p>
-            <p>added 1 package, and audited 971 packages in 4s</p>
-            <p>122 packages are looking for funding</p>
-            <p>run `npm fund` for details</p>
-            <p>found 0 vulnerabilities</p>
-          </div>
-        </div>
+        <span class="material-symbols-outlined"> content_paste </span>
       </div>
-    </div>
-  </div>
-
-  <div class="set-03">
-    <div class="card-content">
-      <h3>
-        {{
-          cardOneActive
-            ? features[0].title
-            : cardOneActive === false && cardThreeActive === false
-            ? features[1].title
-            : cardThreeActive
-            ? features[2].title
-            : "Default Title"
-        }}
-      </h3>
-      <p>
-        {{
-          cardOneActive
-            ? features[0].sentence
-            : cardOneActive === false && cardThreeActive === false
-            ? features[1].sentence
-            : cardThreeActive
-            ? features[2].sentence
-            : "Default Title"
-        }}
+      <div class="social-links">
+        <a href="https://github.com/Sids-projects/CSSFusion" target="_blank">
+          <p>Github</p>
+          <img
+            [src]="
+              !isDarkMode
+                ? './assets/Github-Icon1-light.svg'
+                : './assets/Github-Icon1.svg'
+            "
+            alt="Github Icon"
+          />
+        </a>
+        <a
+          href="https://www.npmjs.com/package/@dev.spot/css-fusion"
+          target="_blank"
+        >
+          <p>NPM</p>
+          <img
+            [src]="
+              !isDarkMode
+                ? './assets/NPM-Icon-light.svg'
+                : './assets/NPM-Icon.svg'
+            "
+            alt="Github Icon"
+          />
+        </a>
+      </div>
+      <p class="sec-01-scrollTxt">
+        <span class="material-symbols-outlined"> expand_circle_down </span>
+        Scroll Down
       </p>
     </div>
-    <div class="cards-container">
-      <!-- Card 01 -->
-      <div
-        class="card-1"
-        [ngClass]="{
-          'active-1': cardOneActive,
-          'inactive-1': cardTwoActive
-        }"
-        (click)="cardOne()"
-      >
-        <div class="content">
-          <code>
-            <span class="code-title"
-              ><span class="material-symbols-outlined"> light_mode </span> Light
-              Mode</span
-            >
-            :root &#123;<br />
-            <p class="def-txt">
-              &nbsp;--primary: #ff0000;
-              <span class="material-symbols-outlined">
-                keyboard_backspace
-              </span>
-              <span> Base Colour </span>
-            </p>
-            <p class="def-txt">
-              &nbsp;--secondary: #fafafa;
-              <span class="material-symbols-outlined">
-                keyboard_backspace
-              </span>
-              <span> Base Colour </span>
-            </p>
-            <p class="def-txt">
-              &nbsp;--btn-clr: #ff0000;
-              <span class="material-symbols-outlined">
-                keyboard_backspace
-              </span>
-              <span> Button Colour </span>
-            </p>
-            <p class="def-txt">
-              &nbsp;--btn-txt:: #fafafa;
-              <span class="material-symbols-outlined">
-                keyboard_backspace
-              </span>
-              <span> Font Colour </span>
-            </p>
-            &#125;
-          </code>
-          <code class="dark-code">
-            <span class="code-title"
-              ><span class="material-symbols-outlined"> nights_stay </span> Dark
-              Mode</span
-            >
-            :root &#123;<br />
-            <p class="def-txt">
-              &nbsp;--primary: #ff0000;
-              <span class="material-symbols-outlined">
-                keyboard_backspace
-              </span>
-              <span> Base Colour </span>
-            </p>
-            <p class="def-txt">
-              &nbsp;--secondary: #fafafa;
-              <span class="material-symbols-outlined">
-                keyboard_backspace
-              </span>
-              <span> Base Colour </span>
-            </p>
-            <p class="def-txt">
-              &nbsp;--btn-clr: #ff0000;
-              <span class="material-symbols-outlined">
-                keyboard_backspace
-              </span>
-              <span> Button Colour </span>
-            </p>
-            <p class="def-txt">
-              &nbsp;--btn-txt:: #fafafa;
-              <span class="material-symbols-outlined">
-                keyboard_backspace
-              </span>
-              <span> Font Colour </span>
-            </p>
-            &#125;
-          </code>
-        </div>
+
+    <div class="set-02">
+      <div class="set-02-content">
+        <h3>Get Started with CSSFusion</h3>
+        <ul>
+          <li>
+            <span class="material-symbols-outlined">
+              radio_button_checked
+            </span>
+            Install via npm
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              radio_button_checked
+            </span>
+            npm i &#64;dev.spot/css-fusion
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              radio_button_checked
+            </span>
+            Import the main SCSS file into your project
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              radio_button_checked
+            </span>
+            &#64;import "&#64;dev.spot/css-fusion/src/lib/scss/main.scss";
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              radio_button_checked
+            </span>
+            Include the components in your JavaScript/TypeScript files
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              radio_button_checked
+            </span>
+            import &#123; Component &#125; from '&#64;dev.spot/css-fusion';
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              radio_button_checked
+            </span>
+            Copy Html & Ts
+          </li>
+        </ul>
       </div>
-      <!-- Card 02 -->
-      <div
-        class="card-2"
-        [ngClass]="{
-          'active-2-01': cardOneActive,
-          'active-2': cardTwoActive,
-          'active-2-02': cardThreeActive
-        }"
-        (click)="cardTwo()"
-      >
-        <div class="content">
-          <input type="text" placeholder="Search" disabled />
-          <p>
-            <span class="material-symbols-outlined"> ads_click </span> Button
-          </p>
-          <p>
-            <span class="material-symbols-outlined"> table_view </span> Table
-          </p>
-          <p><span class="material-symbols-outlined"> tab_group </span> Tabs</p>
-          <p>
-            <span class="material-symbols-outlined"> variable_add </span> Chips
-          </p>
-          <p>
-            <span class="material-symbols-outlined"> ballot </span>
-            Dropdown
-          </p>
-        </div>
+      <app-vs-code></app-vs-code>
+    </div>
+
+    <div class="set-03">
+      <div class="card-content">
+        <h3>Explore the Modules in CSSFusion</h3>
+        <p>
+          CSSFusion provides everything you need to create stylish, modern, and
+          responsive web applications. Below are the main modules available in
+          the project:
+        </p>
       </div>
-      <!-- Card 03 -->
-      <div
-        class="card-3"
-        [ngClass]="{
-          'active-3': cardThreeActive,
-          'inactive-3': cardTwoActive
-        }"
-        (click)="cardThree()"
-      >
-        <div class="content">
-          <header>
-            <p>Terminal</p>
-            <div class="dots">
-              <p class="dot dot-01"></p>
-              <p class="dot dot-02"></p>
-              <p class="dot dot-03"></p>
-            </div>
-          </header>
-          <div class="terminal">
-            <p>user&#64;machine:~$ ls</p>
-            <p>Documents Downloads Music Pictures Videos</p>
-            <p>user&#64;machine:~$ cd Documents</p>
-            <p>user&#64;machine:~/Documents$ touch file.txt</p>
-            <p>user&#64;machine:~/Documents$ echo "Hello, World!" > file.txt</p>
-            <p>user&#64;machine:~/Documents$ cat file.txt</p>
-            <p>/home/user</p>
-            <p>npm i &#64;dev.spot/css-fusion</p>
-            <p class="loader-title">Initializing Package 40%</p>
-            <p class="loader-bars">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
-              <span class="loading"></span>
+      <div class="cards-container">
+        <div class="card-01">
+          <div>
+            <h3>Components</h3>
+            <p>
+              Build your UI effortlessly with pre-styled components like
+              accordions, buttons, dropdowns, and more. Simply copy the provided
+              HTML and, for components with functionality like dropdowns,
+              include the accompanying TypeScript files.
             </p>
           </div>
+          <app-comps-card></app-comps-card>
+        </div>
+
+        <div class="card-02">
+          <div>
+            <h3>Templates</h3>
+            <p>
+              Assemble beautiful templates using CSSFusion components. These
+              templates are pre-designed with SCSS variables, allowing you to
+              customize and apply different themes seamlessly to your
+              application.
+            </p>
+          </div>
+          <app-temps-card></app-temps-card>
+        </div>
+
+        <div class="card-03">
+          <div>
+            <h3>Customizer</h3>
+            <p>
+              Customize components like accordions or buttons with a
+              Figma-inspired toolset. Select any component and style it to fit
+              your vision with text formatting, shadow effects, dimensions, and
+              more.
+            </p>
+          </div>
+          <app-customizer-card></app-customizer-card>
         </div>
       </div>
     </div>
-    <div class="card-control">
-      <span class="material-symbols-outlined" (click)="cardOne()">
-        chevron_left
-      </span>
-      <span
-        class="dot dot-01"
-        [ngStyle]="{
-          'background-color': cardOneActive
-            ? 'rgba(255, 255, 255, 0.800)'
-            : 'transparent'
-        }"
-      ></span>
-      <span
-        class="dot dot-02"
-        [ngStyle]="{
-          'background-color':
-            cardOneActive === false && cardThreeActive === false
-              ? 'rgba(255, 255, 255, 0.800)'
-              : 'transparent'
-        }"
-      ></span>
-      <span
-        class="dot dot-03"
-        [ngStyle]="{
-          'background-color': cardThreeActive
-            ? 'rgba(255, 255, 255, 0.800)'
-            : 'transparent'
-        }"
-      ></span>
-      <span class="material-symbols-outlined" (click)="cardThree()">
-        chevron_right
-      </span>
-    </div>
-  </div>
 
-  <footer>
-    <div class="footer-container">
-      <div>
-        <h3>Quick Links</h3>
-        <ul>
-          <li>
-            <span class="material-symbols-outlined"> category </span> Components
-          </li>
-          <li>
-            <span class="material-symbols-outlined"> select_window </span>
-            Templates
-          </li>
-          <li>
-            <span class="material-symbols-outlined"> ink_highlighter </span>
-            Customiser
-          </li>
-          <li>
-            <span class="material-symbols-outlined"> book </span> Documentation
-          </li>
-        </ul>
+    <footer>
+      <div class="footer-container">
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li>
+              <span class="material-symbols-outlined"> category </span>
+              Components
+            </li>
+            <li>
+              <span class="material-symbols-outlined"> select_window </span>
+              Templates
+            </li>
+            <li>
+              <span class="material-symbols-outlined"> ink_highlighter </span>
+              Customiser
+            </li>
+            <li>
+              <span class="material-symbols-outlined"> book </span>
+              Documentation
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Social Links</h3>
+          <ul>
+            <li>
+              <img
+                [src]="
+                  !isDarkMode
+                    ? './assets/Github-Icon2-light.svg'
+                    : './assets/Github-Icon2.svg'
+                "
+                alt="GitHub Icon"
+              />GitHub
+            </li>
+            <li>
+              <img
+                [src]="
+                  !isDarkMode
+                    ? './assets/NPM-Icon-light.svg'
+                    : './assets/NPM-Icon.svg'
+                "
+                alt="NPM Icon"
+              />npm
+            </li>
+            <li>
+              <img
+                [src]="
+                  !isDarkMode
+                    ? './assets/Linkedin-Icon-light.svg'
+                    : './assets/Linkedin-Icon.svg'
+                "
+                alt="NPM Icon"
+              />LinkedIn
+            </li>
+            <li>
+              <img
+                [src]="
+                  !isDarkMode
+                    ? './assets/Twitter-Icon-light.svg'
+                    : './assets/Twitter-Icon.svg'
+                "
+                alt="NPM Icon"
+              />Twitter
+            </li>
+          </ul>
+        </div>
+        <div class="footer-set-03">
+          <span class="material-symbols-outlined"> join_right </span>
+          <h3>Credits</h3>
+          <p>Designed and Developed <br />by Siddarth.G</p>
+        </div>
       </div>
-      <div>
-        <h3>Social Links</h3>
-        <ul>
-          <li>
-            <img
-              [src]="
-                !isDarkMode
-                  ? './assets/Github-Icon2-light.svg'
-                  : './assets/Github-Icon2.svg'
-              "
-              alt="GitHub Icon"
-            />GitHub
-          </li>
-          <li>
-            <img
-              [src]="
-                !isDarkMode
-                  ? './assets/NPM-Icon-light.svg'
-                  : './assets/NPM-Icon.svg'
-              "
-              alt="NPM Icon"
-            />npm
-          </li>
-          <li>
-            <img
-              [src]="
-                !isDarkMode
-                  ? './assets/Linkedin-Icon-light.svg'
-                  : './assets/Linkedin-Icon.svg'
-              "
-              alt="NPM Icon"
-            />LinkedIn
-          </li>
-          <li>
-            <img
-              [src]="
-                !isDarkMode
-                  ? './assets/Twitter-Icon-light.svg'
-                  : './assets/Twitter-Icon.svg'
-              "
-              alt="NPM Icon"
-            />Twitter
-          </li>
-        </ul>
-      </div>
-      <div class="footer-set-03">
-        <span class="material-symbols-outlined"> join_right </span>
-        <h3>Credits</h3>
-        <p>Designed and Developed <br />by Siddarth.G</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </section>
 </section>
