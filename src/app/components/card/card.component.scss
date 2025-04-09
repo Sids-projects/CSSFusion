@@ -1,0 +1,15 @@
+.comp-title {
+  margin-bottom: 2rem;
+}
+
+.grid-auto-adjust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, auto));
+  gap: 30px;
+}
+
+.flex-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}

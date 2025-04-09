@@ -1,0 +1,272 @@
+// App
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+// Minimal Edge
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+// App
+@font-face {
+  font-family: "Cubano";
+  src: url("./assets/Cubano.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Package
+// @import "@dev.spot/css-fusion/src/lib/scss/main.scss";
+
+:root {
+  --app-font-heads: "Cubano", sans-serif;
+  --app-font-content: "Outfit", sans-serif;
+  // Backaground Colour
+  --app-bg: #000000;
+  --app-desc-bg: #dbff74;
+  --app-content-bg: #000000;
+  // Font Colour
+  --app-clr: #f7f7f7;
+  --app-desc-clr: #212025;
+  --app-content-clr: #f7f7f7;
+  --app-inactive-clr: #727272;
+
+  --me-font-heads: "Manrope", sans-serif;
+  --me-font-content: "Manrope", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.mat-typography h1,
+.mat-typography h2,
+.mat-typography h3,
+.mat-typography h4,
+.mat-typography h5,
+.mat-typography h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.mat-typography p {
+  margin: 0;
+  padding: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+// Layout
+.grid-02 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4rem;
+}
+
+// Components
+.components-box {
+  padding: 2.4rem;
+
+  h2 {
+    font-family: var(--app-font-heads);
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+}
+
+// Loading Effect
+.load-effect {
+  background-color: var(--app-desc-bg);
+  position: fixed;
+  right: -10rem;
+  bottom: -10rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 1000rem;
+  z-index: 1000;
+}
+
+.start-load {
+  animation: loadEffect 2s;
+}
+
+@keyframes loadEffect {
+  0% {
+    scale: 0;
+  }
+
+  50% {
+    scale: 40;
+  }
+
+  100% {
+    scale: 0;
+  }
+}
+
+// Code
+.code-box {
+  position: relative;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9;
+    margin-bottom: 1.4rem;
+  }
+
+  .code-copy {
+    color: var(--font-colour);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    border: none;
+    background-color: transparent;
+    border-radius: 0.4rem;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    span {
+      font-size: 2.2rem !important;
+    }
+  }
+}
+
+.line-numbers {
+  padding: 0 0.8rem !important;
+  border: 0.18rem solid var(--code-snippet-bdr);
+  background-color: var(--code-snippet) !important;
+  border-radius: 0.8rem !important;
+}
+
+code {
+  font-size: 1.2rem !important;
+}
+
+pre {
+  max-height: 34rem;
+
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    // @include blurLayer($bdrRds: 1rem);
+    background-color: var(--module-nav-bdr);
+    border-radius: 2rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: transparent;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: var(--font-colour);
+  background: none;
+  text-shadow: none;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #8585ff;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #ff4d6d;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--theme-colour);
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  padding: 1rem;
+  margin: 0;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+  background: transparent;
+}
+
+// Helpers
+.app-mt-1 {
+  margin-top: 1rem;
+}
+
+.app-mt-15 {
+  margin-top: 1.6rem;
+}
+
+.app-mt-2 {
+  margin-top: 2rem;
+}
+
+.app-bdr-top {
+  border-top: 0.18rem solid var(--dark-border);
+}
+
+.app-bdr-btm {
+  border-bottom: 0.18rem solid var(--dark-border);
+}
+
+.app-bdr-none {
+  border: none !important;
+}
+
+hr {
+  border: 0.1rem solid var(--module-nav-bdr);
+  padding: 0 !important;
+  margin: 0 !important;
+}

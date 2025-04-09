@@ -1,0 +1,609 @@
+<main class="app-comp grid-02">
+  <!-- Regular Table -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Regular</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div
+          class="table-box tbl-bdr-btm"
+          [class]="
+            themeClr === 'dark-mode'
+              ? 'table-box cf-dark tbl-bdr-btm'
+              : 'table-box tbl-bdr-btm'
+          "
+        >
+          <table>
+            <thead>
+              <tr>
+                <th>SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+                <th>Service Date</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMd">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Border Bottom -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Border Bottom</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-bdr-btm">
+          <table>
+            <thead>
+              <tr>
+                <th>SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMini">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Border Rectangle -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Border Rectangle</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-bdr-rect">
+          <table>
+            <thead>
+              <tr>
+                <th class="tbl-col-xsm">SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMini">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Build-In Colours -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># In-Build Colours</h3>
+      <div class="inbuild-clrs">
+        <p
+          [class]="getInBuildClr === 'blue' ? 'blue active-clr' : 'blue'"
+          (click)="inBuildClrs('blue')"
+        ></p>
+        <p
+          [class]="getInBuildClr === 'yellow' ? 'yellow active-clr' : 'yellow'"
+          (click)="inBuildClrs('yellow')"
+        ></p>
+        <p
+          [class]="getInBuildClr === 'green' ? 'green active-clr' : 'green'"
+          (click)="inBuildClrs('green')"
+        ></p>
+        <p
+          [class]="getInBuildClr === 'orange' ? 'orange active-clr' : 'orange'"
+          (click)="inBuildClrs('orange')"
+        ></p>
+        <p
+          [class]="getInBuildClr === 'violet' ? 'violet active-clr' : 'violet'"
+          (click)="inBuildClrs('violet')"
+        ></p>
+        <p
+          [class]="getInBuildClr === 'gray' ? 'gray active-clr' : 'gray'"
+          (click)="inBuildClrs('gray')"
+        ></p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <div
+          [class]="
+            'table-box-' + getInBuildClr + ' tbl-bdr-btm-' + getInBuildClr
+          "
+        >
+          <table>
+            <thead>
+              <tr>
+                <th>SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+                <th>Service Date</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableSm">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div [class]="'table-btns-' + getInBuildClr">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Responsive Table -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Responsive Border Bottom Table</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-responsive tbl-bdr-btm">
+          <table>
+            <thead>
+              <tr>
+                <th class="tbl-col-xsm">SI.No</th>
+                <th>Batch No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+                <th>Service Date</th>
+                <th class="tbl-col-md">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableLg">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Left Line Hover -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Left Line Hover</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box table-box tbl-bdr-btm tbl-line-hover">
+          <table>
+            <thead>
+              <tr>
+                <th>SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMini">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Row Hover -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Row Hover</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-bdr-rect tbl-row-hover">
+          <table>
+            <thead>
+              <tr>
+                <th class="tbl-col-xsm">SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMini">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Row Even -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Row Even</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-row-even">
+          <table>
+            <thead>
+              <tr>
+                <th class="tbl-col-xsm">SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMini">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Column Even -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Column Even</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-clm-even">
+          <table>
+            <thead>
+              <tr>
+                <th class="tbl-col-xsm">SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMini">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Row Odd -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Row Odd</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-row-odd">
+          <table>
+            <thead>
+              <tr>
+                <th class="tbl-col-xsm">SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMini">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Column Odd -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Column Odd</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-clm-odd">
+          <table>
+            <thead>
+              <tr>
+                <th class="tbl-col-xsm">SI.No</th>
+                <th>Brand</th>
+                <th>Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableMini">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <!-- Sort Option -->
+  <section class="app-card">
+    <div class="card-header">
+      <h3># Sort Option</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div class="table-box tbl-responsive tbl-bdr-btm">
+          <table>
+            <thead>
+              <tr>
+                <th class="tbl-col-xsm">SI.No</th>
+                <th>Batch No</th>
+                <th>Brand</th>
+                <th class="tbl-col-sm tbl-sort" (click)="sortTable(3)">
+                  <p>
+                    Modal
+                    <b>({{ sortStatus }})</b>
+                    <span class="material-symbols-outlined"> swap_vert </span>
+                  </p>
+                </th>
+                <th>Service Date</th>
+                <th class="tbl-col-md">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tbody of tableLg">
+                <td *ngFor="let tr of tbody.tr">{{ tr }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-btns">
+          <button type="button" class="page-btn" (click)="clearSort()">
+            <span class="material-symbols-outlined"> restart_alt </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_left
+            </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <p class="page-count"><span class="active-page">01</span> of 50</p>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+          <button type="button" class="page-btn">
+            <span class="material-symbols-outlined">
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

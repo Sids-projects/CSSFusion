@@ -1,0 +1,17 @@
+{
+  "name": "@dev.spot/css-fusion",
+  "version": "0.0.2",
+  "description": "A library for reusable SCSS components and TypeScript functionalities.",
+  "main": "dist/css-fusion/bundles/css-fusion.umd.js",
+  "style": "dist/css-fusion/scss/main.scss",
+  "types": "dist/css-fusion/css-fusion.d.ts",
+  "scripts": {
+    "build-scripts": "tsc -p ./tsconfig.lib.json"
+  },
+  "stylePreprocessorOptions": {
+    "includePaths": [
+      "./node_modules"
+    ]
+  },
+  "sideEffects": false
+}

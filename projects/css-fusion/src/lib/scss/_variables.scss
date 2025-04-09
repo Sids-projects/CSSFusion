@@ -1,0 +1,132 @@
+:root {
+  // Font
+  --font-style: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+    Arial, "Lucida Grande", sans-serif;
+
+  // Dark
+  --yellow-dark-clr: rgb(250, 175, 0);
+  --green-dark-clr: rgb(1, 157, 157);
+  --orange-dark-clr: rgb(255, 90, 31);
+  --blue-dark-clr: rgb(15, 85, 235);
+  --violet-dark-clr: rgb(127, 54, 221);
+  --gray-dark-clr: rgb(159, 159, 159);
+  // Medium
+  --yellow-medium-clr: #ffbd02;
+  --green-medium-clr: #02bbbd;
+  --orange-medium-clr: #ff7c4b;
+  --blue-medium-clr: #3971ff;
+  --violet-medium-clr: #9e54ff;
+  --gray-medium-clr: #bababa;
+  // Light
+  --yellow-light-clr: #fbd97a;
+  --green-light-clr: #8ad2d3;
+  --orange-light-clr: #f6bc9a;
+  --blue-light-clr: #b5e1ff;
+  --violet-light-clr: #caa7ff;
+  --gray-light-clr: #e5e5e5;
+  // Font
+  --yellow-font-clr: #ffffff;
+  --green-font-clr: #ffffff;
+  --orange-font-clr: #ffffff;
+  --blue-font-clr: #ffffff;
+  --violet-font-clr: #ffffff;
+  --gray-font-clr: white;
+
+  // Table
+  --tbl-dark-clr: #d1d1d1;
+  --tbl-medium-clr: #ebebeb;
+  --tbl-light-clr: #dbdbdb;
+  --tbl-font-clr: #898989;
+  --th-font-weight: 400;
+
+  // Button
+  --btn-dark-clr: #d7d7d7;
+  --btn-medium-clr: #f8f8f8;
+  --btn-light-clr: #dbdbdb;
+  --btn-font-clr: #898989;
+
+  // Card
+  --card-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --card-width: 100%;
+  --card-fixed-width: 400px;
+
+  // Inputs
+  --input-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  --input-dark-clr: #bfbfbf;
+  --input-medium-clr: #cecece;
+  --input-light-clr: #ffffff;
+  --input-font-clr: #727272;
+
+  // Nav
+  --nav-dark-clr: #7d7d7d;
+  --nav-medium-clr: #c8c8c8;
+  --nav-light-clr: #fafafa;
+  --nav-font-clr: #ffffff;
+
+  // Colour Mode
+  --cf-mode-primary: #ffffff;
+  --cf-mode-secondary: #e3e3e3;
+  --cf-mode-bdr: #ececec;
+  --cf-mode-active: #e1e1e1;
+  --cf-mode-font-primary: #1f1e1e;
+  --cf-mode-font-secondary: #535151;
+}
+
+// In-Build Colours
+$buildIn: (
+  "yellow": var(--yellow-dark-clr),
+  "green": var(--green-dark-clr),
+  "orange": var(--orange-dark-clr),
+  "blue": var(--blue-dark-clr),
+  "violet": var(--violet-dark-clr),
+  "gray": var(--gray-dark-clr),
+);
+
+$colors: (
+  "yellow": (
+    var(--yellow-dark-clr),
+    var(--yellow-medium-clr),
+    var(--yellow-light-clr),
+    var(--yellow-font-clr),
+  ),
+  "green": (
+    var(--green-dark-clr),
+    var(--green-medium-clr),
+    var(--green-light-clr),
+    var(--green-font-clr),
+  ),
+  "orange": (
+    var(--orange-dark-clr),
+    var(--orange-medium-clr),
+    var(--orange-light-clr),
+    var(--orange-font-clr),
+  ),
+  "blue": (
+    var(--blue-dark-clr),
+    var(--blue-medium-clr),
+    var(--blue-light-clr),
+    var(--blue-font-clr),
+  ),
+  "violet": (
+    var(--violet-dark-clr),
+    var(--violet-medium-clr),
+    var(--violet-light-clr),
+    var(--violet-font-clr),
+  ),
+  "gray": (
+    var(--gray-dark-clr),
+    var(--gray-medium-clr),
+    var(--gray-light-clr),
+    var(--gray-font-clr),
+  ),
+);
+
+.cf-dark {
+  --cf-mode-primary: #02040a !important;
+  --cf-mode-secondary: #212328 !important;
+  --cf-mode-bdr: #3d444d !important;
+  --cf-mode-active: #393939 !important;
+  --cf-mode-font-primary: #fcfcfc !important;
+  --cf-mode-font-secondary: #a1a1a1 !important;
+}

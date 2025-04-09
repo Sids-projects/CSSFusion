@@ -1,0 +1,432 @@
+<div *ngIf="showCode === 'scss-variables'">
+  <div class="code-box">
+    <header>
+      <p>Scss Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(scssVariables)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-css" #scssVariables>
+:root &#123;
+  // Font
+  --font-style: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+    Arial, "Lucida Grande", sans-serif;
+
+  // Dark
+  --yellow-dark-clr: rgb(250, 175, 0);
+  --green-dark-clr: rgb(1, 157, 157);
+  --orange-dark-clr: rgb(255, 90, 31);
+  --blue-dark-clr: rgb(15, 85, 235);
+  --violet-dark-clr: rgb(127, 54, 221);
+  --gray-dark-clr: rgb(159, 159, 159);
+  // Medium
+  --yellow-medium-clr: #ffbd02;
+  --green-medium-clr: #02bbbd;
+  --orange-medium-clr: #ff7c4b;
+  --blue-medium-clr: #3971ff;
+  --violet-medium-clr: #9e54ff;
+  --gray-medium-clr: #bababa;
+  // Light
+  --yellow-light-clr: #fbd97a;
+  --green-light-clr: #8ad2d3;
+  --orange-light-clr: #f6bc9a;
+  --blue-light-clr: #b5e1ff;
+  --violet-light-clr: #caa7ff;
+  --gray-light-clr: #e5e5e5;
+  // Font
+  --yellow-font-clr: #ffffff;
+  --green-font-clr: #ffffff;
+  --orange-font-clr: #ffffff;
+  --blue-font-clr: #ffffff;
+  --violet-font-clr: #ffffff;
+  --gray-font-clr: white;
+
+  // Table
+  --tbl-dark-clr: #d1d1d1;
+  --tbl-medium-clr: #ebebeb;
+  --tbl-light-clr: #dbdbdb;
+  --tbl-font-clr: #898989;
+  --th-font-weight: 400;
+
+  // Button
+  --btn-dark-clr: #d7d7d7;
+  --btn-medium-clr: #f8f8f8;
+  --btn-light-clr: #dbdbdb;
+  --btn-font-clr: #898989;
+
+  // Card
+  --card-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --card-width: 100%;
+  --card-fixed-width: 400px;
+
+  // Inputs
+  --input-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  --input-dark-clr: #bfbfbf;
+  --input-medium-clr: #cecece;
+  --input-light-clr: #ffffff;
+  --input-font-clr: #727272;
+
+  // Nav
+  --nav-dark-clr: #7d7d7d;
+  --nav-medium-clr: #c8c8c8;
+  --nav-light-clr: #fafafa;
+  --nav-font-clr: #ffffff;
+
+  // Colour Mode
+  --cf-mode-primary: #ffffff;
+  --cf-mode-secondary: #faf9f8;
+  --cf-mode-active: #e1e1e1;
+  --cf-mode-font-primary: #1f1e1e;
+  --cf-mode-font-secondary: #535151;
+&#125;
+
+// In-Build Colours
+$buildIn: (
+  "yellow": var(--yellow-dark-clr),
+  "green": var(--green-dark-clr),
+  "orange": var(--orange-dark-clr),
+  "blue": var(--blue-dark-clr),
+  "violet": var(--violet-dark-clr),
+  "gray": var(--gray-dark-clr),
+);
+
+$colors: (
+  "yellow": (
+    var(--yellow-dark-clr),
+    var(--yellow-medium-clr),
+    var(--yellow-light-clr),
+    var(--yellow-font-clr),
+  ),
+  "green": (
+    var(--green-dark-clr),
+    var(--green-medium-clr),
+    var(--green-light-clr),
+    var(--green-font-clr),
+  ),
+  "orange": (
+    var(--orange-dark-clr),
+    var(--orange-medium-clr),
+    var(--orange-light-clr),
+    var(--orange-font-clr),
+  ),
+  "blue": (
+    var(--blue-dark-clr),
+    var(--blue-medium-clr),
+    var(--blue-light-clr),
+    var(--blue-font-clr),
+  ),
+  "violet": (
+    var(--violet-dark-clr),
+    var(--violet-medium-clr),
+    var(--violet-light-clr),
+    var(--violet-font-clr),
+  ),
+  "gray": (
+    var(--gray-dark-clr),
+    var(--gray-medium-clr),
+    var(--gray-light-clr),
+    var(--gray-font-clr),
+  ),
+);
+
+.cf-dark &#123;
+  --cf-mode-primary: #1d1d1d !important;
+  --cf-mode-secondary: #303030 !important;
+  --cf-mode-active: #393939 !important;
+  --cf-mode-font-primary: #fcfcfc !important;
+  --cf-mode-font-secondary: #a1a1a1 !important;
+&#125;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'accordion-01'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(accordion01)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #accordion01>
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head"&gt;
+      &lt;h2 class="acc-title"&gt;
+        &lt;mat-icon class="acc-title-icon"&gt;pan_tool&lt;/mat-icon&gt;
+        Introduction
+      &lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'accordion-02'">
+  <div class="code-box">
+    <header>
+      <p>Javascript Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(accordion02)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-javascript" #accordion02>
+import &#123; Accordion &#125; from '&#64;dev.spot/css-fusion';
+
+export class AccordionComponent implements OnInit &#123;
+  ngOnInit() &#123;
+    setTimeout(() => &#123;
+      this.accordion();
+    &#125;);
+    &#125;
+  &#125;
+
+  accordion() &#123;
+    const accordionElements = document.querySelectorAll('.accordion-main');
+    new Accordion(accordionElements as NodeListOf&lt;HTMLElement&gt;);
+  &#123;
+&#125;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-static'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(acc_static)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_static>
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head acc-static"&gt;
+      &lt;h2 class="acc-title"&gt;...&lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head acc-static"&gt;
+      &lt;h2 class="acc-title"&gt;...&lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-dynamic'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(acc_dynamic)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_dynamic>
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head"&gt;
+      &lt;h2 class="acc-title"&gt;...&lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="accordion-main"&gt;
+    &lt;div class="acc-head"&gt;
+      &lt;h2 class="acc-title"&gt;...&lt;/h2&gt;
+      &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+    &lt;/div&gt;
+    &lt;div class="acc-body"&gt;
+      &lt;div class="acc-content"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-open'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(accordion01)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #accordion01>
+  &lt;div class="accordion-grup"&gt;
+    &lt;div class="accordion-main"&gt;
+      &lt;div class="acc-head"&gt;
+        &lt;div class="title"&gt;
+          &lt;h2&gt;...&lt;/h2&gt;
+          &lt;mat-icon class="state-arrow"&gt;keyboard_arrow_down&lt;/mat-icon&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="acc-body acc-open"&gt;
+        &lt;div class="acc-content"&gt;...&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-dark'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button class="code-copy" matTooltip="copy" (click)="copyCode(acc_dark)">
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_dark>
+&lt;div class="accordion-grup cf-dark"&gt; &lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-light'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button class="code-copy" matTooltip="copy" (click)="copyCode(acc_light)">
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_light>
+&lt;div class="accordion-grup"&gt; &lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-buildin'">
+  <div class="code-box">
+    <header>
+      <p>Html Snippet</p>
+      <button class="code-copy" matTooltip="copy" (click)="copyCode(acc_light)">
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #acc_light>
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-yellow"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-green"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-orange"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-blue"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-violet"&gt;
+&lt;/div&gt;
+&lt;div class="accordion-grup"&gt;
+  &lt;div class="accordion-main accordion-gray"&gt;
+&lt;/div&gt;
+</code>
+</pre>
+  </div>
+</div>
+
+<div *ngIf="showCode === 'acc-structure'">
+  <div class="code-box">
+    <header *ngIf="compCodeHead === true">
+      <p>Html Snippet</p>
+      <button
+        class="code-copy"
+        matTooltip="copy"
+        (click)="copyCode(accStructure)"
+      >
+        <span class="material-symbols-outlined"> file_copy </span>
+      </button>
+    </header>
+    <pre class="line-numbers">
+<code class="language-html" #accStructure>
+&lt;!-- Containers --&gt;
+&lt;div class="accordion-grup"&gt; &lt;/div&gt; &lt;!-- Group all accordion --&gt;
+&lt;div class="accordion-main"&gt; &lt;/div&gt; &lt;!-- Accordion Container --&gt;
+
+&lt;!-- Inbuild Colour --&gt;
+&lt;div class="accordion-main accordion-yellow"&gt;
+&lt;div class="accordion-main accordion-green"&gt;
+&lt;div class="accordion-main accordion-orange"&gt;
+&lt;div class="accordion-main accordion-blue"&gt;
+&lt;div class="accordion-main accordion-violet"&gt;
+&lt;div class="accordion-main accordion-gray"&gt;
+
+&lt;!-- Header --&gt;
+&lt;div class="acc-head"&gt; &lt;/div&gt; &lt;!-- Dynamic Accordion --&gt;
+&lt;div class="acc-head acc-static"&gt; &lt;/div&gt; &lt;!-- Static Accordion --&gt;
+&lt;h2 class="acc-title"&gt; &lt;/h2&gt; &lt;!-- Accordion Title --&gt;
+&lt;mat-icon class="acc-title-icon"&gt; &lt;/mat-icon&gt; &lt;!-- Accordion Title Icon --&gt;
+&lt;mat-icon class="state-arrow"&gt; &lt;/mat-icon&gt; &lt;!-- Accordion Arrow --&gt;
+
+&lt;!-- Body --&gt;
+&lt;div class="acc-body"&gt; &lt;/div&gt; &lt;!-- Accordion Body --&gt;
+&lt;div class="acc-body acc-open"&gt; &lt;/div&gt; &lt;!-- Default Expand --&gt;
+&lt;div class="acc-content"&gt; &lt;/div&gt; &lt;!-- Accordion Body Content container  --&gt;
+</code>
+</pre>
+  </div>
+</div>

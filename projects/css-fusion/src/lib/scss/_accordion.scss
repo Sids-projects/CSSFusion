@@ -1,0 +1,152 @@
+@import "variables";
+
+.mat-typography h1,
+.mat-typography h2,
+.mat-typography h3,
+.mat-typography h4,
+.mat-typography h5,
+.mat-typography h6,
+.mat-typography p {
+  margin: 0;
+}
+
+@mixin accordion(
+  $clrPrim: var(--cf-mode-primary),
+  $fontPrim: var(--cf-mode-font-primary),
+  $fontSec: var(--cf-mode-font-secondary),
+  $active: var(--cf-mode-active)
+) {
+  background-color: $clrPrim;
+  border-bottom: 1.8px solid $active;
+
+  .acc-head {
+    .acc-title {
+      color: $fontPrim;
+    }
+  }
+
+  .acc-body {
+    .acc-content {
+      p {
+        color: $fontSec;
+      }
+    }
+  }
+
+  .state-arrow {
+    color: $fontPrim !important;
+  }
+}
+
+.accordion-grup {
+  border: 1.8px solid var(--cf-mode-active);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .accordion-main {
+    @include accordion();
+    font-family: var(--font-style);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.09) 0px 0px 0px 1px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    &:last-child {
+      border: none !important;
+    }
+
+    .acc-head {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      z-index: 1;
+
+      .acc-title {
+        font-family: var(--font-style) !important;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.8rem;
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+
+        .acc-title-icon {
+          font-size: 20px !important;
+        }
+      }
+    }
+
+    .acc-body {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.2s ease;
+
+      .acc-content {
+        font-family: var(--font-style) !important;
+        padding: 8px 18px 18px 18px;
+      }
+    }
+
+    .state-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.5s ease;
+    }
+
+    .state-arrow.open {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.acc-grid {
+  min-width: 620px;
+  max-width: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 10px !important;
+
+  .accordion-main {
+    height: fit-content;
+    border-radius: 8px;
+  }
+
+  // .accordion-main {
+  //   border: 2px solid var(--cf-mode-active) !important;
+  //   border-radius: 8px;
+  //   height: fit-content;
+
+  //   &:last-child {
+  //     border: 2px solid var(--cf-mode-active) !important;
+  //   }
+  // }
+}
+
+@each $key, $colour in $buildIn {
+  .accordion-grup {
+    .accordion-#{$key} {
+      @include accordion(
+        $colour,
+        #ffffff,
+        #f4f4f4,
+        color-mix(in srgb, $colour 100%, white 20%)
+      );
+    }
+  }
+}

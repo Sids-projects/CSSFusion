@@ -1,0 +1,72 @@
+<main class="app-main" *ngIf="showMain == '/' || ''">
+  <section class="app-desc">
+    <header>
+      <p>
+        <span class="material-symbols-outlined"> tab_group </span>
+        Templates
+      </p>
+    </header>
+    <div class="app-desc-content">
+      <div class="app-desc-box">
+        <span class="material-symbols-outlined desc-icon">
+          {{ storeDesc.icon }}
+        </span>
+        <h2 [innerHTML]="sanitizeHtml(storeDesc.title)"></h2>
+      </div>
+      <p>{{ storeDesc.desc }}</p>
+      <a
+        *ngIf="storeDesc.routeTo != ''"
+        (click)="showLoadEffectFn(storeDesc.routeTo)"
+      >
+        {{ storeDesc.btn }}
+        <span class="material-symbols-outlined"> trending_up </span>
+      </a>
+    </div>
+  </section>
+
+  <section class="app-content">
+    <mat-tab-group class="app-content-tabs">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span (click)="showDesc(this.templateData[0])">Templates</span>
+        </ng-template>
+        <ul>
+          <li
+            *ngFor="let data of templateData"
+            (click)="showDesc(data)"
+            [ngClass]="storeDesc.title == data.title ? 'active-list' : ''"
+          >
+            <span class="material-symbols-outlined"> {{ data.icon }} </span>
+            <span
+              [innerHTML]="sanitizeHtml(data.title)"
+              class="tab-content-titles"
+            >
+              {{ data.title }}
+            </span>
+          </li>
+        </ul>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span (click)="showDesc(this.templateData[0])">Components</span>
+        </ng-template>
+        <ul>
+          <li
+            *ngFor="let data of componentsData"
+            (click)="showDesc(data)"
+            [ngClass]="storeDesc.title == data.title ? 'active-list' : ''"
+          >
+            <span class="material-symbols-outlined"> {{ data.icon }} </span>
+            <span>{{ data.title }}</span>
+          </li>
+        </ul>
+      </mat-tab>
+    </mat-tab-group>
+  </section>
+</main>
+
+<section class="router-outlet" *ngIf="showMain != '/' || ''">
+  <router-outlet></router-outlet>
+</section>
+
+<div class="load-effect" [ngClass]="showLoadEffect ? 'start-load' : ''"></div>

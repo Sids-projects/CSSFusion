@@ -1,0 +1,113 @@
+<main id="me-main">
+  <header id="me-header">
+    <div class="set-01">
+      <img class="logo" src="./assets/me-logo.svg" />
+      <div
+        class="logoMob"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#staticBackdrop"
+        aria-controls="staticBackdrop"
+      >
+        <span class="material-symbols-outlined">menu</span>
+      </div>
+      <nav class="set-02">
+        <a> Css </a>
+        <a> Scss </a>
+        <a> Javascript </a>
+        <span class="more-options">
+          <a> Angular </a>
+          <a> React </a>
+          <a> Github </a>
+          <a class="active-link"> Other </a>
+        </span>
+        <span
+          class="material-symbols-outlined more-icon"
+          [matMenuTriggerFor]="menu"
+        >
+          more_horiz
+        </span>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      </nav>
+    </div>
+    <div class="set-03">
+      <form>
+        <select>
+          <option value="en">En</option>
+          <option value="tn">Tn</option>
+        </select>
+      </form>
+      <i
+        class="fa-solid fa-magnifying-glass search-icon"
+        data-bs-toggle="modal"
+        data-bs-target="#searchMain"
+      ></i>
+    </div>
+  </header>
+
+  <section id="me-body">
+    <nav class="set-01">
+      <div class="component-box">
+        <small>Basics</small>
+        <div class="components-list mb-4">
+          <a>
+            <span class="material-symbols-outlined">sticky_note_2</span> Intro
+          </a>
+          <a> <span class="material-symbols-outlined">chat</span> Comments </a>
+          <a>
+            <span class="material-symbols-outlined">database</span> Variables
+          </a>
+          <a>
+            <span class="material-symbols-outlined">functions</span> Operators
+          </a>
+          <a>
+            <span class="material-symbols-outlined">link</span> Template
+            Literals
+          </a>
+          <a>
+            <span class="material-symbols-outlined">shuffle</span> Conv & Coerc
+          </a>
+          <a>
+            <span class="material-symbols-outlined">fork_right</span> Truthy &
+            Falsy
+          </a>
+          <a> <span class="material-symbols-outlined">lan</span> Boolean </a>
+          <a>
+            <span class="material-symbols-outlined">receipt_long</span> Stmt &
+            Expr
+          </a>
+          <a>
+            <span class="material-symbols-outlined">view_array</span> Array
+          </a>
+          <a> <span class="material-symbols-outlined">web</span> Prompt </a>
+          <a>
+            <span class="material-symbols-outlined">spellcheck</span> If else
+          </a>
+          <a>
+            <span class="material-symbols-outlined">checklist</span> Switch case
+          </a>
+          <a>
+            <span class="material-symbols-outlined">developer_mode</span>
+            Function
+          </a>
+          <a>
+            <span class="material-symbols-outlined">data_object</span> Object
+          </a>
+          <a> <span class="material-symbols-outlined">repeat</span> Loop </a>
+          <a> <span class="material-symbols-outlined">target</span> Project </a>
+        </div>
+
+        <small class="m-top02">Advance</small>
+        <div class="components-list">
+          <a>
+            <span class="material-symbols-outlined">sticky_note_2</span> Intro
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="set-02"></div>
+  </section>
+</main>

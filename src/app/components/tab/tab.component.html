@@ -1,0 +1,38 @@
+<section class="app-comp grid-02">
+  <div class="app-card">
+    <div class="card-header">
+      <h3># Regular</h3>
+    </div>
+    <div class="card-body">
+      <div
+        [class]="
+          themeClr === 'dark-mode'
+            ? 'tab-view tab-bdr cf-dark'
+            : 'tab-view tab-bdr'
+        "
+      >
+        <div class="tab-list-group tab-list-center">
+          <p class="scroll-arrow tab-left">
+            <mat-icon class="btn-icon">keyboard_arrow_left</mat-icon>
+          </p>
+          <nav class="tab-list">
+            <p class="tab-name tab-01 active-tab">Home</p>
+            <p class="tab-name tab-02">Company</p>
+            <p class="tab-name tab-03">Service</p>
+          </nav>
+          <p class="scroll-arrow tab-right">
+            <mat-icon class="btn-icon">keyboard_arrow_right</mat-icon>
+          </p>
+        </div>
+        <section class="tab-body-set">
+          <ng-container *ngFor="let data of tabContent">
+            <div [class]="data.class">
+              <h3 class="tab-title">{{ data.tabTitle }}</h3>
+              <p class="tab-content">{{ data.tabContent }}</p>
+            </div>
+          </ng-container>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

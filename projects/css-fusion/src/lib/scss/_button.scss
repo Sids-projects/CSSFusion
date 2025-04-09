@@ -1,0 +1,217 @@
+@import "variables";
+
+@mixin btnFill(
+  $clr01: var(--btn-dark-clr),
+  $clr02: var(--btn-medium-clr),
+  $clr03: var(--btn-light-clr),
+  $font: var(--btn-font-clr)
+) {
+  border: 1.5px solid $clr01;
+  background-image: linear-gradient($clr02, $clr01);
+  color: $font !important;
+  min-width: 38px;
+  max-width: fit-content;
+  min-height: 38px;
+  max-height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-style);
+  border-radius: 6px;
+  transition: all 0.1s;
+
+  .btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  &:has(.btn-icon) {
+    padding: 0;
+  }
+
+  &:has(.btn-icon + .btn-txt),
+  &:has(.btn-txt + .btn-icon),
+  &:has(.btn-icon .btn-txt),
+  &:has(.btn-icon.btn-txt) {
+    padding: 0 12px;
+  }
+
+  &:hover {
+    filter: brightness(0.95);
+    box-shadow: 0 0 4px $clr02;
+  }
+
+  &:active {
+    filter: brightness(1);
+  }
+
+  &:focus {
+    box-shadow: 0 0 4px $clr01;
+  }
+}
+
+@mixin btnLine(
+  $clr01: var(--btn-font-clr),
+  $clr02: var(--btn-medium-clr),
+  $clr03: var(--btn-light-clr),
+  $font: var(--btn-font-clr)
+) {
+  border: 1.5px solid $clr01;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.089);
+  background-color: transparent;
+  color: $font !important;
+  min-width: 38px;
+  max-width: fit-content;
+  min-height: 38px;
+  max-height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-style);
+  border-radius: 6px;
+  transition: all 0.1s;
+
+  .btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  &:has(.btn-icon) {
+    padding: 0;
+  }
+
+  &:has(.btn-icon + .btn-txt),
+  &:has(.btn-txt + .btn-icon),
+  &:has(.btn-icon .btn-txt),
+  &:has(.btn-icon.btn-txt) {
+    padding: 0 12px;
+  }
+
+  &:hover {
+    filter: brightness(0.95);
+    box-shadow: 0 0 4px $clr02;
+  }
+
+  &:active {
+    filter: brightness(1);
+  }
+
+  &:focus {
+    box-shadow: 0 0 4px $clr01;
+  }
+}
+
+@mixin btnIconTxt(
+  $clr01: var(--btn-dark-clr),
+  $clr02: var(--btn-medium-clr),
+  $clr03: var(--btn-light-clr),
+  $font: var(--btn-font-clr)
+) {
+  padding: 0 10px 0 0 !important;
+  border: 1.5px solid $clr01;
+  background-color: $clr02;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.082);
+  color: $font !important;
+  min-width: 38px;
+  max-width: fit-content;
+  min-height: 38px;
+  max-height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-style);
+  border-radius: 6px;
+  transition: all 0.1s;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  &:active {
+    filter: brightness(1);
+  }
+
+  &:focus {
+    box-shadow: 0 0 4px $clr01;
+  }
+
+  .btn-icon {
+    border-right: 1.5px solid $clr01;
+    box-shadow: 1px 0 4px rgba(0, 0, 0, 0.082);
+    background-color: $clr01;
+    color: $font;
+    height: 38px;
+    padding-right: 8px !important;
+    padding-left: 10px !important;
+    margin-right: 6px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    border-radius: 4px 0 0 4px;
+  }
+}
+
+.btn-fill {
+  @include btnFill();
+}
+
+.btn-line {
+  @include btnLine();
+}
+
+.btn-iconTxt {
+  @include btnIconTxt();
+}
+
+.btn-icon {
+  padding: 0 !important;
+}
+
+.btn-round {
+  border-radius: 50px !important;
+}
+
+@each $color-name, $color-values in $colors {
+  .btn-fill-#{$color-name} {
+    @include btnFill(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .btn-line-#{$color-name} {
+    @include btnLine(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 1)
+    );
+  }
+
+  .btn-iconTxt-#{$color-name} {
+    @include btnIconTxt(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+}

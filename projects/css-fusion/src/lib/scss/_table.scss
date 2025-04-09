@@ -1,0 +1,547 @@
+@import "variables";
+
+// Table
+@mixin tableFn(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--cf-mode-secondary),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $clr02;
+    border-radius: 50px;
+
+    &:hover {
+      background: $clr01;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-style);
+
+    thead {
+      tr {
+        text-align: left;
+      }
+
+      th {
+        background-color: $clr02;
+        color: $fontClr;
+        font-weight: var(--th-font-weight);
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+
+    tbody {
+      td {
+        background-color: var(--cf-mode-primary);
+        color: var(--cf-mode-font-primary);
+        padding: 12px;
+      }
+    }
+  }
+}
+
+// Pagination
+@mixin tablePageFn(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+
+  .page-count {
+    background-color: #fafafa;
+    border: 1.5px solid $clr01;
+    color: #898989;
+    font-family: var(--font-style);
+    font-size: 16px;
+    width: fit-content;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-radius: 4px;
+    padding: 0 10px;
+
+    .active-page {
+      color: #7a7a7a;
+    }
+  }
+
+  .page-btn {
+    background-color: $clr02;
+    border: 1.5px solid $clr01;
+    color: $fontClr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    transition: all 0.1s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    &:active {
+      filter: none;
+    }
+
+    p,
+    span {
+      font-size: 20px;
+    }
+  }
+}
+
+// Border Bottom
+@mixin tableBdrBtm(
+  $clr01: var(--cf-mode-bdr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  border: 1.8px solid $clr01;
+
+  table {
+    thead {
+      tr {
+        border-bottom: 1.8px solid $clr01;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1.8px solid $clr01;
+
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+// Border Rectangle
+@mixin tableBdrRect(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  border: 1.5px solid $clr01;
+
+  &::-webkit-scrollbar-track {
+    background: #f8f8f8;
+  }
+
+  table {
+    thead {
+      tr {
+        border: none;
+      }
+
+      th {
+        border-right: 1.5px solid $clr01;
+        border-left: 1.5px solid $clr01;
+        border-bottom: none;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          border-bottom: none;
+        }
+      }
+
+      td {
+        border: 1.5px solid $clr01;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+// Left Line Hover
+@mixin tableLineHover(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  table {
+    tr {
+      td {
+        transition: all 5ms;
+      }
+
+      th {
+        &:first-child {
+          border-left: 3px solid $clr02 !important;
+        }
+
+        &:last-child {
+          border-right: 3px solid $clr02 !important;
+        }
+      }
+
+      &:hover {
+        td {
+          background-color: $clr03 !important;
+          filter: brightness(1.13);
+
+          &:first-child {
+            border-left: 3px solid $clr01 !important;
+          }
+        }
+      }
+
+      &:active {
+        td {
+          background-color: #ffffff !important;
+        }
+      }
+    }
+  }
+}
+
+// Row Hover
+@mixin tableRowHover(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  tr {
+    &:hover {
+      td {
+        background-color: $clr03 !important;
+        filter: brightness(1.13);
+      }
+    }
+
+    &:active {
+      td {
+        background-color: #ffffff !important;
+      }
+    }
+  }
+}
+
+// Row Even
+@mixin rowEven(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  border: 1.5px solid $clr01;
+
+  tr {
+    &:nth-child(even) {
+      td {
+        background-color: $clr03;
+        filter: brightness(1.11);
+      }
+    }
+  }
+}
+
+// Column Even
+@mixin clmEven(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  border: 1.5px solid $clr01;
+
+  tr {
+    td {
+      &:nth-child(even) {
+        background-color: $clr03;
+        filter: brightness(1.11);
+      }
+    }
+  }
+}
+
+// Row Odd
+@mixin rowOdd(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  border: 1.5px solid $clr01;
+
+  tr {
+    &:nth-child(odd) {
+      td {
+        background-color: $clr03;
+        filter: brightness(1.11);
+      }
+    }
+  }
+}
+
+// Column Odd
+@mixin clmOdd(
+  $clr01: var(--tbl-dark-clr),
+  $clr02: var(--tbl-medium-clr),
+  $clr03: var(--tbl-light-clr),
+  $fontClr: var(--tbl-font-clr)
+) {
+  border: 1.5px solid $clr01;
+
+  tr {
+    td {
+      &:nth-child(odd) {
+        background-color: $clr03;
+        filter: brightness(1.11);
+      }
+    }
+  }
+}
+
+// Responsive
+.tbl-responsive {
+  min-height: auto;
+  max-height: 500px;
+  overflow: scroll !important;
+
+  table {
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      tr {
+        border-bottom: none !important;
+      }
+    }
+  }
+}
+
+// Table Head (Th) Width & Sort
+thead {
+  .tbl-col-xxl {
+    width: 600px;
+  }
+
+  .tbl-col-xl {
+    width: 500px;
+  }
+
+  .tbl-col-lg {
+    width: 400px;
+  }
+
+  .tbl-col-md {
+    width: 300px;
+  }
+
+  .tbl-col-sm {
+    width: 200px;
+  }
+
+  .tbl-col-xsm {
+    width: 100px;
+  }
+
+  .tbl-sort {
+    cursor: pointer;
+
+    b {
+      font-weight: var(--th-font-weight);
+      font-size: 14px !important;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 4px;
+      transition: all 0.1s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+
+      &:active {
+        filter: brightness(1);
+      }
+
+      .material-symbols-outlined {
+        font-size: 18px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Initialization
+.table-box {
+  @include tableFn();
+}
+
+.table-btns {
+  @include tablePageFn();
+}
+
+.tbl-bdr-btm {
+  @include tableBdrBtm();
+}
+
+.tbl-bdr-rect {
+  @include tableBdrRect();
+}
+
+.tbl-line-hover {
+  @include tableLineHover();
+}
+
+.tbl-row-hover {
+  @include tableRowHover();
+}
+
+.tbl-row-even {
+  @include rowEven();
+}
+
+.tbl-clm-even {
+  @include clmEven();
+}
+
+.tbl-row-odd {
+  @include rowOdd();
+}
+
+.tbl-clm-odd {
+  @include clmOdd();
+}
+
+// In-Build Colours
+@each $color-name, $color-values in $colors {
+  .table-box-#{$color-name} {
+    @include tableFn(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .table-btns-#{$color-name} {
+    @include tablePageFn(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .tbl-bdr-btm-#{$color-name} {
+    @include tableBdrBtm(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .tbl-line-hover-#{$color-name} {
+    @include tableLineHover(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .tbl-row-hover-#{$color-name} {
+    @include tableRowHover(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .tbl-row-even-#{$color-name} {
+    @include rowEven(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .tbl-clm-even-#{$color-name} {
+    @include rowEven(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .tbl-row-odd-#{$color-name} {
+    @include rowOdd(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+
+  .tbl-clm-odd-#{$color-name} {
+    @include rowOdd(
+      nth($color-values, 1),
+      nth($color-values, 2),
+      nth($color-values, 3),
+      nth($color-values, 4)
+    );
+  }
+}
