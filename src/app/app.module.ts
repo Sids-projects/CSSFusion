@@ -11,6 +11,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatStepperModule } from '@angular/material/stepper';
 
 // Components
 import { NeonFlowComponent } from './templates/neon-flow/neon-flow.component';
@@ -28,6 +29,9 @@ import { NavComponent } from './components/nav/nav.component';
 import { TableComponent } from './components/table/table.component';
 import { TabComponent } from './components/tab/tab.component';
 import { CompsCodeComponent } from './components/comps-code/comps-code.component';
+
+// Library
+import { CssFusionModule } from './../../projects/css-fusion/src/lib/css-fusion.module';
 
 @NgModule({
   declarations: [
@@ -56,6 +60,8 @@ import { CompsCodeComponent } from './components/comps-code/comps-code.component
     MatIconModule,
     MatMenuModule,
     MatTabsModule,
+    MatStepperModule,
+    CssFusionModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

@@ -1,9 +1,9 @@
-<main class="app-main" *ngIf="showMain == '/' || ''">
+<main class="app-main">
   <section class="app-desc">
     <header>
       <p>
-        <span class="material-symbols-outlined"> tab_group </span>
-        Templates
+        <span class="material-symbols-outlined"> join_right </span>
+        CSSFusion
       </p>
     </header>
     <div class="app-desc-content">
@@ -16,6 +16,7 @@
       <p>{{ storeDesc.desc }}</p>
       <a
         *ngIf="storeDesc.routeTo != ''"
+        (click)="openPopup(storeDesc.routeTo)"
         (click)="showLoadEffectFn(storeDesc.routeTo)"
       >
         {{ storeDesc.btn }}
@@ -25,48 +26,59 @@
   </section>
 
   <section class="app-content">
-    <mat-tab-group class="app-content-tabs">
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <span (click)="showDesc(this.templateData[0])">Templates</span>
-        </ng-template>
-        <ul>
-          <li
-            *ngFor="let data of templateData"
-            (click)="showDesc(data)"
-            [ngClass]="storeDesc.title == data.title ? 'active-list' : ''"
-          >
-            <span class="material-symbols-outlined"> {{ data.icon }} </span>
-            <span
-              [innerHTML]="sanitizeHtml(data.title)"
-              class="tab-content-titles"
-            >
-              {{ data.title }}
-            </span>
-          </li>
-        </ul>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <span (click)="showDesc(this.templateData[0])">Components</span>
-        </ng-template>
-        <ul>
-          <li
-            *ngFor="let data of componentsData"
-            (click)="showDesc(data)"
-            [ngClass]="storeDesc.title == data.title ? 'active-list' : ''"
-          >
-            <span class="material-symbols-outlined"> {{ data.icon }} </span>
-            <span>{{ data.title }}</span>
-          </li>
-        </ul>
-      </mat-tab>
-    </mat-tab-group>
+    <div class="app-content-tabs">
+      <mat-tab-group (selectedTabChange)="onTabChange($event)">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span>Templates</span>
+          </ng-template>
+          <ul>
+            <ng-container *ngFor="let data of templateData">
+              <li
+                *ngIf="data.routeTo !== ''"
+                (click)="showDesc(data)"
+                [ngClass]="storeDesc.title == data.title ? 'active-list' : ''"
+              >
+                <span class="material-symbols-outlined"> {{ data.icon }} </span>
+                <span
+                  [innerHTML]="sanitizeHtml(data.title)"
+                  class="tab-content-titles"
+                >
+                  {{ data.title }}
+                </span>
+              </li>
+            </ng-container>
+          </ul>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span>Components</span>
+          </ng-template>
+          <ul>
+            <ng-container *ngFor="let data of componentsData">
+              <li
+                *ngIf="data.routeTo !== ''"
+                (click)="showDesc(data)"
+                [ngClass]="storeDesc.title == data.title ? 'active-list' : ''"
+              >
+                <span class="material-symbols-outlined"> {{ data.icon }} </span>
+                <span>{{ data.title }}</span>
+              </li>
+            </ng-container>
+          </ul>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </section>
 </main>
 
-<section class="router-outlet" *ngIf="showMain != '/' || ''">
-  <router-outlet></router-outlet>
-</section>
+<dialog #popupDialog id="popupDialog">
+  <button (click)="closePopup()" class="dialog-close-btn">
+    <span class="material-symbols-outlined"> close </span>
+  </button>
+  <div class="router-outlet">
+    <router-outlet></router-outlet>
+  </div>
+</dialog>
 
-<div class="load-effect" [ngClass]="showLoadEffect ? 'start-load' : ''"></div>
+<!-- <div class="load-effect" [ngClass]="showLoadEffect ? 'start-load' : ''"></div> -->

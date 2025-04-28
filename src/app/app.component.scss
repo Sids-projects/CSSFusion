@@ -30,6 +30,7 @@
 
   .mat-mdc-tab .mdc-tab__text-label {
     color: #ffffff !important;
+    padding-bottom: 1rem;
   }
 
   .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
@@ -51,6 +52,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+  transition: grid-template-columns 0.5s;
 
   .app-desc {
     background-color: var(--app-desc-bg);
@@ -134,10 +136,10 @@
   .app-content {
     background-color: var(--app-content-bg);
     color: var(--app-content-clr);
-    padding: 4rem 3.4rem;
 
     .app-content-tabs {
-      height: calc(100dvh - 8rem);
+      height: calc(100dvh);
+      padding: 2rem;
 
       ul {
         padding: 0;
@@ -198,6 +200,11 @@ dialog {
   }
 }
 
+.router-outlet {
+  height: calc(100dvh);
+  overflow-y: auto;
+}
+
 ::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
@@ -206,8 +213,8 @@ dialog {
   .app-main {
     height: 100dvh;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 35% 65%;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 35% 65% !important;
 
     .app-desc {
       background-color: var(--app-desc-bg);

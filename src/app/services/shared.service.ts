@@ -9,7 +9,7 @@ export class SharedService {
   templateData: TemplateData[] = [
     {
       icon: 'category',
-      title: 'Angular Templates',
+      title: 'Templates',
       desc: 'Build seamless and visually appealing user interfaces with our Angular UI library. Designed for flexibility and scalability, our pre-built templates and components ensure a smooth development experience with optimized SCSS and CSS.',
       btn: 'View Template',
       routeTo: '',
@@ -52,6 +52,13 @@ export class SharedService {
   ];
 
   componentsData: ComponentData[] = [
+    {
+      icon: 'category',
+      title: 'Components',
+      desc: 'Build seamless and visually appealing user interfaces with our Angular UI library. Designed for flexibility and scalability, our pre-built templates and components ensure a smooth development experience with optimized SCSS and CSS.',
+      btn: 'View Components',
+      routeTo: '',
+    },
     {
       icon: 'view_timeline',
       title: 'Accordion',

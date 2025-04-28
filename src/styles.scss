@@ -13,6 +13,7 @@
 
 // Package
 // @import "@dev.spot/css-fusion/src/lib/scss/main.scss";
+@import "../projects/css-fusion/src/lib/scss/main.scss";
 
 :root {
   --app-font-heads: "Cubano", sans-serif;
@@ -77,7 +78,7 @@ body {
 .grid-02 {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 4rem;
+  gap: 1rem;
 }
 
 // Components
@@ -123,18 +124,32 @@ body {
 
 // Code
 .code-box {
+  border: 0.1rem solid rgb(222, 222, 222);
+  background-color: #fafafa !important;
+  border-radius: 0.8rem;
   position: relative;
+  padding: 1.6rem;
 
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 9;
-    margin-bottom: 1.4rem;
+
+    button {
+      b {
+        font-size: 1.4rem;
+        font-family: var(--app-font-content);
+        font-weight: 500;
+      }
+
+      .material-symbols-outlined {
+        font-size: 1.8rem;
+      }
+    }
   }
 
   .code-copy {
-    color: var(--font-colour);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -155,10 +170,8 @@ body {
 }
 
 .line-numbers {
-  padding: 0 0.8rem !important;
-  border: 0.18rem solid var(--code-snippet-bdr);
-  background-color: var(--code-snippet) !important;
-  border-radius: 0.8rem !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 
 code {
@@ -269,4 +282,80 @@ hr {
   border: 0.1rem solid var(--module-nav-bdr);
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+
+  .app-container-head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4rem;
+    margin-bottom: 2.8rem;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+// App Card
+.app-card {
+  color: #000;
+
+  .card-header {
+    h3 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+  }
+}
+
+#popupDialog {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: poupAnimation 0.5s;
+  transition: all 0.5s;
+  position: relative;
+
+  .dialog-close-btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    border: none;
+    color: #ffffff;
+    border-radius: 0.4rem;
+    z-index: 999;
+    padding: 0.2rem;
+
+    .material-symbols-outlined {
+      font-size: 2rem;
+    }
+  }
+}
+
+@keyframes poupAnimation {
+  0% {
+    scale: 0;
+  }
+
+  100% {
+    scale: 1;
+  }
 }

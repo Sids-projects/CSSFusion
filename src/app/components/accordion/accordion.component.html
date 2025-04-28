@@ -1,8 +1,11 @@
-<section class="app-comp grid-02">
+<section class="app-container">
   <!-- Intro -->
   <div class="app-card">
     <div class="card-header">
-      <h3># Regular</h3>
+      <h3>
+        <span class="material-symbols-outlined">list_alt</span>
+        Accordion
+      </h3>
     </div>
     <div class="card-body">
       <div
@@ -10,7 +13,7 @@
           themeClr === 'dark-mode' ? 'accordion-grup cf-dark' : 'accordion-grup'
         "
       >
-        <div class="accordion-main">
+        <div class="accordion-main" cssFusionAccordion>
           <div class="acc-head">
             <h2 class="acc-title">
               <mat-icon class="acc-title-icon">pan_tool</mat-icon>
@@ -31,18 +34,18 @@
         </div>
       </div>
     </div>
-    <div class="card-code app-mt-2">
+    <div class="card-code">
       <app-comps-code [showCode]="'accordion-01'"></app-comps-code>
-      <div class="app-mt-15">
-        <app-comps-code [showCode]="'accordion-02'"></app-comps-code>
-      </div>
     </div>
   </div>
-  <hr />
+
   <!-- Static and Dynamic -->
   <div class="app-card">
     <div class="card-header">
-      <h3># Static and Dynamic</h3>
+      <h3>
+        <span class="material-symbols-outlined">sync_alt</span>
+        Static and Dynamic
+      </h3>
     </div>
     <!-- Static -->
     <div class="card-body body-pb0">
@@ -54,10 +57,9 @@
             ? 'accordion-grup cf-dark '
             : 'accordion-grup'
         "
-        class="app-mt-15"
       >
         <ng-container *ngFor="let data of accContent">
-          <div class="accordion-main">
+          <div class="accordion-main" cssFusionAccordion>
             <div class="acc-head acc-static">
               <h2 class="acc-title">{{ data.title }}</h2>
               <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
@@ -71,11 +73,11 @@
         </ng-container>
       </div>
     </div>
-    <div class="card-code app-mt-2">
+    <div class="card-code">
       <app-comps-code [showCode]="'acc-static'"></app-comps-code>
     </div>
     <!-- Dynamic -->
-    <div class="card-body app-mt-2">
+    <div class="card-body">
       <h3>2. Dynamic Accordion</h3>
       <p>
         One accordion will open at a time another one will close if one is
@@ -87,10 +89,9 @@
             ? 'accordion-grup cf-dark '
             : 'accordion-grup'
         "
-        class="app-mt-15"
       >
         <ng-container *ngFor="let data of accContent">
-          <div class="accordion-main">
+          <div class="accordion-main" cssFusionAccordion>
             <div class="acc-head">
               <h2 class="acc-title">{{ data.title }}</h2>
               <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
@@ -104,15 +105,18 @@
         </ng-container>
       </div>
     </div>
-    <div class="card-code app-mt-2 app-bdr-none">
+    <div class="card-code app-bdr-none">
       <app-comps-code [showCode]="'acc-dynamic'"></app-comps-code>
     </div>
   </div>
-  <hr />
+
   <!-- Default Open -->
   <div class="app-card">
     <div class="card-header">
-      <h3># Default Open</h3>
+      <h3>
+        <span class="material-symbols-outlined">expand_less</span>
+        Default Open
+      </h3>
     </div>
     <div class="card-body">
       <div
@@ -120,7 +124,7 @@
           themeClr === 'dark-mode' ? 'accordion-grup cf-dark' : 'accordion-grup'
         "
       >
-        <div class="accordion-main">
+        <div class="accordion-main" cssFusionAccordion>
           <div class="acc-head">
             <h2 class="acc-title">Introduction</h2>
             <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
@@ -138,22 +142,25 @@
         </div>
       </div>
     </div>
-    <div class="card-code app-mt-2">
+    <div class="card-code">
       <app-comps-code [showCode]="'acc-open'"></app-comps-code>
     </div>
   </div>
-  <hr />
+
   <!-- Colour Mode -->
   <div class="app-card">
     <div class="card-header">
-      <h3># Colour Mode</h3>
+      <h3>
+        <span class="material-symbols-outlined">palette</span>
+        Colour Mode
+      </h3>
     </div>
     <!-- Dark Mode -->
     <div class="card-body body-pb0">
       <h3>Dark Mode</h3>
-      <div class="accordion-grup cf-dark app-mt-15">
+      <div class="accordion-grup cf-dark">
         <ng-container *ngFor="let data of accContent">
-          <div class="accordion-main">
+          <div class="accordion-main" cssFusionAccordion>
             <div class="acc-head acc-static">
               <h2 class="acc-title">{{ data.title }}</h2>
               <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
@@ -167,15 +174,15 @@
         </ng-container>
       </div>
     </div>
-    <div class="card-code app-mt-2 app-bdr-none">
+    <div class="card-code app-bdr-none">
       <app-comps-code [showCode]="'acc-dark'"></app-comps-code>
     </div>
     <!-- Light Mode -->
-    <div class="card-body app-mt-2">
+    <div class="card-body">
       <h3>Light Mode</h3>
-      <div class="accordion-grup app-mt-15">
+      <div class="accordion-grup">
         <ng-container *ngFor="let data of accContent">
-          <div class="accordion-main">
+          <div class="accordion-main" cssFusionAccordion>
             <div class="acc-head">
               <h2 class="acc-title">{{ data.title }}</h2>
               <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
@@ -189,15 +196,18 @@
         </ng-container>
       </div>
     </div>
-    <div class="card-code app-mt-2 app-bdr-none">
+    <div class="card-code app-bdr-none">
       <app-comps-code [showCode]="'acc-light'"></app-comps-code>
     </div>
   </div>
-  <hr />
+
   <!-- Build-in Colours -->
   <div class="app-card">
     <div class="card-header">
-      <h3># Build-in Colours</h3>
+      <h3>
+        <span class="material-symbols-outlined">format_paint</span>
+        Build-in Colours
+      </h3>
       <div class="card-head-set02">
         <span class="clr-blocks clr-green" (click)="selectClr('green')"></span>
         <span
@@ -220,7 +230,10 @@
       <div class="accordion-grup">
         <ng-container *ngFor="let data of accContentXl">
           <ng-container *ngIf="selectedClr === data.class">
-            <div [ngClass]="'accordion-main accordion-' + data.class">
+            <div
+              [ngClass]="'accordion-main accordion-' + data.class"
+              cssFusionAccordion
+            >
               <div class="acc-head">
                 <h2 class="acc-title">{{ data.title }}</h2>
                 <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
@@ -235,17 +248,20 @@
         </ng-container>
       </div>
     </div>
-    <div class="card-code app-mt-2">
+    <div class="card-code">
       <app-comps-code [showCode]="'acc-buildin'"></app-comps-code>
     </div>
   </div>
-  <hr />
+
   <!-- Structure -->
   <div class="app-card">
     <div class="card-header">
-      <h3># Structure</h3>
+      <h3>
+        <span class="material-symbols-outlined">view_column</span>
+        Structure
+      </h3>
     </div>
-    <div class="card-code app-bdr-none">
+    <div class="card-body">
       <app-comps-code
         [showCode]="'acc-structure'"
         [compCodeHead]="false"
