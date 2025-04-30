@@ -1,41 +1,32 @@
-<section class="app-container">
+<section id="app-components-box">
   <!-- Intro -->
-  <div class="app-card">
+  <div class="app-components-intro">
     <div class="card-header">
-      <h3>
-        <span class="material-symbols-outlined">list_alt</span>
-        Accordion
-      </h3>
+      <h3>Toggle with Ease</h3>
+      <p>Quick, clean, and crafted — just plug 'em in!</p>
     </div>
     <div class="card-body">
       <div
-        [class]="
-          themeClr === 'dark-mode' ? 'accordion-grup cf-dark' : 'accordion-grup'
+        [ngClass]="
+          themeClr === 'dark-mode'
+            ? 'accordion-grup cf-dark '
+            : 'accordion-grup'
         "
       >
-        <div class="accordion-main" cssFusionAccordion>
-          <div class="acc-head">
-            <h2 class="acc-title">
-              <mat-icon class="acc-title-icon">pan_tool</mat-icon>
-              Introduction
-            </h2>
-            <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
-          </div>
-          <div class="acc-body">
-            <div class="acc-content">
-              <p>
-                Welcome to the Accordion UI! This component allows you to
-                display sections of content that can be expanded and collapsed.
-                Use the arrow icon or click the headers to toggle between
-                showing and hiding content.
-              </p>
+        <ng-container *ngFor="let data of accContent">
+          <div class="accordion-main" cssFusionAccordion>
+            <div class="acc-head acc-static">
+              <h2 class="acc-title">{{ data.title }}</h2>
+              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="acc-body">
+              <div class="acc-content">
+                <p>{{ data.content }}</p>
+              </div>
             </div>
           </div>
-        </div>
+        </ng-container>
       </div>
-    </div>
-    <div class="card-code">
-      <app-comps-code [showCode]="'accordion-01'"></app-comps-code>
     </div>
   </div>
 

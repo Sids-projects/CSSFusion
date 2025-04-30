@@ -1,84 +1,38 @@
-<main class="app-main">
-  <section class="app-desc">
-    <header>
-      <p>
-        <span class="material-symbols-outlined"> join_right </span>
-        CSSFusion
-      </p>
-    </header>
-    <div class="app-desc-content">
-      <div class="app-desc-box">
-        <span class="material-symbols-outlined desc-icon">
-          {{ storeDesc.icon }}
-        </span>
-        <h2 [innerHTML]="sanitizeHtml(storeDesc.title)"></h2>
-      </div>
-      <p>{{ storeDesc.desc }}</p>
-      <a
-        *ngIf="storeDesc.routeTo != ''"
-        (click)="openPopup(storeDesc.routeTo)"
-        (click)="showLoadEffectFn(storeDesc.routeTo)"
-      >
-        {{ storeDesc.btn }}
-        <span class="material-symbols-outlined"> trending_up </span>
-      </a>
-    </div>
-  </section>
+<main id="app-main">
+  <header id="app-header">
+    <p class="app-logo">
+      <span class="material-symbols-outlined"> join_right </span>
+      CSSFusion
+    </p>
 
-  <section class="app-content">
-    <div class="app-content-tabs">
-      <mat-tab-group (selectedTabChange)="onTabChange($event)">
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <span>Templates</span>
-          </ng-template>
-          <ul>
-            <ng-container *ngFor="let data of templateData">
-              <li
-                *ngIf="data.routeTo !== ''"
-                (click)="showDesc(data)"
-                [ngClass]="storeDesc.title == data.title ? 'active-list' : ''"
-              >
-                <span class="material-symbols-outlined"> {{ data.icon }} </span>
-                <span
-                  [innerHTML]="sanitizeHtml(data.title)"
-                  class="tab-content-titles"
-                >
-                  {{ data.title }}
-                </span>
-              </li>
-            </ng-container>
-          </ul>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <span>Components</span>
-          </ng-template>
-          <ul>
-            <ng-container *ngFor="let data of componentsData">
-              <li
-                *ngIf="data.routeTo !== ''"
-                (click)="showDesc(data)"
-                [ngClass]="storeDesc.title == data.title ? 'active-list' : ''"
-              >
-                <span class="material-symbols-outlined"> {{ data.icon }} </span>
-                <span>{{ data.title }}</span>
-              </li>
-            </ng-container>
-          </ul>
-        </mat-tab>
-      </mat-tab-group>
+    <div class="app-header-links">
+      <a routerLink="Home" routerLinkActive="app-module-active">Home</a>
+      <a routerLink="Components" routerLinkActive="app-module-active"
+        >Compnents</a
+      >
+      <a routerLink="Templates" routerLinkActive="app-module-active"
+        >Templates</a
+      >
+      <a routerLink="Motion" routerLinkActive="app-module-active">Motion</a>
     </div>
+
+    <div class="app-header-btns">
+      <button class="app-header-btn" type="button">Live Demo</button>
+      <span
+        class="material-symbols-outlined app-menu-icon"
+        [matMenuTriggerFor]="menu"
+        >menu</span
+      >
+      <mat-menu #menu="matMenu">
+        <a routerLink="Home" mat-menu-item>Home</a>
+        <a routerLink="Components" mat-menu-item>Compnents</a>
+        <a routerLink="Templates" mat-menu-item>Templates</a>
+        <a routerLink="Motion" mat-menu-item>Motion</a>
+      </mat-menu>
+    </div>
+  </header>
+
+  <section id="app-body">
+    <router-outlet></router-outlet>
   </section>
 </main>
-
-<dialog #popupDialog id="popupDialog">
-  <button (click)="closePopup()" class="dialog-close-btn">
-    <span class="material-symbols-outlined"> close </span>
-  </button>
-  <div class="router-outlet">
-    <router-outlet></router-outlet>
-  </div>
-</dialog>
-
-<!-- <div class="load-effect" [ngClass]="showLoadEffect ? 'start-load' : ''"></div> -->
