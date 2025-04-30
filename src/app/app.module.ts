@@ -20,6 +20,8 @@ import { ComponentsModule } from './components/components.module';
 import { ComponentsRoutingModule } from './components/components-routing.module';
 import { TemplatesModule } from './templates/templates.module';
 import { TemplatesRoutingModule } from './templates/templates-routing.module';
+import { MotionModule } from './motion/motion.module';
+import { MotionRoutingModule } from './motion/motion-routing.module';
 
 // Library
 import { CssFusionModule } from './../../projects/css-fusion/src/lib/css-fusion.module';
@@ -40,6 +42,8 @@ import { CssFusionModule } from './../../projects/css-fusion/src/lib/css-fusion.
     ComponentsRoutingModule,
     TemplatesModule,
     TemplatesRoutingModule,
+    MotionModule,
+    MotionRoutingModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

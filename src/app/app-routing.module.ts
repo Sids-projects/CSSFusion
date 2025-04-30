@@ -16,6 +16,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./templates/templates.module').then((m) => m.TemplatesModule),
   },
+  {
+    path: 'MotionModule',
+    loadChildren: () =>
+      import('./motion/motion.module').then((m) => m.MotionModule),
+  },
 ];
 
 @NgModule({
