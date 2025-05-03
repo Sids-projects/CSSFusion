@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    const savedTheme = localStorage.getItem('theme') || 'dark-mode';
+    const savedTheme = localStorage.getItem('theme') || 'light-mode';
     this.isDarkMode = savedTheme === 'dark-mode';
     document.body.classList.add(savedTheme);
   }
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   private theme = new BehaviorSubject<string>(
-    localStorage.getItem('theme') || 'dark-mode'
+    localStorage.getItem('theme') || 'light-mode'
   );
   currentTheme = this.theme.asObservable();
 
