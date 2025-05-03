@@ -12,15 +12,14 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { NavComponent } from './nav/nav.component';
 import { TableComponent } from './table/table.component';
 import { TabComponent } from './tab/tab.component';
-import { ComponentsListComponent } from './components-list/components-list.component';
+import { VariablesComponent } from './variables/variables.component';
 
 const routes: Routes = [
   {
     path: 'Components',
     component: ComponentsComponent,
     children: [
-      { path: '', redirectTo: 'Component_List', pathMatch: 'full' },
-      { path: 'Component_List', component: ComponentsListComponent },
+      { path: '', redirectTo: 'Component_Accordion', pathMatch: 'full' },
       { path: 'Component_Accordion', component: AccordionComponent },
       { path: 'Component_Button', component: ButtonComponent },
       { path: 'Component_Card', component: CardComponent },
@@ -30,6 +29,7 @@ const routes: Routes = [
       { path: 'Component_Nav', component: NavComponent },
       { path: 'Component_Table', component: TableComponent },
       { path: 'Component_Tab', component: TabComponent },
+      { path: 'Component_Variables', component: VariablesComponent },
     ],
   },
 ];

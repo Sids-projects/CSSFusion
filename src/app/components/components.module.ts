@@ -14,6 +14,7 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { NavComponent } from './nav/nav.component';
 import { TableComponent } from './table/table.component';
 import { TabComponent } from './tab/tab.component';
+import { VariablesComponent } from './variables/variables.component';
 import { CompsCodeComponent } from './comps-code/comps-code.component';
 
 // Material
@@ -23,10 +24,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
-import { ComponentsListComponent } from './components-list/components-list.component';
 
 // Library
 import { CssFusionModule } from './../../../projects/css-fusion/src/lib/css-fusion.module';
+// import { CssFusionModule } from '@dev.spot/css-fusion';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { CssFusionModule } from './../../../projects/css-fusion/src/lib/css-fusi
     TableComponent,
     TabComponent,
     CompsCodeComponent,
-    ComponentsListComponent,
+    VariablesComponent,
   ],
   imports: [
     CommonModule,

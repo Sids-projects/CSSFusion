@@ -3,20 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Components
 import { TemplatesComponent } from './templates.component';
+import { TemplatesListComponent } from './templates-list/templates-list.component';
 import { ClassicPrimeComponent } from './classic-prime/classic-prime.component';
 import { DarkFusionComponent } from './dark-fusion/dark-fusion.component';
 import { MinimalEdgeComponent } from './minimal-edge/minimal-edge.component';
 import { NeonFlowComponent } from './neon-flow/neon-flow.component';
 import { SoftAuraComponent } from './soft-aura/soft-aura.component';
-import { TemplatesListComponent } from './templates-list/templates-list.component';
 
 const routes: Routes = [
   {
     path: 'Templates',
     component: TemplatesComponent,
     children: [
-      { path: '', redirectTo: 'Templates_list', pathMatch: 'full' },
-      { path: 'Templates_list', component: TemplatesListComponent },
+      { path: '', redirectTo: 'Templates_List', pathMatch: 'full' },
+      { path: 'Templates_List', component: TemplatesListComponent },
       { path: 'ClassicPrime_Component', component: ClassicPrimeComponent },
       { path: 'DarkFusion_Component', component: DarkFusionComponent },
       { path: 'MinimalEdge_Component', component: MinimalEdgeComponent },

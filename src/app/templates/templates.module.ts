@@ -13,22 +13,22 @@ import { MatStepperModule } from '@angular/material/stepper';
 
 // Components
 import { TemplatesComponent } from './templates.component';
+import { TemplatesListComponent } from './templates-list/templates-list.component';
 import { ClassicPrimeComponent } from './classic-prime/classic-prime.component';
 import { DarkFusionComponent } from './dark-fusion/dark-fusion.component';
 import { MinimalEdgeComponent } from './minimal-edge/minimal-edge.component';
 import { NeonFlowComponent } from './neon-flow/neon-flow.component';
 import { SoftAuraComponent } from './soft-aura/soft-aura.component';
-import { TemplatesListComponent } from './templates-list/templates-list.component';
 
 @NgModule({
   declarations: [
     TemplatesComponent,
+    TemplatesListComponent,
     ClassicPrimeComponent,
     DarkFusionComponent,
     MinimalEdgeComponent,
     NeonFlowComponent,
     SoftAuraComponent,
-    TemplatesListComponent,
   ],
   imports: [
     CommonModule,

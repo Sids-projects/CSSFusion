@@ -1,6 +1,6 @@
-<section id="app-components-box">
+<section id="app-components">
   <!-- Intro -->
-  <div class="app-components-intro">
+  <div class="app-intro-card">
     <div class="card-header">
       <h3>Toggle with Ease</h3>
       <p>Quick, clean, and crafted — just plug 'em in!</p>
@@ -30,201 +30,62 @@
     </div>
   </div>
 
-  <!-- Static and Dynamic -->
-  <div class="app-card">
-    <div class="card-header">
-      <h3>
-        <span class="material-symbols-outlined">sync_alt</span>
-        Static and Dynamic
-      </h3>
-    </div>
+  <div class="app-components-box">
     <!-- Static -->
-    <div class="card-body body-pb0">
-      <h3>1. Static Accordion</h3>
-      <p>Each accordion will open and close at same time</p>
-      <div
-        [ngClass]="
-          themeClr === 'dark-mode'
-            ? 'accordion-grup cf-dark '
-            : 'accordion-grup'
-        "
-      >
-        <ng-container *ngFor="let data of accContent">
-          <div class="accordion-main" cssFusionAccordion>
-            <div class="acc-head acc-static">
-              <h2 class="acc-title">{{ data.title }}</h2>
-              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
-            </div>
-            <div class="acc-body">
-              <div class="acc-content">
-                <p>{{ data.content }}</p>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-    </div>
-    <div class="card-code">
-      <app-comps-code [showCode]="'acc-static'"></app-comps-code>
-    </div>
-    <!-- Dynamic -->
-    <div class="card-body">
-      <h3>2. Dynamic Accordion</h3>
-      <p>
-        One accordion will open at a time another one will close if one is
-        opened
-      </p>
-      <div
-        [ngClass]="
-          themeClr === 'dark-mode'
-            ? 'accordion-grup cf-dark '
-            : 'accordion-grup'
-        "
-      >
-        <ng-container *ngFor="let data of accContent">
-          <div class="accordion-main" cssFusionAccordion>
-            <div class="acc-head">
-              <h2 class="acc-title">{{ data.title }}</h2>
-              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
-            </div>
-            <div class="acc-body">
-              <div class="acc-content">
-                <p>{{ data.content }}</p>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-    </div>
-    <div class="card-code app-bdr-none">
-      <app-comps-code [showCode]="'acc-dynamic'"></app-comps-code>
-    </div>
-  </div>
-
-  <!-- Default Open -->
-  <div class="app-card">
-    <div class="card-header">
-      <h3>
-        <span class="material-symbols-outlined">expand_less</span>
-        Default Open
-      </h3>
-    </div>
-    <div class="card-body">
-      <div
-        [class]="
-          themeClr === 'dark-mode' ? 'accordion-grup cf-dark' : 'accordion-grup'
-        "
-      >
-        <div class="accordion-main" cssFusionAccordion>
-          <div class="acc-head">
-            <h2 class="acc-title">Introduction</h2>
-            <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
-          </div>
-          <div class="acc-body acc-open">
-            <div class="acc-content">
-              <p>
-                Welcome to the Accordion UI! This component allows you to
-                display sections of content that can be expanded and collapsed.
-                Use the arrow icon or click the headers to toggle between
-                showing and hiding content.
-              </p>
-            </div>
-          </div>
+    <div class="app-card">
+      <div class="card-header">
+        <div>
+          <h3>Synchronized Toggle</h3>
+          <p>Every panel dances together — open one, open all.</p>
         </div>
       </div>
-    </div>
-    <div class="card-code">
-      <app-comps-code [showCode]="'acc-open'"></app-comps-code>
-    </div>
-  </div>
-
-  <!-- Colour Mode -->
-  <div class="app-card">
-    <div class="card-header">
-      <h3>
-        <span class="material-symbols-outlined">palette</span>
-        Colour Mode
-      </h3>
-    </div>
-    <!-- Dark Mode -->
-    <div class="card-body body-pb0">
-      <h3>Dark Mode</h3>
-      <div class="accordion-grup cf-dark">
-        <ng-container *ngFor="let data of accContent">
-          <div class="accordion-main" cssFusionAccordion>
-            <div class="acc-head acc-static">
-              <h2 class="acc-title">{{ data.title }}</h2>
-              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
-            </div>
-            <div class="acc-body">
-              <div class="acc-content">
-                <p>{{ data.content }}</p>
+      <div class="card-body">
+        <div
+          [ngClass]="
+            themeClr === 'dark-mode'
+              ? 'accordion-grup cf-dark '
+              : 'accordion-grup'
+          "
+        >
+          <ng-container *ngFor="let data of accContent">
+            <div class="accordion-main" cssFusionAccordion>
+              <div class="acc-head acc-static">
+                <h2 class="acc-title">{{ data.title }}</h2>
+                <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+              </div>
+              <div class="acc-body">
+                <div class="acc-content">
+                  <p>{{ data.content }}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <div class="card-code">
+        <app-comps-code [showCode]="'acc-static'"></app-comps-code>
       </div>
     </div>
-    <div class="card-code app-bdr-none">
-      <app-comps-code [showCode]="'acc-dark'"></app-comps-code>
-    </div>
-    <!-- Light Mode -->
-    <div class="card-body">
-      <h3>Light Mode</h3>
-      <div class="accordion-grup">
-        <ng-container *ngFor="let data of accContent">
-          <div class="accordion-main" cssFusionAccordion>
-            <div class="acc-head">
-              <h2 class="acc-title">{{ data.title }}</h2>
-              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
-            </div>
-            <div class="acc-body">
-              <div class="acc-content">
-                <p>{{ data.content }}</p>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-    </div>
-    <div class="card-code app-bdr-none">
-      <app-comps-code [showCode]="'acc-light'"></app-comps-code>
-    </div>
-  </div>
 
-  <!-- Build-in Colours -->
-  <div class="app-card">
-    <div class="card-header">
-      <h3>
-        <span class="material-symbols-outlined">format_paint</span>
-        Build-in Colours
-      </h3>
-      <div class="card-head-set02">
-        <span class="clr-blocks clr-green" (click)="selectClr('green')"></span>
-        <span
-          class="clr-blocks clr-yellow"
-          (click)="selectClr('yellow')"
-        ></span>
-        <span
-          class="clr-blocks clr-orange"
-          (click)="selectClr('orange')"
-        ></span>
-        <span class="clr-blocks clr-blue" (click)="selectClr('blue')"></span>
-        <span
-          class="clr-blocks clr-violet"
-          (click)="selectClr('violet')"
-        ></span>
-        <span class="clr-blocks clr-gray" (click)="selectClr('gray')"></span>
+    <!-- Dynamic -->
+    <div class="app-card">
+      <div class="card-header">
+        <div>
+          <h3>Solo Act</h3>
+          <p>Let one shine at a time — closing others with style.</p>
+        </div>
       </div>
-    </div>
-    <div class="card-body">
-      <div class="accordion-grup">
-        <ng-container *ngFor="let data of accContentXl">
-          <ng-container *ngIf="selectedClr === data.class">
-            <div
-              [ngClass]="'accordion-main accordion-' + data.class"
-              cssFusionAccordion
-            >
+      <!-- Dynamic -->
+      <div class="card-body">
+        <div
+          [ngClass]="
+            themeClr === 'dark-mode'
+              ? 'accordion-grup cf-dark '
+              : 'accordion-grup'
+          "
+        >
+          <ng-container *ngFor="let data of accContent">
+            <div class="accordion-main" cssFusionAccordion>
               <div class="acc-head">
                 <h2 class="acc-title">{{ data.title }}</h2>
                 <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
@@ -236,27 +97,183 @@
               </div>
             </div>
           </ng-container>
-        </ng-container>
+        </div>
+      </div>
+      <div class="card-code">
+        <app-comps-code [showCode]="'acc-dynamic'"></app-comps-code>
       </div>
     </div>
-    <div class="card-code">
-      <app-comps-code [showCode]="'acc-buildin'"></app-comps-code>
-    </div>
-  </div>
 
-  <!-- Structure -->
-  <div class="app-card">
-    <div class="card-header">
-      <h3>
-        <span class="material-symbols-outlined">view_column</span>
-        Structure
-      </h3>
+    <!-- Default Open -->
+    <div class="app-card">
+      <div class="card-header">
+        <div>
+          <h3>Welcome Open</h3>
+          <p>The first one's already talking — dive right in.</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div
+          [class]="
+            themeClr === 'dark-mode'
+              ? 'accordion-grup cf-dark'
+              : 'accordion-grup'
+          "
+        >
+          <div class="accordion-main" cssFusionAccordion>
+            <div class="acc-head">
+              <h2 class="acc-title">Introduction</h2>
+              <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="acc-body acc-open">
+              <div class="acc-content">
+                <p>
+                  Welcome to the Accordion UI! This component allows you to
+                  display sections of content that can be expanded and
+                  collapsed. Use the arrow icon or click the headers to toggle
+                  between showing and hiding content.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-code">
+        <app-comps-code [showCode]="'acc-open'"></app-comps-code>
+      </div>
     </div>
-    <div class="card-body">
-      <app-comps-code
-        [showCode]="'acc-structure'"
-        [compCodeHead]="false"
-      ></app-comps-code>
+
+    <!-- Dark Mode -->
+    <div class="app-card">
+      <div class="card-header">
+        <div>
+          <h3>Dark & Sleek</h3>
+          <p>
+            For those who love the night — clean, crisp, and easy on the eyes.
+          </p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="accordion-grup cf-dark">
+          <ng-container *ngFor="let data of accContent">
+            <div class="accordion-main" cssFusionAccordion>
+              <div class="acc-head acc-static">
+                <h2 class="acc-title">{{ data.title }}</h2>
+                <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+              </div>
+              <div class="acc-body">
+                <div class="acc-content">
+                  <p>{{ data.content }}</p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="card-code">
+        <app-comps-code [showCode]="'acc-dark'"></app-comps-code>
+      </div>
+    </div>
+
+    <!-- Light Mode -->
+    <div class="app-card">
+      <div class="card-header">
+        <div>
+          <h3>Bright & Clear</h3>
+          <p>Keep it fresh with a clean, classic light theme.</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="accordion-grup">
+          <ng-container *ngFor="let data of accContent">
+            <div class="accordion-main" cssFusionAccordion>
+              <div class="acc-head">
+                <h2 class="acc-title">{{ data.title }}</h2>
+                <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+              </div>
+              <div class="acc-body">
+                <div class="acc-content">
+                  <p>{{ data.content }}</p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="card-code">
+        <app-comps-code [showCode]="'acc-light'"></app-comps-code>
+      </div>
+    </div>
+
+    <!-- Build-in Colours -->
+    <div class="app-card">
+      <div class="card-header">
+        <div>
+          <h3>Switch It Up</h3>
+          <p>Play with built-in color vibes — just one click away.</p>
+        </div>
+        <div class="card-header-box">
+          <span
+            class="clr-blocks clr-green"
+            (click)="selectClr('green')"
+          ></span>
+          <span
+            class="clr-blocks clr-yellow"
+            (click)="selectClr('yellow')"
+          ></span>
+          <span
+            class="clr-blocks clr-orange"
+            (click)="selectClr('orange')"
+          ></span>
+          <span class="clr-blocks clr-blue" (click)="selectClr('blue')"></span>
+          <span
+            class="clr-blocks clr-violet"
+            (click)="selectClr('violet')"
+          ></span>
+          <span class="clr-blocks clr-gray" (click)="selectClr('gray')"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="accordion-grup">
+          <ng-container *ngFor="let data of accContentXl">
+            <ng-container *ngIf="selectedClr === data.class">
+              <div
+                [ngClass]="'accordion-main accordion-' + data.class"
+                cssFusionAccordion
+              >
+                <div class="acc-head">
+                  <h2 class="acc-title">{{ data.title }}</h2>
+                  <mat-icon class="state-arrow">keyboard_arrow_down</mat-icon>
+                </div>
+                <div class="acc-body">
+                  <div class="acc-content">
+                    <p>{{ data.content }}</p>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <div class="card-code">
+        <app-comps-code [showCode]="'acc-buildin'"></app-comps-code>
+      </div>
+    </div>
+
+    <!-- Structure -->
+    <div class="app-card">
+      <div class="card-header">
+        <div>
+          <h3>Anatomy of Accordion</h3>
+          <p>Peek under the hood — see how it's all wired together.</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <app-comps-code
+          [showCode]="'acc-structure'"
+          [compCodeHead]="false"
+        ></app-comps-code>
+      </div>
     </div>
   </div>
 </section>

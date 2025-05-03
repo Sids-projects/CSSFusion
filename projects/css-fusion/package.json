@@ -1,6 +1,6 @@
 {
   "name": "@dev.spot/css-fusion",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A library for reusable SCSS components and TypeScript functionalities.",
   "main": "dist/css-fusion/bundles/css-fusion.umd.js",
   "style": "dist/css-fusion/scss/main.scss",

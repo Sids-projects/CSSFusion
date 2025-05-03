@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { Accordion } from '../../../../projects/css-fusion/src/lib/ts/index';
-// import { Accordion } from '@dev.spot/css-fusion';
 
 @Component({
   selector: 'app-accordion',
@@ -67,14 +65,7 @@ export class AccordionComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit() {
-    this.accordion();
-  }
-
-  accordion() {
-    // const accordionElements = document.querySelectorAll('.accordion-main');
-    // new Accordion(accordionElements as NodeListOf<HTMLElement>);
-  }
+  ngAfterViewInit() {}
 
   selectClr(param: string) {
     this.selectedClr = param;

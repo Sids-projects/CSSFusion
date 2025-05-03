@@ -9,6 +9,7 @@
   }
 
   #app-header {
+    border-bottom: 1px solid #e0e0e0;
     height: 6rem;
     display: flex;
     align-items: center;
@@ -78,6 +79,10 @@
       }
     }
   }
+
+  // #app-header.scrolled {
+  //   border-bottom: 1px solid #e0e0e0;
+  // }
 
   #app-body {
     height: calc(100dvh - 6rem);

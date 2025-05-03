@@ -23,9 +23,6 @@ import { TemplatesRoutingModule } from './templates/templates-routing.module';
 import { MotionModule } from './motion/motion.module';
 import { MotionRoutingModule } from './motion/motion-routing.module';
 
-// Library
-import { CssFusionModule } from './../../projects/css-fusion/src/lib/css-fusion.module';
-
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
@@ -37,7 +34,6 @@ import { CssFusionModule } from './../../projects/css-fusion/src/lib/css-fusion.
     MatMenuModule,
     MatTabsModule,
     MatStepperModule,
-    CssFusionModule,
     ComponentsModule,
     ComponentsRoutingModule,
     TemplatesModule,
