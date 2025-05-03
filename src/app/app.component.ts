@@ -1,8 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { NavigationEnd, Router } from '@angular/router';
-import { SharedService } from './services/shared.service';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +9,16 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 })
 export class AppComponent implements OnInit {
   title = 'CSSFusion';
+  isDarkMode = false;
+  newTheme!: string;
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const savedTheme = localStorage.getItem('theme') || 'dark-mode';
+    this.isDarkMode = savedTheme === 'dark-mode';
+    document.body.classList.add(savedTheme);
+  }
 
   ngAfterViewInit(): void {
     const body = document.getElementById('app-body');
@@ -29,6 +33,26 @@ export class AppComponent implements OnInit {
         }
       });
     }
+  }
+
+  private theme = new BehaviorSubject<string>(
+    localStorage.getItem('theme') || 'dark-mode'
+  );
+  currentTheme = this.theme.asObservable();
+
+  setTheme(theme: string): void {
+    const oldTheme = this.isDarkMode ? 'dark-mode' : 'light-mode';
+    document.body.classList.remove(oldTheme);
+    document.body.classList.add(theme);
+    this.isDarkMode = theme === 'dark-mode';
+
+    this.theme.next(theme);
+    localStorage.setItem('theme', theme);
+  }
+
+  toggleTheme(): void {
+    this.newTheme = this.isDarkMode ? 'light-mode' : 'dark-mode';
+    this.setTheme(this.newTheme);
   }
 
   sanitizeHtml(html: string): SafeHtml {

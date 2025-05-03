@@ -17,6 +17,18 @@
     </div>
 
     <div class="app-header-btns">
+      <span
+        *ngIf="isDarkMode == false"
+        class="material-symbols-outlined"
+        (click)="toggleTheme()"
+        >light_mode</span
+      >
+      <span
+        *ngIf="isDarkMode == true"
+        class="material-symbols-outlined"
+        (click)="toggleTheme()"
+        >dark_mode</span
+      >
       <button class="app-header-btn" type="button">Live Demo</button>
       <span
         class="material-symbols-outlined app-menu-icon"

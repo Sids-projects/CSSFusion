@@ -9,7 +9,7 @@
   }
 
   #app-header {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--app-header-bdr);
     height: 6rem;
     display: flex;
     align-items: center;
@@ -60,7 +60,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 1rem;
+      gap: 1.8rem;
 
       .app-header-btn {
         background-color: var(--app-btn-bg);
@@ -71,6 +71,10 @@
         font-size: 1.2rem;
         font-weight: 500;
         letter-spacing: 0.1rem;
+      }
+
+      .material-symbols-outlined {
+        cursor: pointer;
       }
 
       .app-menu-icon {
