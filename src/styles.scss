@@ -132,6 +132,23 @@ button {
   margin-top: 10px !important;
 }
 
+.mat-ripple,
+.mat-step-header-ripple,
+.mat-focus-indicator,
+.mat-step-header {
+  &:hover {
+    background-color: transparent !important;
+  }
+
+  &:active {
+    background-color: transparent !important;
+  }
+
+  &:focus {
+    background-color: transparent !important;
+  }
+}
+
 // App
 #component-container {
   height: calc(100dvh - 6rem);
@@ -248,10 +265,24 @@ button {
 
     .app-components-box-nav {
       width: 100%;
-      height: calc(90dvh);
       display: flex;
-      justify-content: space-evenly;
-      gap: 6rem;
+      flex-direction: column;
+      gap: 4rem;
+
+      .nav-set {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 2rem;
+
+        .nav-set-title {
+          font-size: 2.4rem;
+          text-align: left;
+        }
+
+        nav {
+          height: calc(100dvh - 6rem) !important;
+        }
+      }
     }
 
     .app-card {
@@ -510,6 +541,14 @@ button {
       height: calc(100dvh - 15rem);
       padding: 0 2.8rem;
       overflow-y: scroll;
+
+      .app-components-box-nav {
+        flex-direction: column !important;
+
+        nav {
+          height: calc(100dvh - 15rem) !important;
+        }
+      }
     }
   }
 }

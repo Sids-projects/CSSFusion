@@ -15,7 +15,7 @@
 
 <section class="home-02">
   <h2>Ready to Roll?</h2>
-  <p>
+  <p class="home-desc">
     All it takes is a few steps to sprinkle some style magic into your Angular
     app. Let's go!
   </p>
@@ -24,7 +24,7 @@
     <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
       <mat-step>
         <ng-template matStepLabel>
-          <h3>Step 1: Install the Package</h3>
+          <h3>Install the Package</h3>
         </ng-template>
         <div>
           <div class="install-code">
@@ -36,28 +36,26 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>
-          <h3>Step 2: Import the Module</h3>
+          <h3>Import the Module</h3>
         </ng-template>
         <div>
           <p>In your app.module.ts or any custom module:</p>
           <div class="install-code">
-            <pre>
-    <code class="language-javascript">
-    import &#123; CssFusionModule &#125; from &#64;dev.spot/css-fusion;
+            <pre><code class="language-javascript">
+import &#123; CssFusionModule &#125; from &#64;dev.spot/css-fusion;
     
-    &#64;NgModule(&#123;
-      &nbsp;&nbsp;imports: &#91;CssFusionModule&#93;
-    &#125;)
+&#64;NgModule(&#123;
+  &nbsp;&nbsp;imports: &#91;CssFusionModule&#93;
+&#125;)
     
-    export class YourModuleName &#123;&#125;
-    </code>
-    </pre>
+export class YourModuleName &#123;&#125;
+</code></pre>
           </div>
         </div>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>
-          <h3>Step 3: Include the Styles</h3>
+          <h3>Include the Styles</h3>
         </ng-template>
         <div>
           <p>In your styles.scss:</p>

@@ -9,237 +9,257 @@
   </div>
 
   <div class="app-components-box-nav">
-    <nav
-      [class]="
-        themeService.isDarkMode === true ? 'nav-left cf-dark' : 'nav-left'
-      "
-      cssFusionNav
-    >
-      <div class="nl-set01">
-        <h3>
-          <span class="material-symbols-outlined nav-logo"> android </span>
-          <span class="nav-txt">Company Logo</span>
-        </h3>
-        <span
-          class="material-symbols-outlined nav-icon-trigger"
-          id="navLeft-tigger"
-        >
-          keyboard_double_arrow_left
-        </span>
-      </div>
-      <div class="nl-set02">
-        <small class="nav-menu">Home</small>
-        <p class="nl-link nl-active">
-          <span class="material-symbols-outlined nav-icon">dashboard</span>
-          <span class="nav-txt">Dashboard</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">add_circle</span>
-          <span class="nav-txt">Creation</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">table</span>
-          <span class="nav-txt">Summary</span>
-        </p>
-        <small class="nav-menu">Charts</small>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">finance</span>
-          <span class="nav-txt">Bar Chart</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">pie_chart</span>
-          <span class="nav-txt">Pie Chart</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">donut_small</span>
-          <span class="nav-txt">Donut Chart</span>
-        </p>
-      </div>
-      <div class="nl-set03">
-        <div class="user">
-          <span class="material-symbols-outlined user-img">account_circle</span>
-          <div class="user-info nav-txt">
-            <h3>User Name</h3>
-            <p>Ui/Ux Developer</p>
+    <div class="nav-set">
+      <h3 class="nav-set-title">Navigation Resizable</h3>
+      <nav
+        [class]="
+          themeService.isDarkMode === true ? 'nav-left cf-dark' : 'nav-left'
+        "
+        cssFusionNav
+      >
+        <div class="nl-set01">
+          <h3>
+            <span class="material-symbols-outlined nav-logo"> android </span>
+            <span class="nav-txt">Company Logo</span>
+          </h3>
+          <span
+            class="material-symbols-outlined nav-icon-trigger"
+            id="navLeft-tigger"
+          >
+            keyboard_double_arrow_left
+          </span>
+        </div>
+        <div class="nl-set02">
+          <small class="nav-menu">Home</small>
+          <p class="nl-link nl-active">
+            <span class="material-symbols-outlined nav-icon">dashboard</span>
+            <span class="nav-txt">Dashboard</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">add_circle</span>
+            <span class="nav-txt">Creation</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">table</span>
+            <span class="nav-txt">Summary</span>
+          </p>
+          <small class="nav-menu">Charts</small>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">finance</span>
+            <span class="nav-txt">Bar Chart</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">pie_chart</span>
+            <span class="nav-txt">Pie Chart</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">donut_small</span>
+            <span class="nav-txt">Donut Chart</span>
+          </p>
+        </div>
+        <div class="nl-set03">
+          <div class="user">
+            <span class="material-symbols-outlined user-img"
+              >account_circle</span
+            >
+            <div class="user-info nav-txt">
+              <h3>User Name</h3>
+              <p>Ui/Ux Developer</p>
+            </div>
           </div>
+          <span class="material-symbols-outlined more-icon"> steppers </span>
         </div>
-        <span class="material-symbols-outlined more-icon"> steppers </span>
-      </div>
-    </nav>
+      </nav>
+    </div>
 
-    <nav
-      [class]="
-        themeService.isDarkMode === true
-          ? 'nav-left navleft-resize cf-dark'
-          : 'nav-left navleft-resize'
-      "
-    >
-      <div class="nl-set01">
-        <h3>
-          <span class="material-symbols-outlined nav-logo"> android </span>
-        </h3>
-      </div>
-      <div class="nl-set02">
-        <small class="nav-menu">Home</small>
-        <p class="nl-link nl-active">
-          <span class="material-symbols-outlined nav-icon">dashboard</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">add_circle</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">table</span>
-        </p>
-        <small class="nav-menu">Charts</small>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">finance</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">pie_chart</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">donut_small</span>
-        </p>
-      </div>
-      <div class="nl-set03">
-        <div class="user">
-          <span class="material-symbols-outlined user-img">account_circle</span>
+    <div class="nav-set">
+      <h3 class="nav-set-title">Navigation Minimized</h3>
+      <nav
+        [class]="
+          themeService.isDarkMode === true
+            ? 'nav-left navleft-resize cf-dark'
+            : 'nav-left navleft-resize'
+        "
+      >
+        <div class="nl-set01">
+          <h3>
+            <span class="material-symbols-outlined nav-logo"> android </span>
+          </h3>
         </div>
-        <span class="material-symbols-outlined more-icon"> steppers </span>
-      </div>
-    </nav>
-
-    <nav
-      [class]="
-        themeService.isDarkMode === true ? 'nav-left cf-dark' : 'nav-left'
-      "
-    >
-      <div class="nl-set01">
-        <h3>
-          <span class="material-symbols-outlined nav-logo"> android </span>
-          <span class="nav-txt">Company Logo</span>
-        </h3>
-      </div>
-      <div class="nl-set02">
-        <small class="nav-menu">Home</small>
-        <p class="nl-link nl-active">
-          <span class="material-symbols-outlined nav-icon">dashboard</span>
-          <span class="nav-txt">Dashboard</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">add_circle</span>
-          <span class="nav-txt">Creation</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">table</span>
-          <span class="nav-txt">Summary</span>
-        </p>
-        <small class="nav-menu">Charts</small>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">finance</span>
-          <span class="nav-txt">Bar Chart</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">pie_chart</span>
-          <span class="nav-txt">Pie Chart</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">donut_small</span>
-          <span class="nav-txt">Donut Chart</span>
-        </p>
-      </div>
-      <div class="nl-set03">
-        <div class="user">
-          <span class="material-symbols-outlined user-img">account_circle</span>
-          <div class="user-info nav-txt">
-            <h3>User Name</h3>
-            <p>Ui/Ux Developer</p>
+        <div class="nl-set02">
+          <small class="nav-menu">Home</small>
+          <p class="nl-link nl-active">
+            <span class="material-symbols-outlined nav-icon">dashboard</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">add_circle</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">table</span>
+          </p>
+          <small class="nav-menu">Charts</small>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">finance</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">pie_chart</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">donut_small</span>
+          </p>
+        </div>
+        <div class="nl-set03">
+          <div class="user">
+            <span class="material-symbols-outlined user-img"
+              >account_circle</span
+            >
           </div>
+          <span class="material-symbols-outlined more-icon"> steppers </span>
         </div>
-        <span class="material-symbols-outlined more-icon"> steppers </span>
-      </div>
-    </nav>
+      </nav>
+    </div>
 
-    <nav
-      [class]="
-        themeService.isDarkMode === true
-          ? 'nav-left nav-scroll cf-dark'
-          : 'nav-left nav-scroll'
-      "
-    >
-      <div class="nl-set01">
-        <h3>
-          <span class="material-symbols-outlined nav-logo"> android </span>
-          <span class="nav-txt">Company Logo</span>
-        </h3>
-      </div>
-      <div class="nl-set02">
-        <small class="nav-menu">Home</small>
-        <p class="nl-link nl-active">
-          <span class="material-symbols-outlined nav-icon">dashboard</span>
-          <span class="nav-txt">Dashboard</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">add_circle</span>
-          <span class="nav-txt">Creation</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">table</span>
-          <span class="nav-txt">Summary</span>
-        </p>
-        <small class="nav-menu">Charts</small>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">finance</span>
-          <span class="nav-txt">Bar Chart</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">monitoring</span>
-          <span class="nav-txt">Graph Chart</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">pie_chart</span>
-          <span class="nav-txt">Pie Chart</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">donut_small</span>
-          <span class="nav-txt">Donut Chart</span>
-        </p>
-        <small class="nav-menu">Screens</small>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">add_circle</span>
-          <span class="nav-txt">Creation</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">edit</span>
-          <span class="nav-txt">Edit</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">verified</span>
-          <span class="nav-txt">Verification</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">description</span>
-          <span class="nav-txt">Documentation</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">security</span>
-          <span class="nav-txt">Validation</span>
-        </p>
-        <p class="nl-link">
-          <span class="material-symbols-outlined nav-icon">task</span>
-          <span class="nav-txt">Submission</span>
-        </p>
-      </div>
-      <div class="nl-set03">
-        <div class="user">
-          <span class="material-symbols-outlined user-img">account_circle</span>
-          <div class="user-info nav-txt">
-            <h3>User Name</h3>
-            <p>Ui/Ux Developer</p>
-          </div>
+    <div class="nav-set">
+      <h3 class="nav-set-title">Navigation Static</h3>
+      <nav
+        [class]="
+          themeService.isDarkMode === true ? 'nav-left cf-dark' : 'nav-left'
+        "
+      >
+        <div class="nl-set01">
+          <h3>
+            <span class="material-symbols-outlined nav-logo"> android </span>
+            <span class="nav-txt">Company Logo</span>
+          </h3>
         </div>
-        <span class="material-symbols-outlined more-icon"> steppers </span>
-      </div>
-    </nav>
+        <div class="nl-set02">
+          <small class="nav-menu">Home</small>
+          <p class="nl-link nl-active">
+            <span class="material-symbols-outlined nav-icon">dashboard</span>
+            <span class="nav-txt">Dashboard</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">add_circle</span>
+            <span class="nav-txt">Creation</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">table</span>
+            <span class="nav-txt">Summary</span>
+          </p>
+          <small class="nav-menu">Charts</small>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">finance</span>
+            <span class="nav-txt">Bar Chart</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">pie_chart</span>
+            <span class="nav-txt">Pie Chart</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">donut_small</span>
+            <span class="nav-txt">Donut Chart</span>
+          </p>
+        </div>
+        <div class="nl-set03">
+          <div class="user">
+            <span class="material-symbols-outlined user-img"
+              >account_circle</span
+            >
+            <div class="user-info nav-txt">
+              <h3>User Name</h3>
+              <p>Ui/Ux Developer</p>
+            </div>
+          </div>
+          <span class="material-symbols-outlined more-icon"> steppers </span>
+        </div>
+      </nav>
+    </div>
+
+    <div class="nav-set">
+      <h3 class="nav-set-title">Navigation Scroll</h3>
+      <nav
+        [class]="
+          themeService.isDarkMode === true
+            ? 'nav-left nav-scroll cf-dark'
+            : 'nav-left nav-scroll'
+        "
+      >
+        <div class="nl-set01">
+          <h3>
+            <span class="material-symbols-outlined nav-logo"> android </span>
+            <span class="nav-txt">Company Logo</span>
+          </h3>
+        </div>
+        <div class="nl-set02">
+          <small class="nav-menu">Home</small>
+          <p class="nl-link nl-active">
+            <span class="material-symbols-outlined nav-icon">dashboard</span>
+            <span class="nav-txt">Dashboard</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">add_circle</span>
+            <span class="nav-txt">Creation</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">table</span>
+            <span class="nav-txt">Summary</span>
+          </p>
+          <small class="nav-menu">Charts</small>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">finance</span>
+            <span class="nav-txt">Bar Chart</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">monitoring</span>
+            <span class="nav-txt">Graph Chart</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">pie_chart</span>
+            <span class="nav-txt">Pie Chart</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">donut_small</span>
+            <span class="nav-txt">Donut Chart</span>
+          </p>
+          <small class="nav-menu">Screens</small>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">add_circle</span>
+            <span class="nav-txt">Creation</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">edit</span>
+            <span class="nav-txt">Edit</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">verified</span>
+            <span class="nav-txt">Verification</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">description</span>
+            <span class="nav-txt">Documentation</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">security</span>
+            <span class="nav-txt">Validation</span>
+          </p>
+          <p class="nl-link">
+            <span class="material-symbols-outlined nav-icon">task</span>
+            <span class="nav-txt">Submission</span>
+          </p>
+        </div>
+        <div class="nl-set03">
+          <div class="user">
+            <span class="material-symbols-outlined user-img"
+              >account_circle</span
+            >
+            <div class="user-info nav-txt">
+              <h3>User Name</h3>
+              <p>Ui/Ux Developer</p>
+            </div>
+          </div>
+          <span class="material-symbols-outlined more-icon"> steppers </span>
+        </div>
+      </nav>
+    </div>
   </div>
 </section>
