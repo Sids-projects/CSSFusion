@@ -21,11 +21,7 @@
         <div>
           <div
             class="table-box tbl-bdr-btm"
-            [class]="
-              themeClr === 'dark-mode'
-                ? 'table-box cf-dark tbl-bdr-btm'
-                : 'table-box tbl-bdr-btm'
-            "
+            [ngClass]="themeService.isDarkMode === true ? 'cf-dark' : ''"
           >
             <table>
               <thead>
@@ -74,7 +70,10 @@
       </div>
       <div class="card-body">
         <div>
-          <div class="table-box tbl-bdr-btm">
+          <div
+            class="table-box tbl-bdr-btm"
+            [ngClass]="themeService.isDarkMode === true ? 'cf-dark' : ''"
+          >
             <table>
               <thead>
                 <tr>
@@ -120,7 +119,10 @@
       </div>
       <div class="card-body">
         <div>
-          <div class="table-box tbl-bdr-rect">
+          <div
+            class="table-box tbl-bdr-rect"
+            [ngClass]="themeService.isDarkMode === true ? 'cf-dark' : ''"
+          >
             <table>
               <thead>
                 <tr>
@@ -600,7 +602,14 @@
                   <th class="tbl-col-xsm">SI.No</th>
                   <th>Batch No</th>
                   <th>Brand</th>
-                  <th class="tbl-col-sm tbl-sort" (click)="sortTable(3)">
+                  <th
+                    class="tbl-col-sm tbl-sort"
+                    [tableData]="tableLg"
+                    [columnIndex]="3"
+                    (sortChanged)="onSortChanged($event)"
+                    (sortStatus)="sortStatus = $event"
+                    cssFusionTable
+                  >
                     <p>
                       Modal
                       <b>({{ sortStatus }})</b>

@@ -1,33 +1,55 @@
-import { Directive } from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Directive({
   selector: '[cssFusionTable]',
 })
 export class TableDirective {
+  @Input() tableData: any[] = [];
+  @Input() columnIndex: number = 0;
+
+  @Output() sortChanged = new EventEmitter<any[]>();
+  @Output() sortStatus = new EventEmitter<string>();
+
   private currentSortColumn: number | null = null;
-  public isAscending: boolean = true;
+  private isAscending = true;
 
   constructor() {}
 
-  sortData(data: any[], columnIndex: number): any[] {
-    if (this.currentSortColumn === columnIndex) {
+  @HostListener('click')
+  onClick() {
+    if (!this.tableData?.length) return;
+
+    if (this.currentSortColumn === this.columnIndex) {
       this.isAscending = !this.isAscending;
     } else {
-      this.currentSortColumn = columnIndex;
+      this.currentSortColumn = this.columnIndex;
       this.isAscending = true;
     }
 
-    return data.sort((a, b) => {
-      const valA = a.tr[columnIndex];
-      const valB = b.tr[columnIndex];
+    const sorted = [...this.tableData].sort((a, b) => {
+      const valA = a.tr[this.columnIndex];
+      const valB = b.tr[this.columnIndex];
       return this.isAscending
         ? valA.localeCompare(valB)
         : valB.localeCompare(valA);
     });
+
+    const statusText = this.isAscending ? 'Ascending' : 'Descending';
+    this.sortStatus.emit(statusText);
+    this.sortChanged.emit(sorted);
   }
 
-  clearSort() {
+  // Allow clearing from outside
+  clearSort(originalData: any[]) {
     this.currentSortColumn = null;
     this.isAscending = true;
+    this.sortChanged.emit([...originalData]);
+    this.sortStatus.emit('No sort');
   }
 }

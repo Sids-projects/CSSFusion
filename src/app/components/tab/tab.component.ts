@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Tabs } from '../../../../projects/css-fusion/src/lib/ts/index';
-// import { Tabs } from '@dev.spot/css-fusion';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-tab',
@@ -30,15 +29,7 @@ export class TabComponent {
     },
   ];
 
-  constructor() {}
+  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {}
-
-  ngAfterViewInit() {
-    const tabContainers = document.querySelectorAll('.tab-view');
-
-    tabContainers.forEach((container) => {
-      new Tabs(container as HTMLElement);
-    });
-  }
 }

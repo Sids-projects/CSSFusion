@@ -1,7 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
-import { Nav } from '../../../../projects/css-fusion/src/public-api';
-
-// import { Nav } from '@dev.spot/css-fusion';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,18 +8,8 @@ import { Nav } from '../../../../projects/css-fusion/src/public-api';
 })
 export class NavComponent {
   themeClr: string = '';
-  private navLeftInstance!: Nav;
 
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef, public themeService: ThemeService) {}
 
   ngOnInit(): void {}
-
-  ngAfterViewInit() {
-    const container = this.elRef.nativeElement.querySelector('.nav-left');
-    if (container) {
-      this.navLeftInstance = new Nav(container);
-    } else {
-      console.error('Container element .nav-left not found.');
-    }
-  }
 }

@@ -10,7 +10,9 @@
     </div>
     <div class="card-body">
       <div
-        [class]="themeClr === 'dark-mode' ? 'dropdown cf-dark' : 'dropdown'"
+        [class]="
+          themeService.isDarkMode === true ? 'dropdown cf-dark' : 'dropdown'
+        "
         id="dropdown01"
         cssFusionDropdown
       >

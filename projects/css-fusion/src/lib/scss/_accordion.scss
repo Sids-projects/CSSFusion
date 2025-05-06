@@ -16,6 +16,7 @@
   $fontSec: var(--cf-mode-font-secondary),
   $active: var(--cf-mode-active)
 ) {
+  border-bottom: 1px solid var(--cf-mode-active);
   background-color: $clrPrim;
 
   .acc-head {
@@ -50,8 +51,6 @@
   .accordion-main {
     @include accordion();
     font-family: var(--font-style);
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-      rgba(0, 0, 0, 0.09) 0px 0px 0px 1px;
     width: 100%;
     padding: 0;
     margin: 0;

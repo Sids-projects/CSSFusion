@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-accordion',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accordion.component.scss'],
 })
 export class AccordionComponent implements OnInit {
-  themeClr: string = '';
   selectedClr: string = 'green';
   accContent: { class: string; title: string; content: string }[] = [
     {
@@ -61,11 +61,9 @@ export class AccordionComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {}
-
-  ngAfterViewInit() {}
 
   selectClr(param: string) {
     this.selectedClr = param;

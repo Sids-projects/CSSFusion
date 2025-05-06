@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-dropdown',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class DropdownComponent {
   themeClr: string = '';
 
-  constructor() {}
+  constructor(public themeService: ThemeService) {}
 
   ngOnInit(): void {}
 }

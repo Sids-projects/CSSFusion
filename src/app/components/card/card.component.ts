@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +9,6 @@ import { Component } from '@angular/core';
 export class CardComponent {
   themeClr: string = '';
   colours: string[] = ['yellow', 'green', 'orange', 'blue', 'violet', 'gray'];
-
   coloursData: any[] = [
     {
       colour: 'yellow',
@@ -54,5 +54,5 @@ export class CardComponent {
     },
   ];
 
-  constructor() {}
+  constructor(public themeService: ThemeService) {}
 }

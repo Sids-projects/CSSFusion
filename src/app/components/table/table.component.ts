@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
-import { Table } from '../../../../projects/css-fusion/src/public-api';
-
-// import { Table } from '@dev.spot/css-fusion';
+import { ThemeService } from '../../services/theme.service';
+import { TableDirective } from '../../../../projects/css-fusion/src/public-api';
 
 @Component({
   selector: 'app-table',
@@ -10,6 +9,7 @@ import { Table } from '../../../../projects/css-fusion/src/public-api';
   styleUrl: './table.component.scss',
 })
 export class TableComponent {
+  @ViewChild(TableDirective) tableDirective!: TableDirective;
   themeClr: string = '';
   tableSm: any = [];
   tableMd: any = [];
@@ -17,16 +17,17 @@ export class TableComponent {
   tableMini: any = [];
   originalTableLg: any = [];
   getInBuildClr: string = 'blue';
-  tableService!: Table;
   sortStatus: string = 'No sort';
 
-  constructor(private service: SharedService) {
+  constructor(
+    private service: SharedService,
+    public themeService: ThemeService
+  ) {
     this.tableSm = this.service.tableSm;
     this.tableMd = this.service.tableMd;
     this.tableLg = this.service.tableLg;
     this.originalTableLg = [...this.tableLg];
     this.tableMini = this.service.tableMini;
-    this.tableService = new Table();
   }
 
   ngOnInit(): void {}
@@ -35,14 +36,13 @@ export class TableComponent {
     this.getInBuildClr = param;
   }
 
-  sortTable(columnIndex: number) {
-    this.tableLg = this.tableService.sortData(this.tableLg, columnIndex);
-    this.sortStatus = this.tableService.isAscending ? 'A-Z' : 'Z-A';
+  onSortChanged(sortedData: any[]) {
+    this.tableLg = sortedData;
   }
 
   clearSort() {
-    this.tableService.clearSort();
-    this.tableLg = [...this.originalTableLg];
-    this.sortStatus = 'No sort';
+    if (this.tableDirective) {
+      this.tableDirective.clearSort(this.originalTableLg);
+    }
   }
 }

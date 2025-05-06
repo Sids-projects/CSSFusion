@@ -136,11 +136,16 @@ button {
 #component-container {
   height: calc(100dvh - 6rem);
   display: grid;
-  grid-template-columns: 20rem 1fr;
+  grid-template-columns: 20rem calc(100dvw - 20rem);
   overflow: hidden;
 
   #component-nav {
     padding: 1.4rem 0 1.4rem 1.4rem;
+
+    .mobile-left-nav,
+    .mobile-right-nav {
+      display: none;
+    }
 
     .component-nav-list {
       height: 100%;
@@ -207,14 +212,15 @@ button {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem 0;
+      padding: 0 0 2rem 0;
 
       .card-header {
         text-align: center;
 
         h3 {
           font-size: 3.8rem;
-          margin-bottom: 2rem;
+          line-height: 4rem;
+          margin-bottom: 1.4rem;
         }
 
         p {
@@ -300,6 +306,7 @@ button {
       }
 
       .code-box {
+        width: 100%;
         border: 0.1rem solid var(--list-card-bdr);
         background-color: var(--list-card-bg);
         border-radius: 1rem;
@@ -336,10 +343,16 @@ button {
         pre[class*="language-"] {
           padding: 0 1.8rem;
           margin: 0;
+          overflow: auto !important;
+          max-width: 100%;
+          box-sizing: border-box;
+          white-space: pre;
         }
 
         code {
           color: var(--app-font-clr);
+          display: block;
+          min-width: 100%;
         }
 
         code[class*="language-"],
@@ -423,5 +436,80 @@ button {
   .card-body {
     width: 100%;
     max-width: 70rem;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  #component-container {
+    height: calc(100dvh - 6rem);
+    display: grid;
+    grid-template-columns: 100dvw;
+    grid-template-rows: 9rem 1fr;
+    overflow: hidden;
+
+    #component-nav {
+      border-bottom: 1px solid var(--app-header-bdr);
+      padding: 1.4rem 5rem !important;
+      position: relative;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .mobile-left-nav,
+      .mobile-right-nav {
+        background-color: transparent;
+        border: none;
+        width: 2.8rem;
+        height: 2.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .material-symbols-outlined {
+          font-size: 3.8rem;
+          color: var(--sidenav-font);
+        }
+      }
+
+      .mobile-left-nav {
+        left: 1rem;
+      }
+
+      .mobile-right-nav {
+        right: 1rem;
+      }
+
+      .component-nav-list {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 2.8rem;
+        padding: 2.4rem 2.2rem;
+        overflow-y: hidden;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      a {
+        flex-shrink: 1;
+      }
+
+      .component-nav-active {
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    #app-components {
+      height: calc(100dvh - 15rem);
+      padding: 0 2.8rem;
+      overflow-y: scroll;
+    }
   }
 }

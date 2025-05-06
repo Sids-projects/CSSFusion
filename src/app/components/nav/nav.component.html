@@ -9,7 +9,12 @@
   </div>
 
   <div class="app-components-box-nav">
-    <nav [class]="themeClr === 'dark-mode' ? 'nav-left cf-dark' : 'nav-left'">
+    <nav
+      [class]="
+        themeService.isDarkMode === true ? 'nav-left cf-dark' : 'nav-left'
+      "
+      cssFusionNav
+    >
       <div class="nl-set01">
         <h3>
           <span class="material-symbols-outlined nav-logo"> android </span>
@@ -64,7 +69,7 @@
 
     <nav
       [class]="
-        themeClr === 'dark-mode'
+        themeService.isDarkMode === true
           ? 'nav-left navleft-resize cf-dark'
           : 'nav-left navleft-resize'
       "
@@ -104,7 +109,11 @@
       </div>
     </nav>
 
-    <nav [class]="themeClr === 'dark-mode' ? 'nav-left cf-dark' : 'nav-left'">
+    <nav
+      [class]="
+        themeService.isDarkMode === true ? 'nav-left cf-dark' : 'nav-left'
+      "
+    >
       <div class="nl-set01">
         <h3>
           <span class="material-symbols-outlined nav-logo"> android </span>
@@ -153,7 +162,7 @@
 
     <nav
       [class]="
-        themeClr === 'dark-mode'
+        themeService.isDarkMode === true
           ? 'nav-left nav-scroll cf-dark'
           : 'nav-left nav-scroll'
       "

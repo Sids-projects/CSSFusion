@@ -16,10 +16,11 @@
       <div class="card-body">
         <div
           [class]="
-            themeClr === 'dark-mode'
+            themeService.isDarkMode === true
               ? 'tab-view tab-bdr cf-dark'
               : 'tab-view tab-bdr'
           "
+          cssFusionTabs
         >
           <div class="tab-list-group tab-list-center">
             <p class="scroll-arrow tab-left">

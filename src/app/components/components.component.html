@@ -1,6 +1,12 @@
 <section id="component-container">
   <nav id="component-nav">
-    <div class="component-nav-list">
+    <button type="button" class="mobile-left-nav" (click)="scrollNav('left')">
+      <span class="material-symbols-outlined"> arrow_left </span>
+    </button>
+    <button type="button" class="mobile-right-nav" (click)="scrollNav('right')">
+      <span class="material-symbols-outlined"> arrow_right </span>
+    </button>
+    <div class="component-nav-list" #navList>
       <a
         routerLink="Component_Accordion"
         routerLinkActive="component-nav-active"
